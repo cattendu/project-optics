@@ -1,0 +1,24 @@
+{
+  "name": "wirewerks",
+  "version": "1.0.0",
+  "description": "Part Builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cattendu/project-optics.git"
+  },
+  "author": "Charles Attendu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cattendu/project-optics/issues"
+  },
+  "homepage": "https://github.com/cattendu/project-optics#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.14"
+  }
+}
