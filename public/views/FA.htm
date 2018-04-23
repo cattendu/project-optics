@@ -1,0 +1,14 @@
+<div class="content">
+    <form ng-submit="">
+        <table class="table">            
+            <tr>
+                <td ng-repeat="category in partNumber.categories">
+                    <a type="button" class="btn btn-primary" ng-click="selectCategory(category.parts)">{{category.template}}</button>
+                </td>
+            </tr>
+            <tr ng-repeat="part in selectedCategory">
+                <td>{{part.value}} : {{part.description}}</td>
+            </tr>
+        </table>
+    </form>
+</div>
