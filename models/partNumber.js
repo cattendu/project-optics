@@ -23,16 +23,10 @@ var partSchema = new Schema({
 });
 
 var partCategorySchema = new Schema({
-    template: {type: String},
+    placeholder: {type: String}, // ex: A, B, NNN
     description: {type: String}, // ex: FIBER TYPE
     parts: {type: [partSchema]}
 });
-
-partCategorySchema.findTemplate = function(template){
-    partCategorySchema.find({'template':template}, function(err,result){
-        return result;
-    });
-};
 
 var partNumberSchema = new Schema({
     type: {type: String, required: true}, //ex: FA, IP, WNC

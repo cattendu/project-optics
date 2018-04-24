@@ -1,14 +1,34 @@
 <div class="content">
     <form ng-submit="">
-        <table class="table">            
-            <tr>
-                <td ng-repeat="category in partNumber.categories">
-                    <a type="button" class="btn btn-primary" ng-click="selectCategory(category.parts)">{{category.template}}</button>
-                </td>
-            </tr>
-            <tr ng-repeat="part in selectedCategory">
-                <td>{{part.value}} : {{part.description}}</td>
-            </tr>
-        </table>
+        <span>
+            <label>{{partNumber.type}}</label>
+            <label>-</label>
+            <label>{{partNumber.categories[0].template}}</label>
+            <label>{{partNumber.categories[1].template}}</label>
+            <label>{{partNumber.categories[2].template}}</label>
+            <label>{{partNumber.categories[3].template}}</label>
+            <label>{{partNumber.categories[4].template}}</label>
+            <label>{{partNumber.categories[5].template}}</label>
+            <label>{{partNumber.categories[6].template}}</label>
+            <label>-</label>
+            <label>{{partNumber.categories[7].template}}</label>
+            <label>{{partNumber.categories[8].template}}</label>
+            <label>{{partNumber.categories[9].template}}</label>
+            <label>{{partNumber.categories[10].template}}</label>
+            <label>{{partNumber.categories[11].template}}</label>
+            <label>-</label>
+            <label>{{partNumber.categories[12].template}}</label>
+        </span>
+        <span>
+            <input type="text" placeholder="test" width="" >
+        </span>
+        <div style="display: inline-block; border: solid black">
+            <a ng-repeat="category in partNumber.categories" type="button" class="btn btn-primary" ng-click="selectCategory(category.parts)" style="margin-right: 10px">{{category.template}}</a>
+        </div>          
+        <div style="display: block">
+            <ul style="margin-left:0px; padding-left:0px">
+                <li ng-repeat="part in selectedCategory" style="list-style-type:none;">{{part.value}} : {{part.description}}</li>
+            </ul>
+        </div>
     </form>
 </div>

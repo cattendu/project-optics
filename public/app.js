@@ -24,17 +24,21 @@ app.controller('partBuilderController', ['$scope', '$http', '$route', function($
         $scope.partNumbers = response;
     });
 
-    $scope.selectCategory = function(msg){
-        alert(msg);
-    };
 }]);
 
 app.controller('FAController', ['$scope', '$http', '$route', function($scope, $http, $route){
-    
+   
     $http.get("/partNumber/FA").success(function(response){
         $scope.partNumber = response;
-        console.log(response);
     });
+
+    let selectedParts = function(){
+        for(let category in $scope.partNumber.categories){
+            selectedParts.push(category.template);
+        }
+    };
+
+    $scope.selectedParts = selectedParts;
 
     $scope.selectCategory = function(selectedCat){
         $scope.selectedCategory = selectedCat;

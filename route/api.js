@@ -34,7 +34,7 @@ router.get('/partNumber/:type', (req, res) => {
     });
 });
 
-router.post('/partNumber/:type/:template', (req, res) => {
+router.post('/partNumber/:type/:placeholder', (req, res) => {
     PartNumber.find({'type':req.params.type.toUpperCase()} , function(err, partNumber){
         if(err){
             console.log(err);
@@ -49,7 +49,7 @@ router.post('/partNumber/:type/:template', (req, res) => {
 
         //PartNumber Found
         let category = partNumber[0].categories.filter(function(category){
-            return category.template === req.params.template.toUpperCase();
+            return category.placeholder === req.params.placeholder.toUpperCase();
         });
 
         if(category.length == 0){
