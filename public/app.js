@@ -34,7 +34,7 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
 
     let selectedParts = function(){
         for(let category in $scope.partNumber.categories){
-            selectedParts.push(category.template);
+            selectedParts.push(category.placeholder);
         }
     };
 

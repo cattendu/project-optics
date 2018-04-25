@@ -1,34 +1,23 @@
 <div class="content">
     <form ng-submit="">
-        <span>
-            <label>{{partNumber.type}}</label>
-            <label>-</label>
-            <label>{{partNumber.categories[0].template}}</label>
-            <label>{{partNumber.categories[1].template}}</label>
-            <label>{{partNumber.categories[2].template}}</label>
-            <label>{{partNumber.categories[3].template}}</label>
-            <label>{{partNumber.categories[4].template}}</label>
-            <label>{{partNumber.categories[5].template}}</label>
-            <label>{{partNumber.categories[6].template}}</label>
-            <label>-</label>
-            <label>{{partNumber.categories[7].template}}</label>
-            <label>{{partNumber.categories[8].template}}</label>
-            <label>{{partNumber.categories[9].template}}</label>
-            <label>{{partNumber.categories[10].template}}</label>
-            <label>{{partNumber.categories[11].template}}</label>
-            <label>-</label>
-            <label>{{partNumber.categories[12].template}}</label>
-        </span>
-        <span>
-            <input type="text" placeholder="test" width="" >
-        </span>
-        <div style="display: inline-block; border: solid black">
-            <a ng-repeat="category in partNumber.categories" type="button" class="btn btn-primary" ng-click="selectCategory(category.parts)" style="margin-right: 10px">{{category.template}}</a>
-        </div>          
-        <div style="display: block">
-            <ul style="margin-left:0px; padding-left:0px">
-                <li ng-repeat="part in selectedCategory" style="list-style-type:none;">{{part.value}} : {{part.description}}</li>
-            </ul>
-        </div>
+        <table>
+            <tr style="display: block; float: left;" ng-repeat="category in partNumber.categories">
+                <th style="display: block;">
+                    <label class="badge">
+                        {{category.description}}
+                    </label>
+                </th>
+                <td class="radio" style="display: block;" ng-repeat="part in category.parts">
+                    <label>
+                        <input type="radio" name="test" ng-model="test">
+                        {{part.value}}
+                    </label>
+                    </button>
+                </td>
+                <td>{{test}}</td>
+            </tr>
+        </table>
     </form>
+    <label>
+    </label>
 </div>
