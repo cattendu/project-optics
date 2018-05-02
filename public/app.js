@@ -33,53 +33,64 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
         $scope.data = {};
         $scope.data.selects = {};
         $scope.data.numerics = {};
+        $scope.data.constants = response.constants;
+
+        initializeSelects();
+        initializeNumerics();
 
         $scope.range1 = [0,1,2,3,4,5]; //ABCDEF
         $scope.range2 = [6,7,8,9,10]; //HHIJJKL
-
-        /*
-        //K:V map where Key is category description and value is selected part
-        for(let category of $scope.partNumber.categories){
-            if(category.description)
-                $scope.data.selected[category.description] = {'placeholder':category.placeholder};
-        }
-        */
-
     });
+
+    var initializeSelects = function(startIndex = 0){
+        let length = $scope.partNumber.selects.length;
+        
+        for(let i = startIndex; i < length; i++){
+            $scope.data.selects[i] = {};
+        }
+    };
+
+    var initializeNumerics = function(startIndex = 0){
+        let length = $scope.partNumber.numerics.length;
+        
+        for(let i = startIndex; i < length; i++){
+            $scope.data.numerics[i] = {};
+            $scope.data.numerics[i].value = "";
+            $scope.data.numerics[i].unit = $scope.partNumber.numerics[i].units[0];
+        }
+    };
 
     $scope.validateConnectors = function(){
 
         //One of the Connectors or Polish is not selected
-        if(!$scope.data.selected["CONNECTOR SIDE A"].value || 
-            !$scope.data.selected["CONNECTOR SIDE B"].value ||
-            !$scope.data.selected["POLISH SIDE A"].value ||
-            !$scope.data.selected["POLISH SIDE B"].value){
+        if(!$scope.data.selects[6].value || //Connector Side A
+            !$scope.data.selects[7].value || //Polish Side A
+            !$scope.data.selects[8].value || //Connector Side B
+            !$scope.data.selects[9].value){ //Polish Side A
                 alert("UNSELECTED");
             return;
         }
 
-        //Connector B's selection is "no connector"; do not switch connectors
-        if($scope.data.selected["CONNECTOR SIDE B"].value == "OE"){
+        //Connector B's selection is "no connector"; do not swap connectors
+        if($scope.data.selects[8].value == "OE"){
+            return;
+        }
+
+        //A and B are in alphabetical order; do not swap connectors
+        if($scope.data.selects[6].value <= $scope.data.selects[8].value){
             return;
         }
 
         //A and B are not in alphabetical order and need to be swapped
-        if($scope.data.selected["CONNECTOR SIDE A"].value > $scope.data.selected["CONNECTOR SIDE B"].value){
-
-            let tempConnector = JSON.parse(JSON.stringify($scope.data.selected["CONNECTOR SIDE A"]));
-            let tempPolish = JSON.parse(JSON.stringify($scope.data.selected["POLISH SIDE A"]));
-
-            $scope.data.selected["CONNECTOR SIDE A"] =  $scope.data.selected["CONNECTOR SIDE B"];
-            $scope.data.selected["POLISH SIDE A"] =  $scope.data.selected["POLISH SIDE B"];
-            
-            $scope.data.selected["CONNECTOR SIDE B"] =  tempConnector;
-            $scope.data.selected["POLISH SIDE B"] =  tempPolish;       
-
-            return;
-        }
-
-        //Everything is fine
+        let tempConnector = JSON.parse(JSON.stringify($scope.data.selects[6]));
+        let tempPolish = JSON.parse(JSON.stringify($scope.data.selects[7]));
+        $scope.data.selects[6] =  $scope.data.selects[8];
+        $scope.data.selects[7] =  $scope.data.selects[9];
+        
+        $scope.data.selects[8] =  tempConnector;
+        $scope.data.selects[9] =  tempPolish;       
         return;
+
     };
 
     $scope.test = function(){

@@ -20,8 +20,8 @@ var selectSchema = new Schema({
 
 var unitSchema = new Schema({
     type: {type: String, enum: ['meters','inches','feet','not applicable']},
-    placeholder: {type: String}, //If unit type needs to be displayed in the partNumber code ex: M, F
-    length: {type: Number} //number of expected digits
+    value: {type: String}, //If unit type needs to be displayed in the partNumber code ex: M, F
+    length: {type: Number, default: 0} //number of expected digits
 },{ _id : false });
 
 var numericSchema = new Schema({

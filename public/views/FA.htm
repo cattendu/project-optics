@@ -44,7 +44,7 @@
                     <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
                 </td>
                 <td>
-                    <input ng-model="data.numerics[0].length" type="text" maxLength="2" style="width:20px">
+                    <input ng-model="data.numerics[0].value" type="text" maxLength="2" style="width:20px">
                     <select ng-model="data.numerics[0].unit" ng-options="unit.type for unit in partNumber.numerics[0].units"></select>
                 </td>
                 <td></td>
@@ -53,24 +53,58 @@
                 </td>
                 <td></td>
                 <td>
-                    <input ng-model="data.numerics[1].length" type="text" maxLength="6" style="width:60px">
-                    <button ng-if="partNumber.numerics[1].units.length == 1" class="btn-xs btn-primary">{{partNumber.numerics[1].units[0].type}}</button>          
+                    <input ng-model="data.numerics[1].value" type="text" maxLength="6" style="width:60px">
+                    <select ng-if="partNumber.numerics[1].units.length == 1" disabled="true" ng-model="data.numerics[1].unit" ng-options="unit.type for unit in partNumber.numerics[1].units"></select>          
                     <select ng-if="partNumber.numerics[1].units.length != 1" ng-model="data.numerics[1].unit" ng-options="unit.type for unit in partNumber.numerics[1].units"></select>
                 </td>
             </tr>
         </table>
 
-
-        <div style="border:solid black; margin:50px">
-            <div ng-repeat="category in data.selected" style="display:inline">
-                <label ng-if="category.value">{{category.value}}</label>
-                <label ng-if="!category.value">{{category.placeholder}}</label>
-            </div>
+    <!-- DISPLAY DATA.SELECTS AND DATA.NUMERICS INFO
+        <div ng-repeat="select in data.selects" style="border:solid black; margin:50px">
+            {{select}}
         </div>
-        <div style="border:solid black; margin:50px">
+        <div ng-repeat="numeric in data.numerics" style="border:solid black; margin:50px">
+            {{numeric}}
+        </div>
+    -->
+
+        <div style="border:solid black; margin:5px">
+            <!-- CONSTANT 0 -->
+            <div  style="display:inline">{{partNumber.constants[0].value}}</div>
+            
+            <!-- RANGE 1 -->
+            <div ng-repeat="i in range1" style="display:inline">
+                <div ng-if="!data.selects[i].value"  style="display:inline">{{partNumber.selects[i].placeholder}}</div>
+                <div ng-if="data.selects[i].value"  style="display:inline">{{data.selects[i].value}}</div>
+            </div>
+
+            <!-- NUMERIC 0 -->
+            <div ng-if="!data.numerics[0].value" style="display:inline">{{partNumber.numerics[0].placeholder}}</div>
+            <div ng-if="data.numerics[0].value" style="display:inline">{{data.numerics[0].value}}{{data.numerics[0].unit.value}}</div>
+
+            <!-- CONSTANT 1 -->
+            <div  style="display:inline">{{partNumber.constants[1].value}}</div>
+
+            <!-- RANGE 2 -->
+            <div ng-repeat="i in range2" style="display:inline">
+                <div ng-if="!data.selects[i].value"  style="display:inline">{{partNumber.selects[i].placeholder}}</div>
+                <div ng-if="data.selects[i].value"  style="display:inline">{{data.selects[i].value}}</div>
+            </div>
+
+            <!-- CONSTANT 2 -->
+            <div  style="display:inline">{{partNumber.constants[2].value}}</div>
+            
+            <!-- NUMERIC 1 -->
+            <div ng-if="!data.numerics[1].value" style="display:inline">{{partNumber.numerics[1].placeholder}}</div>
+            <div ng-if="data.numerics[1].value" style="display:inline">{{data.numerics[1].value}}{{data.numerics[1].unit.value}}</div>
+
+
+        </div>
+        <div style="border:solid black; margin:5px">
             <button ng-click="validateConnectors()" >validate connectors</button>
         </div>
-        <div style="border:solid black; margin:50px">
+        <div style="border:solid black; margin:5px">
             <button ng-click="test()" >test</button>
         </div>
     </form>
