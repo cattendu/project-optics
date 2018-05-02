@@ -1,427 +1,423 @@
 {
-"FA Categories":
-[ 
-    {
-        "name": "A",
-        "description": "FIBER TYPE"
-    },
-    {
-        "name": "B",
-        "description": "CABLE TYPE"
-    },
-    {
-        "name": "C",
-        "description": "FIRE RATING"
-    },
-    {
-        "name": "D",
-        "description": "ARMOUR TYPE"
-    },
-    {
-        "name": "EE",
-        "description": "FIBER COUNT"
-    },
-    {
-        "name": "F",
-        "description": "LEAD OD"
-    },
-    {
-        "name": "G",
-        "description": "LEAD LENGTH"
-    },
-    {
-        "name": "HH",
-        "description": "CONNECTOR SIDE A"
-    },
-    {
-        "name": "I",
-        "description": "POLISH SIDE A"
-    },
-    {
-        "name": "JJ",
-        "description": "CONNECTOR SIDE B"
-    },
-    {
-        "name": "K",
-        "description": "POLISH SIDE B"
-    },
-    {
-        "name": "L",
-        "description": "PULLING EYE"
-    },
-    {
-        "name": "NNN",
-        "description": "LENGTH"
-    }
 
-],
+"FA/constants":
+   [
+       {
+           "value":"FA-"
+       },
+       {
+           "value":"-"
+       },
+       {
+           "value":"-"
+       }
+   ],
 
-"FA A":
+"FA/numerics":
 [
     {
-        "value":"1",
-        "description": "Single Mode OS2"
+        "placeholder": "GGG",
+        "description": "LEAD LENGTH",
+        "units":[
+                {
+                    "type": "inches",
+                    "placeholder": "N",
+                    "length": 2
+                },
+                {
+                    "type": "meters",
+                    "placeholder": "M",
+                    "length": 2
+                },
+                {
+                    "type": "not applicable",
+                    "placeholder": "ZZZ"
+                }
+            ]
     },
     {
-        "value":"2",
-        "description": "Multimode 62.5/125μm OM1"
-    },
-    {
-        "value":"3",
-        "description": "Multimode 50/125μm OM2"
-    },
-    {
-        "value":"4",
-        "description": "Multimode 50/125μm OM3"
-    },
-    {
-        "value":"5",
-        "description": "Multimode 50/125μm OM4"
-    },
-    {
-        "value":"E",
-        "description": "Bend Insensitive Single Mode OS2"
-    },
-    {
-        "value":"B",
-        "description": "Bend Insensitive Multimode 50/125μm OM2"
-    },
-    {
-        "value":"C",
-        "description": "Bend Insensitive Multimode 50/125μm OM3"
-    },
-    {
-        "value":"D",
-        "description": "Bend Insensitive Multimode 50/125μm OM4"
+        "placeholder": "NNN",
+        "description": "LENGTH",
+        "allowDecimals": true,
+        "units":[
+            {
+                "type": "meters",
+                "length": 3
+            }
+        ]
     }
 ],
 
-"FA B":
+"FA/selects":
 [
     {
-        "value":"D",
-        "description":"Distribution"
+        "placeholder": "A",
+        "description": "FIBER TYPE",
+        "options":[
+            {
+                "value":"1",
+                "description": "Single Mode OS2"
+            },
+            {
+                "value":"2",
+                "description": "Multimode 62.5/125μm OM1"
+            },
+            {
+                "value":"3",
+                "description": "Multimode 50/125μm OM2"
+            },
+            {
+                "value":"4",
+                "description": "Multimode 50/125μm OM3"
+            },
+            {
+                "value":"5",
+                "description": "Multimode 50/125μm OM4"
+            },
+            {
+                "value":"E",
+                "description": "Bend Insensitive Single Mode OS2"
+            },
+            {
+                "value":"B",
+                "description": "Bend Insensitive Multimode 50/125μm OM2"
+            },
+            {
+                "value":"C",
+                "description": "Bend Insensitive Multimode 50/125μm OM3"
+            },
+            {
+                "value":"D",
+                "description": "Bend Insensitive Multimode 50/125μm OM4"
+            }
+        ]
     },
     {
-        "value":"B",
-        "description":"Breakout"
+        "placeholder": "B",
+        "description": "CABLE TYPE",
+        "options":[
+            {
+                "value":"D",
+                "description":"Distribution"
+            },
+            {
+                "value":"B",
+                "description":"Breakout"
+            },
+            {
+                "value":"L",
+                "description":"Loose Tube"
+            },
+            {
+                "value":"R",
+                "description":"Ribbon"
+            },
+            {
+                "value":"M",
+                "description":"Mini Distribution"
+            },
+            {
+                "value":"C",
+                "description":"Unjacketed Distribution"
+            },
+            {
+                "value":"Q",
+                "description":"Unjacketed Ribbon"
+            }
+        ]
     },
     {
-        "value":"L",
-        "description":"Loose Tube"
+        "placeholder": "C",
+        "description": "FIRE RATING",
+        "options":[
+            {
+                "value":"P",
+                "description":"OFNP"
+            },
+            {
+                "value":"R",
+                "description":"OFNR"
+            },
+            {
+                "value":"O",
+                "description":"Outdoor"
+            },
+            {
+                "value":"N",
+                "description":"Indoor/Outdoor OFNP"
+            },
+            {
+                "value":"L",
+                "description":"Indoor/Outdoor OFNR"
+            },
+            {
+                "value":"C",
+                "description":"Not Applicable"
+            }
+        ]
     },
     {
-        "value":"R",
-        "description":"Ribbon"
+        "placeholder": "D",
+        "description": "ARMOUR TYPE",
+        "options":[
+            {
+                "value":"N",
+                "description":"Non Armoured"
+            },
+            {
+                "value":"B",
+                "description":"BX Type"
+            },
+            {
+                "value":"L",
+                "description":"Light Armour"
+            },
+            {
+                "value":"C",
+                "description":"Not Applicable"
+            }
+        ]
     },
     {
-        "value":"M",
-        "description":"Mini Distribution"
+        "placeholder": "EE",
+        "description": "FIBER COUNT",
+        "options":[
+            {
+                "value":"02",
+                "description":"2 Fiber"
+            },
+            {
+                "value":"04",
+                "description":"4 Fiber"
+            },
+            {
+                "value":"06",
+                "description":"6 Fiber"
+            },
+            {
+                "value":"08",
+                "description":"8 Fiber"
+            },
+            {
+                "value":"12",
+                "description":"12 Fiber"
+            },
+            {
+                "value":"18",
+                "description":"18 Fiber"
+            },
+            {
+                "value":"24",
+                "description":"24 Fiber"
+            },
+            {
+                "value":"36",
+                "description":"36 Fiber"
+            },
+            {
+                "value":"48",
+                "description":"48 Fiber"
+            },
+            {
+                "value":"72",
+                "description":"72 Fiber"
+            },
+            {
+                "value":"96",
+                "description":"96 Fiber"
+            },
+            {
+                "value":"C4",
+                "description":"144 Fiber"
+            }
+        ]
     },
     {
-        "value":"C",
-        "description":"Unjacketed Distribution"
+        "placeholder": "F",
+        "description": "LEAD OD",
+        "options":[
+            {
+                "value":"9",
+                "description":"900 μm"
+            },
+            {
+                "value":"2",
+                "description":"2 mm"
+            },
+            {
+                "value":"3",
+                "description":"3 mm"
+            },
+            {
+                "value":"Z",
+                "description":"Not Applicable"
+            }
+        ]
     },
     {
-        "value":"Q",
-        "description":"Unjacketed Ribbon"
+        "placeholder": "HH",
+        "description": "CONNECTOR SIDE A",
+        "options":[
+            {
+                "value":"LC",
+                "description":"LC"
+            },
+            {
+                "value":"SC",
+                "description":"SC"
+            },
+            {
+                "value":"ST",
+                "description":"ST"
+            },
+            {
+                "value":"FC",
+                "description":"FC"
+            },
+            {
+                "value":"MT",
+                "description":"MTRJ female"
+            },
+            {
+                "value":"MB",
+                "description":"MTRJ male"
+            },
+            {
+                "value":"MP",
+                "description":"12 Fiber MPO Female Type A"
+            },
+            {
+                "value":"MA",
+                "description":"12 Fiber MPO Male Type A"
+            },
+            {
+                "value":"PP",
+                "description":"24 Fiber MPO Female Type A"
+            },
+            {
+                "value":"PA",
+                "description":"24 Fiber MPO Male Type A"
+            }
+        ]
+    },
+    {
+        "placeholder": "I",
+        "description": "POLISH SIDE A",
+        "options":[
+            {
+                "value":"A",
+                "description":"APC"
+            },
+            {
+                "value":"B",
+                "description":"UPC"
+            },
+            {
+                "value":"C",
+                "description":"PC (multimode)"
+            }
+        ]
+    },
+    {
+        "placeholder": "JJ",
+        "description": "CONNECTOR SIDE B",
+        "options":[
+            {
+                "value":"LC",
+                "description":"LC"
+            },
+            {
+                "value":"SC",
+                "description":"SC"
+            },
+            {
+                "value":"ST",
+                "description":"ST"
+            },
+            {
+                "value":"FC",
+                "description":"FC"
+            },
+            {
+                "value":"MT",
+                "description":"MTRJ female"
+            },
+            {
+                "value":"MB",
+                "description":"MTRJ male"
+            },
+            {
+                "value":"MP",
+                "description":"12 Fiber MPO Female Type A"
+            },
+            {
+                "value":"MA",
+                "description":"12 Fiber MPO Male Type A"
+            },
+            {
+                "value":"PP",
+                "description":"24 Fiber MPO Female Type A"
+            },
+            {
+                "value":"PA",
+                "description":"24 Fiber MPO Male Type A"
+            },
+            {
+                "value":"OE",
+                "description":"Pigtail (no connector)"
+            }
+        ]
+    },
+    {
+        "placeholder": "K",
+        "description": "POLISH SIDE B",
+        "options":[
+            {
+                "value":"A",
+                "description":"APC"
+            },
+            {
+                "value":"B",
+                "description":"UPC"
+            },
+            {
+                "value":"C",
+                "description":"PC (multimode)"
+            },
+            {
+                "value":"D",
+                "description":"Not Applicable"
+            }
+        ]
+    },
+    {
+        "placeholder": "L",
+        "description": "PULLING EYE",
+        "options":[
+            {
+                "value":"0",
+                "description":"None"
+            },
+            {
+                "value":"1",
+                "description":"1 Pulling Eye"
+            },
+            {
+                "value":"2",
+                "description":"2 Pulling Eye"
+            },
+            {
+                "value":"3",
+                "description":"Staggered with 1 Pulling Eye"
+            },
+            {
+                "value":"4",
+                "description":"Staggered with 2 Pulling Eye"
+            }
+        ]
     }
 ],
 
-"FA C":
-[
-    {
-        "value":"P",
-        "description":"OFNP"
-    },
-    {
-        "value":"R",
-        "description":"OFNR"
-    },
-    {
-        "value":"O",
-        "description":"Outdoor"
-    },
-    {
-        "value":"N",
-        "description":"Indoor/Outdoor OFNP"
-    },
-    {
-        "value":"L",
-        "description":"Indoor/Outdoor OFNR"
-    },
-    {
-        "value":"C",
-        "description":"Not Applicable"
-    }
-],
-
-"FA D":
-[
-    {
-        "value":"N",
-        "description":"Non Armoured"
-    },
-    {
-        "value":"B",
-        "description":"BX Type"
-    },
-    {
-        "value":"L",
-        "description":"Light Armour"
-    },
-    {
-        "value":"C",
-        "description":"Not Applicable"
-    }
-],
-
-"FA EE":
-[
-    {
-        "value":"02",
-        "description":"2 Fiber"
-    },
-    {
-        "value":"04",
-        "description":"4 Fiber"
-    },
-    {
-        "value":"06",
-        "description":"6 Fiber"
-    },
-    {
-        "value":"08",
-        "description":"8 Fiber"
-    },
-    {
-        "value":"12",
-        "description":"12 Fiber"
-    },
-    {
-        "value":"18",
-        "description":"18 Fiber"
-    },
-    {
-        "value":"24",
-        "description":"24 Fiber"
-    },
-    {
-        "value":"36",
-        "description":"36 Fiber"
-    },
-    {
-        "value":"48",
-        "description":"48 Fiber"
-    },
-    {
-        "value":"72",
-        "description":"72 Fiber"
-    },
-    {
-        "value":"96",
-        "description":"96 Fiber"
-    },
-    {
-        "value":"C4",
-        "description":"144 Fiber"
-    }
-],
-
-"FA F":
-[
-    {
-        "value":"9",
-        "description":"900 μm"
-    },
-    {
-        "value":"2",
-        "description":"2 mm"
-    },
-    {
-        "value":"3",
-        "description":"3 mm"
-    },
-    {
-        "value":"Z",
-        "description":"Not Applicable"
-    }
-],
-
-"FA GGG":
-[
-    {
-        "value":"XXN",
-        "description":"Length in inches"
-    },
-    {
-        "value":"XXM",
-        "description":"Length in meters"
-    },
-    {
-        "value":"ZZZ",
-        "description":"Not Aplicable"
-    }
-],
-
-"FA HH":
-[
-    {
-        "value":"LC",
-        "description":"LC"
-    },
-    {
-        "value":"SC",
-        "description":"SC"
-    },
-    {
-        "value":"ST",
-        "description":"ST"
-    },
-    {
-        "value":"FC",
-        "description":"FC"
-    },
-    {
-        "value":"MT",
-        "description":"MTRJ female"
-    },
-    {
-        "value":"MB",
-        "description":"MTRJ male"
-    },
-    {
-        "value":"MP",
-        "description":"12 Fiber MPO Female Type A"
-    },
-    {
-        "value":"MA",
-        "description":"12 Fiber MPO Male Type A"
-    },
-    {
-        "value":"PP",
-        "description":"24 Fiber MPO Female Type A"
-    },
-    {
-        "value":"PA",
-        "description":"24 Fiber MPO Male Type A"
-    }
-],
-
-"FA I":
-[
-    {
-        "value":"A",
-        "description":"APC"
-    },
-    {
-        "value":"B",
-        "description":"UPC"
-    },
-    {
-        "value":"C",
-        "description":"PC (multimode)"
-    }
-],
-
-"FA JJ":
-[
-    {
-        "value":"LC",
-        "description":"LC"
-    },
-    {
-        "value":"SC",
-        "description":"SC"
-    },
-    {
-        "value":"ST",
-        "description":"ST"
-    },
-    {
-        "value":"FC",
-        "description":"FC"
-    },
-    {
-        "value":"MT",
-        "description":"MTRJ female"
-    },
-    {
-        "value":"MB",
-        "description":"MTRJ male"
-    },
-    {
-        "value":"MP",
-        "description":"12 Fiber MPO Female Type A"
-    },
-    {
-        "value":"MA",
-        "description":"12 Fiber MPO Male Type A"
-    },
-    {
-        "value":"PP",
-        "description":"24 Fiber MPO Female Type A"
-    },
-    {
-        "value":"PA",
-        "description":"24 Fiber MPO Male Type A"
-    },
-    {
-        "value":"OE",
-        "description":"Pigtail (no connector)"
-    }
-],
-
-"FA K":
-[
-    {
-        "value":"A",
-        "description":"APC"
-    },
-    {
-        "value":"B",
-        "description":"UPC"
-    },
-    {
-        "value":"C",
-        "description":"PC (multimode)"
-    },
-    {
-        "value":"D",
-        "description":"Not Applicable"
-    }
-],
-
-"FA L":
-[
-    {
-        "value":"0",
-        "description":"None"
-    },
-    {
-        "value":"1",
-        "description":"1 Pulling Eye"
-    },
-    {
-        "value":"2",
-        "description":"2 Pulling Eye"
-    },
-    {
-        "value":"3",
-        "description":"Staggered with 1 Pulling Eye"
-    },
-    {
-        "value":"4",
-        "description":"Staggered with 2 Pulling Eye"
-    }
-],
-
-"FA NNN":
-[
-    {
-        "description":"Assembly length in meters"
-    }
-]
 
 "WNC Categories":
 [ 

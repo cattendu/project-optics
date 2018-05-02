@@ -4,22 +4,37 @@ var router = express.Router();
 var PartNumber = require('../models/partNumber');
 
 router.get('/', (req, res, next) => {
-    console.log("get_/");
     PartNumber.find({}, (err, partNumbers) => {
         res.send(partNumbers);
     });
 });
 
+router.get('/test/:type', (req, res) => {
+    PartNumber.find().byType(req.params.type)
+    .exec(function(err, partNumber){
+        if(err){
+            console.log(err);
+            res.send(err);
+        }
+        if(!partNumber){
+            console.log("QUERY GET_TYPE: PartNumber not found.");
+            res.send("QUERY GET_TYPE: PartNumber not found.");
+        }
+
+        //PartNumber Found
+        res.send(partNumber.getPlaceholders());
+    });
+});
+
 router.get('/partNumbers', (req, res) => {
-    console.log("get_partNumbers");
     PartNumber.find({}, (err, partNumbers) => {
         res.send(partNumbers);
     });
 });
 
 router.get('/partNumber/:type', (req, res) => {
-    console.log("get_:type");
-    PartNumber.findOne({'type':req.params.type.toUpperCase()} , function(err, partNumber){
+    PartNumber.find().byType(req.params.type)
+    .exec(function(err, partNumber){
         if(err){
             console.log(err);
             res.send(err);
@@ -34,6 +49,47 @@ router.get('/partNumber/:type', (req, res) => {
     });
 });
 
+
+router.post('/FA/constants', (req, res) => {
+    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+        var elems = req.body;
+        for(var i = 0; i < elems.length; i++)       
+            partNumber.constants.push(elems[i]);      
+        
+        partNumber.save(function (err) {
+            if (err) return handleError(err);
+        });
+        res.send(partNumber);  
+    });
+});
+
+router.post('/FA/selects', (req, res) => {
+    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+        var elems = req.body;
+        for(var i = 0; i < elems.length; i++)       
+            partNumber.selects.push(elems[i]);      
+        
+        partNumber.save(function (err) {
+            if (err) return handleError(err);
+        });
+        res.send(partNumber);  
+    });
+});
+
+router.post('/FA/numerics', (req, res) => {
+    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+        var elems = req.body;
+        for(var i = 0; i < elems.length; i++)       
+            partNumber.numerics.push(elems[i]);      
+        
+        partNumber.save(function (err) {
+            if (err) return handleError(err);
+        });
+        res.send(partNumber);  
+    });
+});
+
+/*
 router.post('/partNumber/:type/:placeholder', (req, res) => {
     PartNumber.find({'type':req.params.type.toUpperCase()} , function(err, partNumber){
         if(err){
@@ -84,5 +140,7 @@ router.post('/partNumber/:type', (req, res) => {
         res.send(partNumber);  
     });
 });
+*/
+
 
 module.exports = router;

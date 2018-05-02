@@ -2,36 +2,69 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var restrictionSchema = new Schema({
-    categoryId: {type: Schema.Types.ObjectId, required: true},
-    partId: {type: Schema.Types.ObjectId, required: true},
-    categoryName: {type: String},
-    optionName: {type: String}
-});
+    selectPlaceholder: {type: String},
+    optionValue: {type: String}
+},{ _id : false });
 
-var warningSchema = new Schema({
-    categoryId: {type: Schema.Types.ObjectId, required: true},
-    partId: {type: Schema.Types.ObjectId, required: true},
-    categoryName: {type: String},
-    optionName: {type: String}
-});
-
-var partSchema = new Schema({
-    value: {type: String},
+var optionSchema = new Schema({
+    value: {type: String, required: true},
     description: {type: String},
-    restrictions: [restrictionSchema],
-    warnings: [warningSchema]
-});
+    restrictions: [restrictionSchema]
+},{ _id : false });
 
-var partCategorySchema = new Schema({
-    placeholder: {type: String}, // ex: A, B, NNN
+var selectSchema = new Schema({
+    placeholder: {type: String}, // ex: A, B, EE
     description: {type: String}, // ex: FIBER TYPE
-    parts: {type: [partSchema]}
-});
+    options: {type: [optionSchema]}
+},{ _id : false });
+
+var unitSchema = new Schema({
+    type: {type: String, enum: ['meters','inches','feet','not applicable']},
+    placeholder: {type: String}, //If unit type needs to be displayed in the partNumber code ex: M, F
+    length: {type: Number} //number of expected digits
+},{ _id : false });
+
+var numericSchema = new Schema({
+    placeholder: {type: String}, // ex: NNN
+    description: {type: String}, // ex: LEAD LENGTH
+    allowDecimals: {type: Boolean, default: false},
+    units: {type: [unitSchema]}
+},{ _id : false });
+
+var constantSchema = new Schema({
+    value: {type: String, required: true} //ex: FA-, -, MS-FC, AS-W
+},{ _id : false });
 
 var partNumberSchema = new Schema({
-    type: {type: String, required: true}, //ex: FA, IP, WNC
-    categories: {type: [partCategorySchema]}
+    type: {type: String, required: true}, //ex: FA, IP, WNC, DC
+    constants: [constantSchema],
+    selects: [selectSchema],
+    numerics: [numericSchema]
 });
+
+partNumberSchema.query.byType = function(type){
+    return this.findOne({'type':type.toUpperCase()});
+};
+
+//Returns an array of the placeholders value
+partNumberSchema.methods.getPlaceholders = function(){
+    let placeholders = [];
+    
+    for(let category of this.categories){
+        placeholders.push(category.placeholder);
+    }
+
+    return placeholders;
+};
+
+partNumberSchema.methods.getPartCode = function(){
+    let placeholders = this.getPlaceholders();
+    let partCode = [];
+
+
+    return partCode;
+};
+
 
 var PartNumber = mongoose.model('PartNumber', partNumberSchema);
 

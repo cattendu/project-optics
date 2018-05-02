@@ -1,23 +1,77 @@
 <div class="content">
     <form ng-submit="">
         <table>
-            <tr style="display: block; float: left;" ng-repeat="category in partNumber.categories">
-                <th style="display: block;">
+            <tr>         
+                <th>
                     <label class="badge">
-                        {{category.description}}
+                        {{::partNumber.constants[0].value}}
                     </label>
                 </th>
-                <td class="radio" style="display: block;" ng-repeat="part in category.parts">
-                    <label>
-                        <input type="radio" name="test" ng-model="test">
-                        {{part.value}}
+                <th ng-repeat="i in range1">
+                    <label class="badge">
+                        {{::partNumber.selects[i].placeholder}}
                     </label>
-                    </button>
+                </th>
+                <th>
+                    <label class="badge">
+                        {{::partNumber.numerics[0].placeholder}}
+                    </label>
+                </th>
+                <th>
+                    <label class="badge">
+                        {{::partNumber.constants[1].value}}
+                    </label>
+                </th>
+                <th ng-repeat="i in range2">
+                    <label class="badge">
+                        {{::partNumber.selects[i].placeholder}}
+                    </label>
+                </th>
+                <th>
+                    <label class="badge">
+                        {{::partNumber.constants[2].value}}
+                    </label>
+                </th>
+                <th>
+                    <label class="badge">
+                        {{::partNumber.numerics[1].placeholder}}
+                    </label>
+                </th>
+            </tr>
+            <tr>
+                <td></td>
+                <td ng-repeat="i in range1">
+                    <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
                 </td>
-                <td>{{test}}</td>
+                <td>
+                    <input ng-model="data.numerics[0].length" type="text" maxLength="2" style="width:20px">
+                    <select ng-model="data.numerics[0].unit" ng-options="unit.type for unit in partNumber.numerics[0].units"></select>
+                </td>
+                <td></td>
+                <td ng-repeat="i in range2">
+                    <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
+                </td>
+                <td></td>
+                <td>
+                    <input ng-model="data.numerics[1].length" type="text" maxLength="6" style="width:60px">
+                    <button ng-if="partNumber.numerics[1].units.length == 1" class="btn-xs btn-primary">{{partNumber.numerics[1].units[0].type}}</button>          
+                    <select ng-if="partNumber.numerics[1].units.length != 1" ng-model="data.numerics[1].unit" ng-options="unit.type for unit in partNumber.numerics[1].units"></select>
+                </td>
             </tr>
         </table>
+
+
+        <div style="border:solid black; margin:50px">
+            <div ng-repeat="category in data.selected" style="display:inline">
+                <label ng-if="category.value">{{category.value}}</label>
+                <label ng-if="!category.value">{{category.placeholder}}</label>
+            </div>
+        </div>
+        <div style="border:solid black; margin:50px">
+            <button ng-click="validateConnectors()" >validate connectors</button>
+        </div>
+        <div style="border:solid black; margin:50px">
+            <button ng-click="test()" >test</button>
+        </div>
     </form>
-    <label>
-    </label>
 </div>
