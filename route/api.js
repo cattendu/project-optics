@@ -50,8 +50,8 @@ router.get('/partNumber/:type', (req, res) => {
 });
 
 
-router.post('/FA/constants', (req, res) => {
-    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+router.post('/constants/:type', (req, res) => {
+    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.constants.push(elems[i]);      
@@ -63,8 +63,8 @@ router.post('/FA/constants', (req, res) => {
     });
 });
 
-router.post('/FA/selects', (req, res) => {
-    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+router.post('/selects/:type', (req, res) => {
+    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.selects.push(elems[i]);      
@@ -76,8 +76,8 @@ router.post('/FA/selects', (req, res) => {
     });
 });
 
-router.post('/FA/numerics', (req, res) => {
-    PartNumber.findOne({"type":"FA"}).then(function(partNumber){
+router.post('/numerics/:type', (req, res) => {
+    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.numerics.push(elems[i]);      
@@ -88,6 +88,13 @@ router.post('/FA/numerics', (req, res) => {
         res.send(partNumber);  
     });
 });
+
+router.post('/add', (req, res) => {
+    PartNumber.create(req.body).then(function(product){
+        res.send(product);
+    });
+});
+
 
 /*
 router.post('/partNumber/:type/:placeholder', (req, res) => {
