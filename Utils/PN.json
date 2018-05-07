@@ -56,16 +56,15 @@
         {
         "placeholder": "GGG",
         "description": "LEAD LENGTH",
+        "maxLength": 2,
         "units":[
                 {
                     "type": "inches",
-                    "value": "N",
-                    "length": 2
+                    "value": "N"
                 },
                 {
                     "type": "meters",
-                    "value": "M",
-                    "length": 2
+                    "value": "M"
                 },
                 {
                     "type": "not applicable",
@@ -77,10 +76,10 @@
         "placeholder": "NNN",
         "description": "LENGTH",
         "allowDecimals": true,
+        "maxLength": 3,
         "units":[
             {
-                "type": "meters",
-                "length": 3
+                "type": "meters"
             }
         ]
         }
@@ -471,20 +470,20 @@
         {
             "placeholder": "FFF",
             "description": "FIBER LEADS LENGTH",
+            "maxLength": 3,
             "units":[
                 {
-                    "type": "meters",
-                    "length": 3
+                    "type": "meters"
                 }
             ]
         },
         {
             "placeholder": "NNNN",
             "description": "ASEMBLY LENGTH",
+            "maxLength": 4,
             "units":[
                 {
-                    "type": "meters",
-                    "length": 4
+                    "type": "meters"
                 }
             ]
         }
@@ -623,10 +622,10 @@
         {
             "placeholder": "NNN",
             "description": "LENGTH",
+            "maxLength": 3,
             "units":[
                 {
-                    "type": "meters",
-                    "length": 3
+                    "type": "meters"
                 }
             ]
         }  
@@ -845,16 +844,15 @@
         {
             "placeholder": "NNNU",
             "description": "ASSEMBLY LENGTH",
+            "maxLength": 3,
             "units":[
                 {
                     "type": "meters",
-                    "value": "M",
-                    "length": 3
+                    "value": "M"
                 },
                 {
                     "type": "feet",
-                    "value": "F",
-                    "length": 3
+                    "value": "F"
                 }
             ]
         }  

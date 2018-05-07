@@ -44,7 +44,7 @@
                     <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
                 </td>
                 <td>
-                    <input ng-model="data.numerics[0].value" type="text" maxLength="2" style="width:20px">
+                    <input ng-model="data.numerics[0].input" type="text" ng-change="onChangeNumerics(0)" ng-keypress="onKeypressNumerics(event)" ng-paste="onPasteNumerics(event)" ng-blur="onBlurNumerics(0)">
                     <select ng-model="data.numerics[0].unit" ng-options="unit.type for unit in partNumber.numerics[0].units"></select>
                 </td>
                 <td></td>
@@ -53,7 +53,7 @@
                 </td>
                 <td></td>
                 <td>
-                    <input ng-model="data.numerics[1].value" type="text" maxLength="6" style="width:60px">
+                    <input ng-model="data.numerics[1].input" type="text" ng-change="onChangeNumerics(1)" ng-keypress="onKeypressNumerics(event)" ng-paste="onPasteNumerics(event)" ng-blur="onBlurNumerics(1)">
                     <select ng-if="partNumber.numerics[1].units.length == 1" disabled="true" ng-model="data.numerics[1].unit" ng-options="unit.type for unit in partNumber.numerics[1].units"></select>          
                     <select ng-if="partNumber.numerics[1].units.length != 1" ng-model="data.numerics[1].unit" ng-options="unit.type for unit in partNumber.numerics[1].units"></select>
                 </td>
@@ -101,14 +101,23 @@
             <!-- NUMERIC 1 -->
             <div ng-if="!data.numerics[1].value" style="display:inline">{{partNumber.numerics[1].placeholder}}</div>
             <div ng-if="data.numerics[1].value" style="display:inline">{{data.numerics[1].value}}{{data.numerics[1].unit.value}}</div>
-
-
         </div>
+
         <div style="border:solid black; margin:5px">
             <button ng-click="validateConnectors()" >validate connectors</button>
         </div>
+
         <div style="border:solid black; margin:5px">
-            <button ng-click="test()" >test</button>
+            <button ng-click="test()">test</button>
         </div>
+
+        <div style="border:solid black; margin:5px">
+             {{data.numerics[1].input}}
+        </div>
+        <div style="border:solid black; margin:5px">
+           {{data.numerics[0].input}}
+        </div>
+
+
     </form>
 </div>

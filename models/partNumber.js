@@ -20,14 +20,14 @@ var selectSchema = new Schema({
 
 var unitSchema = new Schema({
     type: {type: String, enum: ['meters','inches','feet','not applicable']},
-    value: {type: String}, //If unit type needs to be displayed in the partNumber code ex: M, F
-    length: {type: Number, default: 0} //number of expected digits
+    value: {type: String} //If unit type needs to be displayed in the partNumber code ex: M, F
 },{ _id : false });
 
 var numericSchema = new Schema({
     placeholder: {type: String}, // ex: NNN
     description: {type: String}, // ex: LEAD LENGTH
     allowDecimals: {type: Boolean, default: false},
+    length: {type: Number, default: 3}, //number of expected digits
     units: {type: [unitSchema]}
 },{ _id : false });
 
