@@ -65,13 +65,13 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
              $scope.data.numerics[i].allowDecimals = $scope.partNumber.numerics[i].allowDecimals;
              $scope.data.numerics[i].maxLength = $scope.partNumber.numerics[i].maxLength;
              $scope.data.numerics[i].unit = $scope.partNumber.numerics[i].units[0];
-
-             $scope.data.numerics[i].expectedFormat = generateDesiredNumericsInputFormat($scope.data.numerics[i].allowDecimals, $scope.data.numerics[i].maxLength);
+             
+             $scope.data.numerics[i].expectedFormat = generateNumericsExpectedFormat($scope.data.numerics[i].allowDecimals, $scope.data.numerics[i].maxLength);
          }
         };
-        
+
         //Utility Functions
-        var generateDesiredNumericsInputFormat = function(allowDecimals, maxLength){
+        var generateNumericsExpectedFormat = function(allowDecimals, maxLength){
             if(allowDecimals){
                 return new RegExp("^\\d{0,"+maxLength+"}(?:\\.|\\.\\d{0,2})?$");
             }
@@ -85,8 +85,7 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
            return /[\.0-9]/.test(key); //allow numbers and dot
         };
 
-        
-        var generateNumericsValueFromInput = function(input, maxLength){
+        var generateNumericsValue = function(input, maxLength){
             let integers, decimals;
             
             if(input.includes(".")){
@@ -109,8 +108,7 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
                 return integers;
             }
 
-            return integers + "D" + decimals;
-            
+            return integers + "D" + decimals;      
         };
 
 
@@ -146,40 +144,54 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
        
        return;
     };
+    
+    //EVENTS >> NUMERICS
+
+    //Prevents non-numeric inputs
+    $scope.onKeypressNumericsInput = function(event) {
+        let evt = event || window.event;
+        let key = evt.keyCode || evt.which;
+
+        if(!isNumeric(key)) evt.preventDefault();       
+    };
+    
+    $scope.onChangeNumericsInput = function(index){          
+        const EXPECTED_FORMAT = $scope.data.numerics[index].expectedFormat;
+        let input = $scope.data.numerics[index].input;
         
-        $scope.onChangeNumerics = function(index){          
-            const MAX_LENGTH = $scope.data.numerics[index].maxLength;
-            const EXPECTED_FORMAT = $scope.data.numerics[index].expectedFormat;
-            let input = $scope.data.numerics[index].input;
-
-            if(!EXPECTED_FORMAT.test(input)){
-                //Roll back to last valid input
-                $scope.data.numerics[index].input = $scope.data.numerics[index].lastValidInput;
-            }
-
-            //update lastValidInput to this input and generate partNumber code value
-            $scope.data.numerics[index].lastValidInput = $scope.data.numerics[index].input;
-            $scope.data.numerics[index].value = generateNumericsValueFromInput($scope.data.numerics[index].input, MAX_LENGTH);
-        };
-
-        $scope.onBlurNumerics = function(index){
-            //format input
-        };
+        if(!EXPECTED_FORMAT.test(input)){
+            //Roll back to last valid input
+            $scope.data.numerics[index].input = $scope.data.numerics[index].lastValidInput;
+        }
         
-        //Prevents paste
-        $scope.onPasteNumerics = function(event){
-            let evt = event || window.event;
+        //update lastValidInput to this input and generate partNumber code value
+        $scope.data.numerics[index].lastValidInput = $scope.data.numerics[index].input;
+        $scope.data.numerics[index].value = generateNumericsValue(
+            $scope.data.numerics[index].input,
+            $scope.data.numerics[index].maxLength
+        );
+    };
+    
+    //Prevents paste
+    $scope.onPasteNumericsInput = function(event){
+        let evt = event || window.event;
+
         if(evt.preventDefault) evt.preventDefault();
     };
 
-    $scope.onKeypressNumerics = function(event) {
-        let evt = event || window.event;
-        let key = evt.keyCode || evt.which;
-        
-        if(!isNumeric(key)){
-            evt.preventDefault();
-            return;
+    $scope.onBlurNumericsInput = function(index){
+        //format input
+    };
+
+    $scope.onChangeNumericsSelects = function(index){
+        if($scope.data.numerics[index].unit.description == "not applicable"){
+            $scope.data.numerics[index].input = "";
+            $scope.data.numerics[index].lastValidInput = "";
+            $scope.data.numerics[index].value = "";
+            document.getElementById("test0").disabled = true;
         }
+        else
+            document.getElementById("test0").disabled = false;
     };
 
  }]);

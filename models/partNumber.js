@@ -19,7 +19,7 @@ var selectSchema = new Schema({
 },{ _id : false });
 
 var unitSchema = new Schema({
-    type: {type: String, enum: ['meters','inches','feet','not applicable']},
+    description: {type: String, enum: ['meters','inches','feet','not applicable']},
     value: {type: String} //If unit type needs to be displayed in the partNumber code ex: M, F
 },{ _id : false });
 

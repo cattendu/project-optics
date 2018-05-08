@@ -59,15 +59,15 @@
         "maxLength": 2,
         "units":[
                 {
-                    "type": "inches",
+                    "description": "inches",
                     "value": "N"
                 },
                 {
-                    "type": "meters",
+                    "description": "meters",
                     "value": "M"
                 },
                 {
-                    "type": "not applicable",
+                    "description": "not applicable",
                     "value": "ZZZ"
                 }
             ]
@@ -79,7 +79,7 @@
         "maxLength": 3,
         "units":[
             {
-                "type": "meters"
+                "description": "meters"
             }
         ]
         }
@@ -473,7 +473,7 @@
             "maxLength": 3,
             "units":[
                 {
-                    "type": "meters"
+                    "description": "meters"
                 }
             ]
         },
@@ -483,7 +483,7 @@
             "maxLength": 4,
             "units":[
                 {
-                    "type": "meters"
+                    "description": "meters"
                 }
             ]
         }
@@ -625,7 +625,7 @@
             "maxLength": 3,
             "units":[
                 {
-                    "type": "meters"
+                    "description": "meters"
                 }
             ]
         }  
@@ -847,11 +847,11 @@
             "maxLength": 3,
             "units":[
                 {
-                    "type": "meters",
+                    "description": "meters",
                     "value": "M"
                 },
                 {
-                    "type": "feet",
+                    "description": "feet",
                     "value": "F"
                 }
             ]
