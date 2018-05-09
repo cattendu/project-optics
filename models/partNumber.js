@@ -2,8 +2,8 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 var restrictionSchema = new Schema({
-    selectPlaceholder: {type: String},
-    optionValue: {type: String}
+    sectionDescription: {type: String},
+    forcedValue: {type: String}
 },{ _id : false });
 
 var optionSchema = new Schema({

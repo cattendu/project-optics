@@ -5,22 +5,22 @@
             <tr>
                 <th ng-repeat="i in range1">
                     <label class="badge">
-                        {{::partNumber.selects[i].description}}
+                        {{::PNM.selects[i].description}}
                     </label>
                 </th>
                 <th>
                     <label class="badge">
-                        {{::partNumber.numerics[0].description}}
+                        {{::PNM.numerics[0].description}}
                     </label>
                 </th>
                 <th ng-repeat="i in range2">
                     <label class="badge">
-                        {{::partNumber.selects[i].description}}
+                        {{::PNM.selects[i].description}}
                     </label>
                 </th>
                 <th>
                     <label class="badge">
-                        {{::partNumber.numerics[1].description}}
+                        {{::PNM.numerics[1].description}}
                     </label>
                 </th>
             </tr>
@@ -28,68 +28,64 @@
             <!-- INPUTS -->
             <tr>
                 <td ng-repeat="i in range1">
-                    <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
+                    <select ng-model="data.selects[i]" ng-options="option.value for option in PNM.selects[i].options"></select>
                 </td>
                 <td>
-                    <input id="test0" ng-model="data.numerics[0].input" style="width:20px" type="text" ng-change="onChangeNumericsInput(0)" ng-keypress="onKeypressNumericsInput(event)" ng-paste="onPasteNumericsInput(event)" ng-blur="onBlurNumericsInput(0)">
-                    <select ng-if="partNumber.numerics[0].units.length == 1" disabled ng-model="data.numerics[0].unit" ng-options="unit.description for unit in partNumber.numerics[0].units"></select>          
-                    <select ng-if="partNumber.numerics[0].units.length != 1" ng-model="data.numerics[0].unit" ng-options="unit.description for unit in partNumber.numerics[0].units" ng-change="onChangeNumericsSelects(0)"></select>
+                    <input id="numericsInput0" ng-model="data.numerics[0].input" style="width:20px" type="text" ng-change="onChangeNumericsInput(0)" ng-keypress="onKeypressNumericsInput(event)" ng-paste="onPasteNumericsInput(event)" ng-blur="onBlurNumericsInput(0)">
+                    <select ng-if="PNM.numerics[0].units.length == 1" disabled ng-model="data.numerics[0].unit" ng-options="unit.description for unit in PNM.numerics[0].units"></select>          
+                    <select ng-if="PNM.numerics[0].units.length != 1" ng-model="data.numerics[0].unit" ng-options="unit.description for unit in PNM.numerics[0].units" ng-change="onChangeNumericsSelects(0)"></select>
                 </td>
                 <td ng-repeat="i in range2">
-                    <select ng-model="data.selects[i]" ng-options="option.value for option in partNumber.selects[i].options"></select>
+                    <select ng-model="data.selects[i]" ng-options="option.value for option in PNM.selects[i].options"></select>
                 </td>
                 <td>
-                    <input id="test1" ng-model="data.numerics[1].input" style="width:60px" type="text" ng-change="onChangeNumericsInput(1)" ng-keypress="onKeypressNumericsInput(event)" ng-paste="onPasteNumericsInput(event)" ng-blur="onBlurNumericsInput(1)">
-                    <select ng-if="partNumber.numerics[1].units.length == 1" disabled ng-model="data.numerics[1].unit" ng-options="unit.description for unit in partNumber.numerics[1].units"></select>          
-                    <select ng-if="partNumber.numerics[1].units.length != 1" ng-model="data.numerics[1].unit" ng-options="unit.description for unit in partNumber.numerics[1].units" ng-change="onChangeNumericsSelects(1)"></select>
+                    <input id="numericsInput1" ng-model="data.numerics[1].input" style="width:60px" type="text" ng-change="onChangeNumericsInput(1)" ng-keypress="onKeypressNumericsInput(event)" ng-paste="onPasteNumericsInput(event)" ng-blur="onBlurNumericsInput(1)">
+                    <select ng-if="PNM.numerics[1].units.length == 1" disabled ng-model="data.numerics[1].unit" ng-options="unit.description for unit in PNM.numerics[1].units"></select>          
+                    <select ng-if="PNM.numerics[1].units.length != 1" ng-model="data.numerics[1].unit" ng-options="unit.description for unit in PNM.numerics[1].units" ng-change="onChangeNumericsSelects(1)"></select>
                 </td>
             </tr>
         </table>
 
     <!-- DISPLAY DATA.SELECTS AND DATA.NUMERICS INFO
-        <div ng-repeat="select in data.selects" style="border:solid black; margin:50px">
+    --> <div ng-repeat="select in data.selects" style="border:solid black; margin:50px">
             {{select}}
         </div>
         <div ng-repeat="numeric in data.numerics" style="border:solid black; margin:50px">
             {{numeric}}
         </div>
-    -->
-
-    <div ng-repeat="numeric in data.numerics" style="border:solid black; margin:50px">
-        {{numeric}}
-    </div>
+    <!-- -->
 
     <!-- DISPLAY PARTNUMBER -->
         <div style="border:solid black; margin:5px">
             <!-- CONSTANT 0 -->
-            <div  style="display:inline">{{partNumber.constants[0].value}}</div>
+            <div  style="display:inline">{{PNM.constants[0].value}}</div>
             
             <!-- RANGE 1 -->
             <div ng-repeat="i in range1" style="display:inline">
-                <div ng-if="!data.selects[i].value"  style="display:inline">{{partNumber.selects[i].placeholder}}</div>
+                <div ng-if="!data.selects[i].value"  style="display:inline">{{PNM.selects[i].placeholder}}</div>
                 <div ng-if="data.selects[i].value"  style="display:inline">{{data.selects[i].value}}</div>
             </div>
 
             <!-- NUMERIC 0 -->
-            <div ng-if="!data.numerics[0].value && data.numerics[0].unit.description != 'not applicable'" style="display:inline">{{partNumber.numerics[0].placeholder}}</div>
+            <div ng-if="!data.numerics[0].value && data.numerics[0].unit.description != 'not applicable'" style="display:inline">{{PNM.numerics[0].placeholder}}</div>
             <div ng-if="!data.numerics[0].value && data.numerics[0].unit.description == 'not applicable'" style="display:inline">{{data.numerics[0].unit.value}}</div>
             <div ng-if="data.numerics[0].value" style="display:inline">{{data.numerics[0].value}}{{data.numerics[0].unit.value}}</div>
             
 
             <!-- CONSTANT 1 -->
-            <div  style="display:inline">{{partNumber.constants[1].value}}</div>
+            <div  style="display:inline">{{PNM.constants[1].value}}</div>
 
             <!-- RANGE 2 -->
             <div ng-repeat="i in range2" style="display:inline">
-                <div ng-if="!data.selects[i].value"  style="display:inline">{{partNumber.selects[i].placeholder}}</div>
+                <div ng-if="!data.selects[i].value"  style="display:inline">{{PNM.selects[i].placeholder}}</div>
                 <div ng-if="data.selects[i].value"  style="display:inline">{{data.selects[i].value}}</div>
             </div>
 
             <!-- CONSTANT 2 -->
-            <div  style="display:inline">{{partNumber.constants[2].value}}</div>
+            <div  style="display:inline">{{PNM.constants[2].value}}</div>
             
             <!-- NUMERIC 1 -->
-            <div ng-if="!data.numerics[1].value && data.numerics[1].unit.description != 'not applicable'" style="display:inline">{{partNumber.numerics[1].placeholder}}</div>
+            <div ng-if="!data.numerics[1].value && data.numerics[1].unit.description != 'not applicable'" style="display:inline">{{PNM.numerics[1].placeholder}}</div>
             <div ng-if="!data.numerics[1].value && data.numerics[1].unit.description == 'not applicable'" style="display:inline">{{data.numerics[1].unit.value}}</div>
             <div ng-if="data.numerics[1].value" style="display:inline">{{data.numerics[1].value}}{{data.numerics[1].unit.value}}</div>
         </div>
