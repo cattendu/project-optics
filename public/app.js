@@ -4,7 +4,7 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     $locationProvider.html5Mode(true);
     $routeProvider
         .when('/', {
-            templateUrl: './views/partBuilder.htm',
+            templateUrl: './views/home.htm',
             controller: 'partBuilderController'
         })
         .when('/FA', {
@@ -50,6 +50,11 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
        $scope.range2 = [6,7,8,9,10]; //HHIJJKL
     };
     
+    $scope.test = function(event, val){
+        let evt = event || window.event;
+        $scope.data.selects[0] = val;
+    };
+
     var initializeDataSelects = function(selects){        
        let s = {}; 
        
@@ -78,7 +83,7 @@ app.controller('FAController', ['$scope', '$http', '$route', function($scope, $h
     };
     
     var initializeIndexMap = function(selects, numerics){
-        let indexMap = {}
+        let indexMap = {};
 
         for(let i = 0; i < selects.length; i++){
             indexMap[selects[i].description] = i;

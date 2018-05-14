@@ -46,14 +46,33 @@
             </tr>
         </table>
 
-    <!-- DISPLAY DATA.SELECTS AND DATA.NUMERICS INFO
-    --> <div ng-repeat="select in data.selects" style="border:solid black; margin:50px">
+     <!-- DISPLAY DATA.SELECTS AND DATA.NUMERICS INFO
+        <div ng-repeat="select in data.selects" style="border:solid black; margin:50px">
             {{select}}
         </div>
         <div ng-repeat="numeric in data.numerics" style="border:solid black; margin:50px">
             {{numeric}}
         </div>
-    <!-- -->
+    -->
+
+        <div class="btn-group-vertical">
+            <div ng-repeat="option in PNM.selects[0].options">
+                <button ng-click="test(option)" type="button" class="btn btn-primary">
+                    {{option.value}}
+                </button>
+            </div>
+        </div>
+
+        <div>
+            <ul class="nav nav-pills nav-stacked">
+                <li ng-repeat="option in PNM.selects[0].options">
+                    <a href="#" ng-click="test(event, option)">
+                        {{option.value}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
 
     <!-- DISPLAY PARTNUMBER -->
         <div style="border:solid black; margin:5px">
