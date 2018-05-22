@@ -1,4 +1,13 @@
 /* UTILS */
+:root {
+    --copper-bg-dark: #ed4609; 
+    --copper-bg-light: #f7941e;
+    --fiber-bg-dark: #a3161a; 
+    --fiber-bg-light: #ee3124;
+    --other-bg-dark: #008060; 
+    --other-bg-light: #62bb46;
+}
+
 .vertical-align-table{
     display: table;
     height: 100%;
@@ -29,6 +38,10 @@
     color: red;
 }
 
+a[ng-click]{
+    cursor: pointer;
+}
+
 /* SECTION */
 .section{
     margin-bottom: 10px;
@@ -56,26 +69,26 @@
 
 /* SECTION HEADER >> BACKGROUND GRADIENT */
 .copper-background{
-    background: rgb(237,70,9); /* Old browsers */
-    background: -moz-linear-gradient(top, rgb(237,70,9) 0%, rgb(247,148,30) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgb(237,70,9) 0%,rgb(247,148,30) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgb(237,70,9) 0%,rgb(247,148,30) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: var(--copper-bg-dark); /* Old browsers */
+    background: -moz-linear-gradient(top, var(--copper-bg-dark) 0%, var(--copper-bg-light) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, var(--copper-bg-dark) 0%, var(--copper-bg-light) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, var(--copper-bg-dark) 0%, var(--copper-bg-light) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed4609', endColorstr='#f7941e',GradientType=0 ); /* IE6-9 */
 }
 
 .fiber-background{
-    background: rgb(163,22,26); /* Old browsers */
-    background: -moz-linear-gradient(top, rgb(163,22,26) 0%, rgb(238,49,36) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgb(163,22,26) 0%,rgb(238,49,36) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgb(163,22,26) 0%,rgb(238,49,36) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: var(--fiber-bg-dark); /* Old browsers */
+    background: -moz-linear-gradient(top, var(--fiber-bg-dark) 0%, var(--fiber-bg-light) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, var(--fiber-bg-dark) 0%, var(--fiber-bg-light) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, var(--fiber-bg-dark) 0%, var(--fiber-bg-light) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3161a', endColorstr='#ee3124',GradientType=0 ); /* IE6-9 */
 }
 
 .other-background{
-    background: rgb(0,128,96); /* Old browsers */
-    background: -moz-linear-gradient(top, rgb(0,128,96) 0%, rgb(98,187,70) 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top, rgb(0,128,96) 0%,rgb(98,187,70) 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom, rgb(0,128,96) 0%,rgb(98,187,70) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: var(--other-bg-dark); /* Old browsers */
+    background: -moz-linear-gradient(top, var(--other-bg-dark) 0%, var(--other-bg-light) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, var(--other-bg-dark) 0%, var(--other-bg-light) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, var(--other-bg-dark) 0%, var(--other-bg-light) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008060', endColorstr='#62bb46',GradientType=0 ); /* IE6-9 */
 }
 
@@ -121,4 +134,10 @@
     display: table-cell;
     vertical-align: middle;
     padding-left: 5px;
+}
+
+
+/* PRODUCTS-LIST */
+products-list li:hover{
+   /*cursor: pointer;*/
 }

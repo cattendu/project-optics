@@ -1,0 +1,56 @@
+<!-- FIBER CABLE ASSEMBLIES -->
+<div class="content container">
+    <form ng-submit="">
+
+        <!-- NAV-TABS -->
+        <ul class="nav nav-tabs products-list">
+            <li id="nav-tab-FA" class="active in">
+                <a data-toggle="tab" data-target="#FA" ng-click="loadTab('FA')">FA</a>
+            </li>
+            <li id="nav-tab-WNC">
+                <a data-toggle="tab" data-target="#WNC" ng-click="loadTab('WNC')">WNC</a>
+            </li>
+            <li id="nav-tab-IP">
+                <a data-toggle="tab"  data-target="#IP" ng-click="loadTab('IP')">IP</a>
+            </li>
+            <li id="nav-tab-DC">
+                <a data-toggle="tab"  data-target="#DC" ng-click="loadTab('DC')">DC</a>
+            </li>
+            <li style="float: right">
+                <a href="/">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    Back
+                </a>
+            </li>
+        </ul>
+        
+        <!-- TAB-CONTENT -->
+        <div class="jumbotron shadow">
+            <div class="tab-content">
+                
+                <!-- FA -->
+                <div id="FA" class="tab-pane fade in active">
+                    <div ng-include="'views/sections/8/FA.htm'"></div>
+                    {{msg}}
+                </div>
+
+                <!-- WNC -->
+                <div id="WNC" class="tab-pane fade">
+                    <div ng-include="'views/sections/8/WNC.htm'"></div>
+                     {{msg}}
+                </div>
+
+                <!-- IP -->
+                <div id="IP" class="tab-pane fade">
+                    <div ng-include="'views/sections/8/IP.htm'"></div>
+                </div>
+
+                <!-- DC -->
+                <div id="DC" class="tab-pane fade">
+                    <div ng-include="'views/sections/8/DC.htm'"></div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>

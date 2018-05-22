@@ -3,34 +3,6 @@ var router = express.Router();
 
 var PartNumber = require('../models/partNumber');
 
-router.get('/', (req, res, next) => {
-    PartNumber.find({}, (err, partNumbers) => {
-        res.send(partNumbers);
-    });
-});
-
-router.get('/test/:type', (req, res) => {
-    PartNumber.find().byType(req.params.type)
-    .exec(function(err, partNumber){
-        if(err){
-            console.log(err);
-            res.send(err);
-        }
-        if(!partNumber){
-            console.log("QUERY GET_TYPE: PartNumber not found.");
-            res.send("QUERY GET_TYPE: PartNumber not found.");
-        }
-
-        //PartNumber Found
-        res.send(partNumber.getPlaceholders());
-    });
-});
-
-router.get('/partNumbers', (req, res) => {
-    PartNumber.find({}, (err, partNumbers) => {
-        res.send(partNumbers);
-    });
-});
 
 router.get('/partNumber/:type', (req, res) => {
     PartNumber.find().byType(req.params.type)
@@ -47,6 +19,10 @@ router.get('/partNumber/:type', (req, res) => {
         //PartNumber Found
         res.send(partNumber);
     });
+});
+
+router.get('/fiber-cable-assemblies', (req, res) => {
+    res.send("test");
 });
 
 
