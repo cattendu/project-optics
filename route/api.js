@@ -1,11 +1,66 @@
 var express = require("express");
 var router = express.Router();
 
-var PartNumber = require('../models/partNumber');
+var Sections = require('../models/catalog');
 
+router.get('/sections', (req, res) => {
+    Sections.find({}, 'type description number').exec(function (err, sections) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        }
+        if (!sections) {
+            console.log("Sections not found.");
+            res.send("Sections not found.");
+        }
+        //Sections Found
+        res.send(sections);
+    });
+});
+
+router.get('/section/:number', (req, res) => {
+    Sections.findOne({ "number": req.params.number }).exec(function (err, section) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        }
+        if (!section) {
+                console.log("QUERY GET_TYPE: PartNumber not found.");
+                res.send("QUERY GET_TYPE: PartNumber not found.");
+            }
+
+        //Section Found
+        res.send(section);
+    });
+});
+
+router.get('/catalog/:sectionNumber/:productType', (req, res) => {
+    Sections.findOne({ "number": req.params.sectionNumber }).exec(function (err, section) {
+        if (err) {
+            console.log(err);
+            res.send(err);
+        }
+        if (!section) {
+            console.log("QUERY GET_TYPE: PartNumber not found.");
+            res.send("QUERY GET_TYPE: PartNumber not found.");
+        }
+
+        //Section Found
+        for(let product of section.products){
+            if (product.type.toUpperCase() == req.params.productType.toUpperCase()){
+                //Product Found
+                return res.send(product);              
+            }
+        }
+
+        //Product Not Found
+        console.log("Product Not Found");
+        res.send("Product Not Found");
+    });
+});
 
 router.get('/partNumber/:type', (req, res) => {
-    PartNumber.find().byType(req.params.type)
+    Sections.find().byType(req.params.type)
     .exec(function(err, partNumber){
         if(err){
             console.log(err);
@@ -21,13 +76,8 @@ router.get('/partNumber/:type', (req, res) => {
     });
 });
 
-router.get('/fiber-cable-assemblies', (req, res) => {
-    res.send("test");
-});
-
-
 router.post('/constants/:type', (req, res) => {
-    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
+    Sections.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.constants.push(elems[i]);      
@@ -40,7 +90,7 @@ router.post('/constants/:type', (req, res) => {
 });
 
 router.post('/selects/:type', (req, res) => {
-    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
+    Sections.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.selects.push(elems[i]);      
@@ -53,7 +103,7 @@ router.post('/selects/:type', (req, res) => {
 });
 
 router.post('/numerics/:type', (req, res) => {
-    PartNumber.findOne({"type":req.params.type}).then(function(partNumber){
+    Sections.findOne({"type":req.params.type}).then(function(partNumber){
         var elems = req.body;
         for(var i = 0; i < elems.length; i++)       
             partNumber.numerics.push(elems[i]);      
@@ -66,9 +116,32 @@ router.post('/numerics/:type', (req, res) => {
 });
 
 router.post('/add', (req, res) => {
-    PartNumber.create(req.body).then(function(product){
-        res.send(product);
+    var sections = req.body;
+    console.log(sections);
+
+    for (let section of sections) {
+        Sections.create(section);
+    }
+
+    res.send(sections);
+});
+
+router.post('/add/:sectionNumber', (req, res) => {
+    
+
+    Sections.findOne({ "number": req.params.sectionNumber }).then(function (section) {
+        var products = req.body;
+
+        for (let product of products) {
+            section.products.push(product);
+        }
+
+        section.save(function (err) {
+            if (err) return handleError(err);
+        });
     });
+    
+
 });
 
 

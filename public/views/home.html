@@ -1,0 +1,122 @@
+<div class="content container">
+    <form ng-submit="">
+
+        <div class="jumbotron shadow">
+
+            <!-- NAV -->
+            <div class="row">
+                <div class="col-sx-12">
+                    <a ui-sref="home">Home</a>
+                </div>
+            </div>
+
+            <!-- COPPER -->
+            <div class="row row-eq-height copper">
+                
+                <!-- COPPER HEADER -->
+                <div class="home-header-col col-xs-1">
+                    <div class="home-header-container bg-copper">
+                        <label class="home-header sideway">
+                            COPPER PRODUCTS
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- COPPER SECTIONS -->
+                <div class="home-sections-col col-xs-11">               
+                    
+                    <!-- Centers items vertically when header is taller than sections height -->
+                    <div class="row vertical-align-table">                        
+                        <div class="vertical-align-cell">
+                            
+                            <!-- INDIVIDUAL COPPER SECTION -->
+                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'copper'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">                         
+                                <div class="home-section-wrapper">
+                                    <div class="home-section-container">
+                                        <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">                                  
+                                        <label class="home-section-label">{{section.description}}</label>                            
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>   
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- COPPER SECTION END-->
+
+            <!-- FIBER -->
+            <div class="row row-eq-height fiber">
+            
+                <!-- FIBER HEADER -->
+                <div class="home-header-col col-xs-1">
+                    <div class="home-header-container bg-fiber">
+                        <label class="home-header sideway">
+                            FIBER PRODUCTS
+                        </label>
+                    </div>
+                </div>
+            
+                <!-- FIBER SECTIONS -->
+                <div class="home-sections-col col-xs-11">
+            
+                    <!-- Centers items vertically when header is taller than sections height -->
+                    <div class="row vertical-align-table">
+                        <div class="vertical-align-cell">
+            
+                            <!-- INDIVIDUAL FIBER SECTION -->
+                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'fiber'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
+                                <div class="home-section-wrapper">
+                                    <div class="home-section-container">
+                                        <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">
+                                        <label class="home-section-label">{{section.description}}</label>
+                                    </div>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </div>
+            
+                </div>
+            
+            </div>
+            <!-- FIBER SECTION END-->
+
+            <!-- OTHER SECTION -->
+            <div class="row row-eq-height other">
+
+                <!-- OTHER HEADER -->
+                <div class="home-header-col col-xs-1">
+                    <div class="home-header-container bg-other">
+                        <label class="home-header sideway">
+                            <!-- OTHER PRODUCTS -->
+                        </label>
+                    </div>
+                </div>
+
+                <!-- OTHER MENU -->
+                <div class="home-sections-col col-xs-11">
+                    <div class="row">
+
+                        <!-- INDIVIDUAL OTHER SECTION -->
+                        <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'other'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
+                            <div class="home-section-wrapper">
+                                <div class="home-section-container">
+                                    <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">
+                                    <label class="home-section-label">{{section.description}}</label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>              
+                </div>
+
+            </div>
+            <!-- OTHER SECTION END-->
+
+        </div>
+        <!-- JUMBOTRON END -->
+    </form>
+</div>
