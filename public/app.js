@@ -23,38 +23,46 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
         .state('catalog.section', {
             url: '/:sectionNumber',
             views: {
-                catalogNav: {
-                    templateUrl: 'views/catalog/catalog.nav.html',
-                    controller: ''
-                },
-                catalogContent: {
-                    templateUrl: 'views/catalog/catalog.section.html',
+                "catalogNav@catalog": {
+                    templateUrl: 'views/catalog/section.nav.html',
                     controller: 'catalogSectionController'
                 },
-            },                  
-            
-            //Get products from $stateParams section
+                "catalogContent@catalog": {
+                    templateUrl: 'views/catalog/section.content.html',
+                    controller: 'catalogSectionController'
+                },
+            },
             resolve: {
                 section: function($stateParams, $http){
                     return $http.get("/section/" + $stateParams.sectionNumber).then(function(section){
                         return section.data;
                     });
                 }
-            } 
+            }
         })
         .state('catalog.section.product', {
             url: '/:productType',
             views: {
-                catalogNav: {
-                    templateUrl: 'views/catalog/catalog.nav.html',
-                    controller: ''
-                },
-                catalogContent: {
-                    templateUrl: function($stateParams){
-                        return 'views/catalog/' + $stateParams.sectionNumber + '/' + $stateParams.productType + '.html';},
+                "catalogNav@catalog": {
+                    templateUrl: 'views/catalog/product.nav.html',
                     controller: 'catalogProductController'
-                } 
+                },
+                "catalogContent@catalog": {
+                    templateUrl: function($stateParams){
+                        return "views/catalog/" + $stateParams.sectionNumber + "/" + $stateParams.productType + ".html";
+                    },
+                    controller: 'catalogProductController'
+                }
             },
+            resolve: {
+                product: function ($stateParams, section) {
+                    for (let product of section.products) {
+                        if (product.type == $stateParams.productType)
+                            return product;
+                    }
+                    return null;
+                }
+            }
         });
 
     $urlRouterProvider.otherwise("/home");
@@ -64,27 +72,24 @@ app.controller('homeController', function (catalog, $scope) {
     $scope.sections = catalog;
 });
 
-app.controller('catalogSectionController', function (section, $scope){
+app.controller('catalogSectionController', function (section, $scope) {
     $scope.section = section;
-    console.log(section);
 });
 
-app.controller('catalogController', function(products, $state, $stateParams){
-    let params = {
-        section: $stateParams.section,
-        product: products[0].type
+app.controller('catalogProductController', function (section, product, $scope, $sce){
+    $scope.section = section;
+    $scope.product = product;
+
+    $scope.testInput = [1,2,3,4];
+    $scope.index = 0;
+    $scope.test = function(){
+        $scope.index++;
     };
-    $state.transitionTo('catalog.section.product', params);
-});
 
 
-app.controller('navTabsController', function (products, $scope) {
-    $scope.products = products;
-    $scope.tabs = [];
-
-    for(let product of products){
-        $scope.tabs.push(product.type);
-    }
+    $scope.getAsHtml = function(value){
+        return $sce.trustAsHtml(value);
+    };
 });
 
 var findProductByType = function (products, type) {

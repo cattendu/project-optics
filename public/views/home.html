@@ -1,12 +1,11 @@
 <div class="content container">
-    <form ng-submit="">
 
         <div class="jumbotron shadow">
 
             <!-- NAV -->
-            <div class="row">
+            <div class="row container">
                 <div class="col-sx-12">
-                    <a ui-sref="home">Home</a>
+                    <label>Home</label>
                 </div>
             </div>
 
@@ -30,7 +29,7 @@
                         <div class="vertical-align-cell">
                             
                             <!-- INDIVIDUAL COPPER SECTION -->
-                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'copper'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">                         
+                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'copper' }"  ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">                         
                                 <div class="home-section-wrapper">
                                     <div class="home-section-container">
                                         <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">                                  
@@ -67,7 +66,7 @@
                         <div class="vertical-align-cell">
             
                             <!-- INDIVIDUAL FIBER SECTION -->
-                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'fiber'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
+                            <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'fiber' }" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
                                 <div class="home-section-wrapper">
                                     <div class="home-section-container">
                                         <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">
@@ -101,7 +100,7 @@
                     <div class="row">
 
                         <!-- INDIVIDUAL OTHER SECTION -->
-                        <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections" ng-if="section.type == 'other'" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
+                        <div class="home-section-col col-md-4 col-sm-6 col-xs-12 transition-smooth" ng-repeat="section in sections | filter:{ type: 'other' }" ui-sref="catalog.section({sectionNumber: '{{section.number}}'})">
                             <div class="home-section-wrapper">
                                 <div class="home-section-container">
                                     <img class="home-section-img" ng-src="img/icons/{{section.number}}.png">
@@ -118,5 +117,4 @@
 
         </div>
         <!-- JUMBOTRON END -->
-    </form>
 </div>

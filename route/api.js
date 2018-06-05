@@ -127,21 +127,38 @@ router.post('/add', (req, res) => {
 });
 
 router.post('/add/:sectionNumber', (req, res) => {
-    
-
     Sections.findOne({ "number": req.params.sectionNumber }).then(function (section) {
         var products = req.body;
 
         for (let product of products) {
+            console.log(product);
             section.products.push(product);
         }
 
         section.save(function (err) {
-            if (err) return handleError(err);
+            if (err)
+            console.log(err);
+            res.send("error");
         });
     });
-    
+});
 
+router.post('/addProduct/:sectionNumber', (req, res) => {
+    Sections.findOne({ "number": req.params.sectionNumber }).then(function (section) {
+        var product = req.body;
+
+        console.log(product);
+
+        section.products.push(product);
+    
+        section.save(function (err) {
+            if (err){
+
+                console.log(err);
+                return handleError(err);
+            }
+        });
+    });
 });
 
 

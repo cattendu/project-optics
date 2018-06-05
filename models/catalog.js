@@ -7,48 +7,38 @@ var restrictionSchema = new Schema({
 },{ _id : false });
 
 var optionSchema = new Schema({
-    value: {type: String, required: true},
+    value: {type: String},
     description: {type: String},
     restrictions: [restrictionSchema]
 },{ _id : false });
 
-var selectSchema = new Schema({
-    placeholder: {type: String}, // ex: A, B, EE
-    description: {type: String}, // ex: FIBER TYPE
-    options: {type: [optionSchema]}
-},{ _id : false });
-
-var unitSchema = new Schema({
-    description: {type: String, enum: ['meters','inches','feet','not applicable']},
-    value: {type: String} //If unit type needs to be displayed in the partNumber code ex: M, F
-},{ _id : false });
-
-var numericSchema = new Schema({
-    placeholder: {type: String}, // ex: NNN
-    description: {type: String}, // ex: LEAD LENGTH
-    allowDecimals: {type: Boolean, default: false},
-    length: {type: Number, default: 3}, //number of expected digits
-    units: {type: [unitSchema]}
-},{ _id : false });
-
-var constantSchema = new Schema({
-    value: {type: String, required: true} //ex: FA-, -, MS-FC, AS-W
-},{ _id : false });
+var partSchema = new Schema({
+    type: { type: String, enum: ['constant', 'numeric', 'select'], required: true},
+    placeholder: { type: String, required: true }, // ex: FA-, A, B, EE, NNN
+    description: { type: String }, // ex: LEAD LENGTH   
+    color: { type: String, enum: ['default','deep-orange', 'light-green', 'light-red', 'light-blue', 'light-purple', 'light-yellow', 'deep-blue', 'deep-green', 'deep-red', 'light-orange', 'deep-purple', 'pink', 'deep-yellow']},
+    allowDecimals: { type: Boolean },
+    expectedLength: { type: Number }, //number of expected digits
+    
+    options: [optionSchema]
+},{ _id: false });
 
 var productSchema = new Schema({
     type: {type: String, required: true}, //ex: FA, IP, WNC, DC
     description: {type: String, required: true},
-    constants: [constantSchema],
-    selects: [selectSchema],
-    numerics: [numericSchema]
+    parts: [partSchema]
 },{ _id: false });
 
 var sectionSchema = new Schema({
-    type: { type: String, enum: ['Copper Products', 'Fiber Products', 'Other']},
+    type: { type: String, enum: ['copper', 'fiber', 'other']},
     description: {type: String, required: true},
     number: {type: Number, required: true},
     products: [productSchema]
 }, {collection: 'catalog'});
+
+var Catalog = mongoose.model('Catalog', sectionSchema);
+
+module.exports = Catalog;
 
 /*
 sectionSchema.query.byType = function(type){
@@ -75,8 +65,3 @@ catalogSchema.methods.getPartCode = function(){
 };
 
 */
-
-
-var Catalog = mongoose.model('Catalog', sectionSchema);
-
-module.exports = Catalog;

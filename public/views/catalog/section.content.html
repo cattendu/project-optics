@@ -1,13 +1,4 @@
 <div class="row">
-    <div class="col-sx-12">
-        <a ui-sref="home">Home</a>
-        <span class="glyphicon glyphicon-chevron-right"></span>
-        <a ui-sref="catalog.{{section.number}}">{{section.description}}</a>
-
-    </div>
-</div>
-
-<div class="row">
       
         <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in section.products" ui-sref="catalog.section.product({productType: '{{product.type}}'})">
             <label>{{product.description}}</label>

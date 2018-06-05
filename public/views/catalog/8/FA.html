@@ -1,5 +1,22 @@
-<div class="content container">
-    <div class="jumbotron shadow">
-        FA
+<div class="row product-pn-wrapper">
+    <div class="col-xs-12 product-pn-container">
+        <label ng-repeat="part in product.parts" class="bg-{{part.color}}">{{part.placeholder}}</label>      
     </div>
+</div>
+
+<div class="row row-eq-height">
+    <div class="col-xs-3 product-parts-wrapper">
+        <ul class="product-parts-container">
+            <li ng-repeat-start="part in product.parts | filter:{type: '!constant'}" ng-if="$first" class="bg-{{part.color}} product-parts-item selected-item" ng-bind-html="getAsHtml(part.description)"></li>
+            <li ng-repeat-end="part in product.parts | filter:{type: '!constant'}" ng-if="!$first" class="bg-{{part.color}} product-parts-item disabled-item" ng-bind-html="getAsHtml(part.description)"></li>      
+        </ul>
+    </div>
+
+    <div class="col-xs-9 product-part-wrapper" >
+        <div class="product-part-container">
+            <input type="text" ng-model="testInput[index]">
+            <button ng-click="test()">click</button>
+        </div>
+    </div>
+    
 </div>
