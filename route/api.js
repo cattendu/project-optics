@@ -143,6 +143,20 @@ router.post('/add/:sectionNumber', (req, res) => {
     });
 });
 
+router.get('/addConstraint/:sectionNumber/:productType/:', (req, res) => {
+    Sections.findOne({ "number": req.params.sectionNumber }).then(function (section) {
+
+        for (let product of section.products) {
+            if (product.type == req.params.productType){
+                console.log(product);
+                res.send(product);
+                return;
+            }
+        }
+    });
+});
+
+
 router.post('/addProduct/:sectionNumber', (req, res) => {
     Sections.findOne({ "number": req.params.sectionNumber }).then(function (section) {
         var product = req.body;

@@ -1,22 +1,40 @@
-<div class="row product-pn-wrapper">
-    <div class="col-xs-12 product-pn-container">
-        <label ng-repeat="part in product.parts" class="bg-{{part.color}}">{{part.placeholder}}</label>      
+<div class="row product-partNumber-wrapper">
+    <div class="col-xs-12 product-partNumber-container">
+        <div ng-repeat="part in product.parts">
+            <label ng-if="part.value" class="bg-{{part.color}}">{{part.value}}</label>
+            <label ng-if="!part.value" class="bg-{{part.color}}">{{part.placeholder}}</label>
+        </div>
     </div>
 </div>
 
 <div class="row row-eq-height">
     <div class="col-xs-3 product-parts-wrapper">
         <ul class="product-parts-container">
-            <li ng-repeat-start="part in product.parts | filter:{type: '!constant'}" ng-if="$first" class="bg-{{part.color}} product-parts-item selected-item" ng-bind-html="getAsHtml(part.description)"></li>
-            <li ng-repeat-end="part in product.parts | filter:{type: '!constant'}" ng-if="!$first" class="bg-{{part.color}} product-parts-item disabled-item" ng-bind-html="getAsHtml(part.description)"></li>      
+            <div ng-repeat="part in product.parts">
+                <li ng-if="part.type != 'constant'" class="bg-{{part.color}} product-parts-item" ng-class="{'focused-item': part == product.focusedPart, 'disabled-item': part.isDisabled}" ng-bind-html="getAsHtml(part.description)" ng-click="setFocusedPart(part)"></li>  
+            </div>
         </ul>
     </div>
 
-    <div class="col-xs-9 product-part-wrapper" >
-        <div class="product-part-container">
-            <input type="text" ng-model="testInput[index]">
-            <button ng-click="test()">click</button>
+    <div class="col-xs-9 product-options-wrapper">
+        <div ng-repeat="part in product.parts">
+            <ul ng-if="part.type != 'constant'" ng-show="part == product.focusedPart" class="product-options-container">         
+                <li ng-if="part.type == 'select'" ng-repeat="option in part.availableOptions" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}" ng-click="setPart(option)">
+                    <label ng-bind-html="getAsHtml(option.value)"></label>
+                    <span class="bg-gray" ng-bind-html="getAsHtml(option.description)"></span>              
+                </li>
+                <li ng-if="part.type == 'numeric'" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}">
+                    <input ng-model="part.input" type="text" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()">
+                    <select ng-model="part.selectedOption" ng-options="option.description for option in part.availableOptions" ng-change="onChangeNumericSelect()"></select>
+                    <button class="btn btn-primary" ng-click="setPart()">next</button>
+                </li>
+            </ul>
         </div>
     </div>
-    
-</div>
+    <div>
+        <ul>
+            <li style="outline:solid red"ng-repeat="part in product.parts" ng-if="part.type == 'numeric'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
+            <li style="outline:solid blue"ng-repeat="part in product.parts" ng-if="part.type == 'select'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
+        </ul>
+    </div>
+</div>  
