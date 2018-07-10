@@ -184,11 +184,20 @@ app.controller('catalogProductController', function (section, product, $scope, $
     //SELECT BEGIN
     var generateSelectAvailableOptions = function (part) {
         let availableOptions = [];
+        let optionToCheck;
 
         //If a constraint is applicable, set available options accordingly
         for(let constraint of part.constraints){
             if(validateConstraint(constraint)){
-                availableOptions.push(getOptionFromValue(part, constraint.forcedValue));
+                optionToCheck = getOptionFromValue(part, constraint.forcedValue);
+
+                let addOption = true;
+                for(let option of availableOptions){
+                    if(option == optionToCheck)
+                        addOption = false;    
+                }
+                if(addOption)
+                    availableOptions.push(optionToCheck);
             }
         }
         
