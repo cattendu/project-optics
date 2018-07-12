@@ -314,15 +314,15 @@
             "expectedLength": 2,
             "options": [
                 {
-                    "description": "inches",
+                    "description": "Inches",
                     "value": "N"
                 },
                 {
-                    "description": "meters",
+                    "description": "Meters",
                     "value": "M"
                 },
                 {
-                    "description": "not applicable",
+                    "description": "Not Applicable",
                     "value": "ZZZ"
                 }
             ],
@@ -544,7 +544,7 @@
             "expectedLength": 3,
             "options": [
                 {
-                    "description": "meters"
+                    "description": "Meters"
                 }
             ],
             "constraints": []
@@ -700,7 +700,7 @@
             "expectedLength": 3,
             "options": [
                 {
-                    "description": "meters"
+                    "description": "Meters"
                 }
             ],
             "constraints": []
@@ -721,7 +721,7 @@
             "expectedLength": 4,
             "options": [
                 {
-                    "description": "meters"
+                    "description": "Meters"
                 }
             ],
             "constraints": []
@@ -969,7 +969,7 @@
             "expectedLength": 3,
             "options": [
                 {
-                    "description": "meters"
+                    "description": "Meters"
                 }
             ],
             "constraints": []
@@ -1134,11 +1134,11 @@
             "expectedLength": 3,
             "options": [
                 {
-                    "description": "meters",
+                    "description": "Meters",
                     "value": "M"
                 },
                 {
-                    "description": "feet",
+                    "description": "Feet",
                     "value": "F"
                 }
             ],

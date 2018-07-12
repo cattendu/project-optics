@@ -237,7 +237,8 @@
 /* PRODUCT PART NUMBER */
 .product-partNumber-wrapper{
     margin: 0px;
-    padding: 0px; 
+    padding: 0px;
+    margin-bottom: 10px;
 }
 
 .product-partNumber-container{
@@ -428,3 +429,68 @@
     padding: 0px;
     cursor: pointer;
 }
+
+.product-datasheet-wrapper{
+}
+
+.product-datasheet-container{
+    /*-webkit-box-shadow: 0px 0px 14px 7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 14px 7px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.75);*/
+    box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.3);
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.product-datasheet-container{
+    
+}
+.product-datasheet-table{
+    width: 100%;
+}
+.product-datasheet-table tr:first-child{
+    background-color: #cccccc;
+}
+.product-datasheet-table tr:nth-child(2n+3){
+   background-color: #cccccc;
+}
+
+
+/*PLUS MINUS INPUT BEGIN*/
+.plus-minus-input input{
+    text-align: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    width: 30px;
+}
+.plus-minus-input input[type=number]::-webkit-inner-spin-button, 
+.plus-minus-input input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none;
+  appearance: none; 
+  margin: 0; 
+}
+
+.plus-minus-btn{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 30%;
+    
+}
+.panel-body{
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left:0px;
+}
+
+.panel-group span:first-child{
+    display: inline-block;
+    background-color: #aaaaaa;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+/*PLUS MINUS INPUT END*/

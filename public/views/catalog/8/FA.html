@@ -7,7 +7,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row row-eq-height">
     <div class="col-xs-3 col-md-3 product-parts-wrapper">
         <ul class="product-parts-container">
             <div ng-repeat="part in product.parts">
@@ -31,14 +31,72 @@
             </ul>
         </div>
     </div>
-    <div class="col-xs-12 col-md-7">
-        
-            <ul>
-                <li ng-if="part.type != 'constant'" ng-repeat="part in product.parts">
-                    {{part.id}}
-                </li>
-            </ul>
-        
+    <div class="col-xs-12 col-md-7 product-datasheet-wrapper">
+        <div class="product-datasheet-container">
+            <div class="panel-group" style="margin-bottom: 0px">
+                <div ng-if="part.type != 'constant'" ng-repeat="part in product.parts" class="panel panel-default">
+                    <div ng-if="part.type == 'select'" class="panel-body">
+                        <span ng-bind-html="getAsHtml(part.description)" style="width: 155px; font-weight: bold; color: #eeeeee; text-align: center"></span>
+                        <span ng-if="part.type == 'select'" ng-bind-html="getAsHtml(part.selectedOption.description)"></span>
+                    </div>
+                    <div ng-if="part.type == 'numeric'" class="panel-body">
+                        <span ng-bind-html="getAsHtml(part.description)" style="width: 155px; font-weight: bold; color: #eeeeee; text-align: center"></span>
+                        <span ng-if="part.type == 'numeric' && part.value">{{part.lastValidInput }} {{part.selectedOption.description}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDatasheet" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Product summary</h4>
+                </div>
+                <div class="modal-body">
+                    <span>
+                        <label style="margin-left: 2px;">Part Number: </label>
+                        <div ng-repeat="part in product.parts" style="display:inline-block">
+                            <label ng-if="part.value">{{part.value}}</label>
+                            <label ng-if="!part.value">{{part.placeholder}}</label>
+                        </div>
+                    </span>
+                    <div class="panel-group">
+                        <div ng-if="part.type != 'constant'" ng-repeat="part in product.parts" class="panel panel-default">
+                            <div ng-if="part.type == 'select'" class="panel-body">
+                                <span ng-bind-html="getAsHtml(part.description)" style="width: 155px; font-weight: bold; color: #eeeeee; text-align: center"></span>
+                                <span ng-if="part.type == 'select'" ng-bind-html="getAsHtml(part.selectedOption.description)"></span>
+                            </div>
+                            <div ng-if="part.type == 'numeric'" class="panel-body">
+                                <span ng-bind-html="getAsHtml(part.description)" style="width: 155px; font-weight: bold; color: #eeeeee; text-align: center"></span>
+                                <span ng-if="part.type == 'numeric' && part.value">{{part.lastValidInput }} {{part.selectedOption.description}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <span>
+                        <label>
+                            Quantity
+                        </label>
+                        <span class="plus-minus-input">
+                            <button type="button" class="glyphicon glyphicon-minus plus-minus-btn" ng-click="substractQuantity()"></button>
+                            <input class="input-group-field" type="number" ng-model="quantity" value="1" min="1" max="999">
+                            <button type="button" class="glyphicon glyphicon-plus plus-minus-btn" ng-click="addQuantity()"></button>
+                        </span>
+                    </span>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Add</button>
+                    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalDatasheet">Open Modal</button> -->
+                </div>
+                    
+            </div>
+    
+        </div>
     </div>
    <!-- <div>
         <ul>

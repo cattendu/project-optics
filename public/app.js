@@ -84,6 +84,7 @@ app.controller('catalogProductNavController', function (section, product, $scope
 // **************** PRODUCT CONTROLLER ****************
 app.controller('catalogProductController', function (section, product, $scope, $sce){
     $scope.product = product;
+    $scope.quantity = 1;
 
     //INIT FUNCTIONS BEGIN
     var initPart = function(part){
@@ -156,7 +157,7 @@ app.controller('catalogProductController', function (section, product, $scope, $
             setFocusedPart(partToFocus);
         }
         else{
-            alert("ALL PARTS SELECTED");
+            $('#modalDatasheet').modal('show');
         }
     };
     $scope.setFocusOnNextPart = setFocusOnNextPart;
@@ -227,7 +228,7 @@ app.controller('catalogProductController', function (section, product, $scope, $
         //If no constraints were applicable, allow all options except the 'not applicable' one
         if (!availableOptions.length){
             for(let option of part.options)
-                if(option.description != 'not applicable')
+                if(option.description != 'Not Applicable')
                     availableOptions.push(option);
         }
 
@@ -306,7 +307,7 @@ app.controller('catalogProductController', function (section, product, $scope, $
     var generateNumericValue = function (part) {
         let integers, decimals;
 
-        if(part.selectedOption.description == 'not applicable'){
+        if(part.selectedOption.description == 'Not Applicable'){
             return part.selectedOption.value;
         }
         if(part.selectedOption.value === undefined){
@@ -374,6 +375,17 @@ app.controller('catalogProductController', function (section, product, $scope, $
     $scope.onChangeNumericSelect = function (event, part = product.focusedPart){
         part.value = generateNumericValue(part, part.input);
     };
+
+    //PLUS AND MINUS QUANTITY
+    $scope.substractQuantity = function () {
+        if($scope.quantity > 1)
+            $scope.quantity--;
+    };
+    $scope.addQuantity = function () {
+        $scope.quantity++;
+    };
+
+
 
     //INIT CALL
     init();
@@ -519,7 +531,7 @@ app.controller('FAController', function (partNumberMatrix, $scope, $http, $state
     $scope.onChangeNumericsSelects = function (index) {
         const ID = "numericsInput" + index;
 
-        if ($scope.data.numerics[index].unit.description == "not applicable") {
+        if ($scope.data.numerics[index].unit.description == "Not Applicable") {
             $scope.data.numerics[index].input = "";
             $scope.data.numerics[index].lastValidInput = "";
             $scope.data.numerics[index].value = "";
