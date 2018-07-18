@@ -7,8 +7,9 @@
     </div>
 </div>
 
-<div class="row row-eq-height">
-    <div class="col-xs-3 col-md-3 product-parts-wrapper">
+<div class="row">
+
+    <div class="col-xs-5 col-sm-4 col-md-3 product-parts-wrapper">
         <ul class="product-parts-container">
             <div ng-repeat="part in product.parts">
                 <li ng-if="part.type != 'constant'" class="bg-{{part.color}} product-parts-item" ng-class="{'focused-item': part == product.focusedPart, 'disabled-item': part.isDisabled}" ng-bind-html="getAsHtml(part.description)" ng-click="setFocusedPart(part)"></li>  
@@ -16,14 +17,129 @@
         </ul>
     </div>
 
-    <div class="col-xs-9 col-md-3 product-options-wrapper">
+    <div class="col-xs-7 col-sm-8 col-md-3 product-options-wrapper" >
         <div ng-repeat="part in product.parts">
-            <ul ng-if="part.type != 'constant'" ng-show="part == product.focusedPart" class="product-options-container" style="width: 200px">         
+            <ul ng-if="part.type != 'constant'" ng-show="part == product.focusedPart" class="product-options-container">         
                 <li ng-if="part.type == 'select'" ng-repeat="option in part.availableOptions" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}" ng-click="setPart(option)">
                     <label ng-bind-html="getAsHtml(option.value)"></label>
                     <span class="bg-gray" ng-bind-html="getAsHtml(option.description)"></span>              
                 </li>
                 <li ng-if="part.type == 'numeric'" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}" style="padding: 5px;">
+                    <div ng-if="part.selectedOption.value == 'Not Applicable'">
+                        <label ng-bind-html="getAsHtml(option.value)"></label>
+                        <span class="bg-gray" ng-bind-html="getAsHtml(option.description)"></span>
+                    </div>
+                    <div ng-if="part.selectedOption.value != 'Not Applicable'">
+                        <input ng-model="part.input" type="text" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" style="width: 50px; border-radius:3px; padding-left: 2px">
+                        <select ng-model="part.selectedOption" ng-options="option.description for option in part.availableOptions" ng-change="onChangeNumericSelect()"></select>
+                        <button class="btn btn-primary" ng-click="setPart()">next</button>
+                    </div>                    
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 product-details-wrapper" >
+        <div class="product-details-container">
+            <div class="product-details-left-column">
+                <div ng-repeat="part in product.parts" ng-if="part.type != 'constant'" class="product-details-left-item">
+                    <span class="product-details-left-item" ng-bind-html="getAsHtml(part.description)"></span>
+                </div>
+            </div>
+            <div class="product-details-right-column">
+                <div ng-repeat="part in product.parts" ng-if="part.type != 'constant'" class="product-details-right-item">            
+                    <span ng-if="part.type == 'select' && !part.value" >&nbsp</span>
+                    <span ng-if="part.type == 'numeric' && !part.value" >&nbsp</span>
+                    <span ng-if="part.type == 'select' && part.value" ng-bind-html="getAsHtml(part.selectedOption.description)"></span>
+                    <span ng-if="part.type == 'numeric' && part.value">{{part.lastValidInput }} {{part.selectedOption.description}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="modalProductSummary" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Product summary</h4>
+            </div>
+            
+            <div class="modal-body">
+                <span>
+                    <label style="margin-left: 2px;">Part Number: </label>
+                    <div ng-repeat="part in product.parts" style="display:inline-block">
+                        <label ng-if="part.value">{{part.value}}</label>
+                        <label ng-if="!part.value">{{part.placeholder}}</label>
+                    </div>
+                </span>
+                <div class="product-summary-container">
+                    <div class="product-details-left-column">
+                        <div ng-repeat="part in product.parts" ng-if="part.type != 'constant'" class="product-details-left-item">
+                            <span class="product-details-left-item" ng-bind-html="getAsHtml(part.description)"></span>
+                        </div>
+                    </div>
+                    <div class="product-details-right-column">
+                        <div ng-repeat="part in product.parts" ng-if="part.type != 'constant'" class="product-details-right-item">
+                            <span ng-if="part.type == 'select' && !part.value">&nbsp</span>
+                            <span ng-if="part.type == 'numeric' && !part.value">&nbsp</span>
+                            <span ng-if="part.type == 'select' && part.value" ng-bind-html="getAsHtml(part.selectedOption.description)"></span>
+                            <span ng-if="part.type == 'numeric' && part.value">{{part.lastValidInput }} {{part.selectedOption.description}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <span>
+                    <label>
+                        Quantity
+                    </label>
+                    <span class="plus-minus-input">
+                        <button type="button" class="glyphicon glyphicon-minus plus-minus-btn" ng-click="substractQuantity()"></button>
+                        <input class="input-group-field" type="number" ng-model="quantity" value="1" min="1" max="999">
+                        <button type="button" class="glyphicon glyphicon-plus plus-minus-btn" ng-click="addQuantity()"></button>
+                    </span>
+                </span>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Add</button>
+            </div>               
+        </div>  
+    </div>
+</div>
+
+<div>
+     <ul>
+         <li style="outline:solid red"ng-repeat="part in product.parts" ng-if="part.type == 'numeric'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
+         <li style="outline:solid blue"ng-repeat="part in product.parts" ng-if="part.type == 'select'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
+     </ul>
+ </div> 
+
+
+<!-- <div class="row">
+    <div class="col-xs-3 col-md-3 product-parts-wrapper">
+        <ul class="product-parts-container">
+            <div ng-repeat="part in product.parts">
+                <li ng-if="part.type != 'constant'" class="bg-{{part.color}} product-parts-item" ng-class="{'focused-item': part == product.focusedPart, 'disabled-item': part.isDisabled}"
+                    ng-bind-html="getAsHtml(part.description)" ng-click="setFocusedPart(part)"></li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="col-xs-9 col-md-3 product-options-wrapper">
+        <div ng-repeat="part in product.parts">
+            <ul ng-if="part.type != 'constant'" ng-show="part == product.focusedPart" class="product-options-container" style="width: 200px">
+                <li ng-if="part.type == 'select'" ng-repeat="option in part.availableOptions" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}"
+                    ng-click="setPart(option)">
+                    <label ng-bind-html="getAsHtml(option.value)"></label>
+                    <span class="bg-gray" ng-bind-html="getAsHtml(option.description)"></span>
+                </li>
+                <li ng-if="part.type == 'numeric'" class="product-options-item" ng-class="{'focused-item bg-{{part.color}}': option == part.selectedOption, 'bg-faded-{{part.color}}': option != part.selectedOption}"
+                    style="padding: 5px;">
                     <input ng-model="part.input" type="text" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" style="width: 50px; border-radius:3px; padding-left: 2px">
                     <select ng-model="part.selectedOption" ng-options="option.description for option in part.availableOptions" ng-change="onChangeNumericSelect()"></select>
                     <button class="btn btn-primary" ng-click="setPart()">next</button>
@@ -31,8 +147,8 @@
             </ul>
         </div>
     </div>
-    <div class="col-xs-12 col-md-7 product-datasheet-wrapper">
-        <div class="product-datasheet-container">
+    <div class="col-xs-12 col-md-7 product-details-wrapper">
+        <div class="product-details-container">
             <div class="panel-group" style="margin-bottom: 0px">
                 <div ng-if="part.type != 'constant'" ng-repeat="part in product.parts" class="panel panel-default">
                     <div ng-if="part.type == 'select'" class="panel-body">
@@ -48,11 +164,9 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modalDatasheet" role="dialog">
+    <div class="modal fade" id="modalProductSummary" role="dialog">
         <div class="modal-dialog">
-    
-            <!-- Modal content-->
+
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -91,17 +205,11 @@
                         </span>
                     </span>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Add</button>
-                    <!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalDatasheet">Open Modal</button> -->
-                </div>
                     
+                </div>
+
             </div>
-    
+
         </div>
     </div>
-   <!-- <div>
-        <ul>
-            <li style="outline:solid red"ng-repeat="part in product.parts" ng-if="part.type == 'numeric'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
-            <li style="outline:solid blue"ng-repeat="part in product.parts" ng-if="part.type == 'select'">partID: {{part.id}}; availableOptions: {{part.availableOptions}}</li>
-        </ul>
-    </div> -->
-</div>  
+</div>-->

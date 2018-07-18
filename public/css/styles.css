@@ -1,5 +1,7 @@
-/* UTILS */
-
+/* ************ COLOR REFERENCES ************ */
+html, body{
+    min-width: 440px;
+}
 :root {
     --copper-bg-dark:   #ed4609; 
     --copper-bg-light:  #f7941e;
@@ -37,7 +39,7 @@
     --pn-faded-deep-purple:     #9b3d588c;
     --pn-faded-pink:            #e7418b8c;
     --pn-faded-deep-yellow:     #c7b3278c;
-
+}
     /*
     --pn-faded-deep-orange:     #f5cba3;
     --pn-faded-light-green:     #a6d9c5;
@@ -53,12 +55,95 @@
     --pn-faded-pink:            #f8c1d7;
     --pn-faded-deep-yellow:     #ebd28d;
 */
+.bg-deep-orange{
+    background-color: var(--pn-deep-orange);
+}
+.bg-light-green{
+    background-color: var(--pn-light-green);
+}
+.bg-light-red{
+    background-color: var(--pn-light-red);
+}
+.bg-light-blue{
+    background-color: var(--pn-light-blue);
+}
+.bg-light-purple{
+    background-color: var(--pn-light-purple);
+}
+.bg-light-yellow{
+    background-color: var(--pn-light-yellow);
+}
+.bg-deep-blue{
+    background-color: var(--pn-deep-blue);
+}
+.bg-deep-green{
+    background-color: var(--pn-deep-green);
+}
+.bg-deep-red{
+    background-color: var(--pn-deep-red);
+}
+.bg-light-orange{
+    background-color: var(--pn-light-orange);
+}
+.bg-deep-purple{
+    background-color: var(--pn-deep-purple);
+}
+.bg-pink{
+    background-color: var(--pn-pink);
+}
+.bg-deep-yellow{
+    background-color: var(--pn-deep-yellow);
+}
+.bg-default{
+    background-color: none;
+    color: black;
+}
+.bg-gray{
+    background-color: var(--pn-gray);
+}
 
+.bg-faded-deep-orange{
+    background-color: var(--pn-faded-deep-orange);
 }
-.jumbotron-adjustments{
-    padding-top: 10px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important
+.bg-faded-light-green{
+    background-color: var(--pn-faded-light-green);
 }
+.bg-faded-light-red{
+    background-color: var(--pn-faded-light-red);
+}
+.bg-faded-light-blue{
+    background-color: var(--pn-faded-light-blue);
+}
+.bg-faded-light-purple{
+    background-color: var(--pn-faded-light-purple);
+}
+.bg-faded-light-yellow{
+    background-color: var(--pn-faded-light-yellow);
+}
+.bg-faded-deep-blue{
+    background-color: var(--pn-faded-deep-blue);
+}
+.bg-faded-deep-green{
+    background-color: var(--pn-faded-deep-green);
+}
+.bg-faded-deep-red{
+    background-color: var(--pn-faded-deep-red);
+}
+.bg-faded-light-orange{
+    background-color: var(--pn-faded-light-orange);
+}
+.bg-faded-deep-purple{
+    background-color: var(--pn-faded-deep-purple);
+}
+.bg-faded-pink{
+    background-color: var(--pn-faded-pink);
+}
+.bg-faded-deep-yellow{
+    background-color: var(--pn-faded-deep-yellow);
+}
+/* ************ COLOR REFERENCES END ************ */
+
+/* ************ COMMON STYLES ************ */
 .vertical-align-table{
     display: table;
     height: 100%;
@@ -67,21 +152,14 @@
     display: table-cell;
     vertical-align: middle;
 }
-.shadow{
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important  
-}
 .row-eq-height {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display:         flex;
 }
-.sideway {
-    text-align: middle;
-    writing-mode: vertical-lr;
-    text-orientation: sideways;
-    margin: auto;
-    transform: rotate(180deg);
+.shadow{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important  
 }
 .transition-smooth{
     -webkit-transition: width 0.3s ease, margin 0.3s ease;
@@ -89,6 +167,8 @@
     -o-transition: width 0.3s ease, margin 0.3s ease;
     transition: width 0.3s ease, margin 0.3s ease;
 }
+/* ************ COMMON STYLES END ************ */
+
 /* BACKGROUND GRADIENTS */
 .bg-copper{
     background: var(--copper-bg-dark); /* Old browsers */
@@ -186,6 +266,15 @@
     cursor: pointer;
 }
 
+.sideway {
+    text-align: middle;
+    writing-mode: vertical-lr;
+    text-orientation: sideways;
+    margin: auto;
+    transform: rotate(180deg);
+}
+
+
 /* *************************** */
 /* ******** HOME END ********* */
 /* *************************** */
@@ -206,33 +295,9 @@
     100% { transform: rotate(360deg); }
 }
 
-
-/*
-.chevron-middle{
-    vertical-align: top;
-    display: inline-block;
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    background-color: var(--nav-indicator-bg);
-}
-
-.chevron-middle label{
-    vertical-align: top;
-    margin: 0px;
-    padding: 0px;
-}
-
-.chevron-right{
-    display: inline-block;
-    vertical-align: top;
-    width: 20px;
-    height: 100%;
-    -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%, 100% 100%, 100% 0);
-    clip-path: polygon(0 0, 100% 50%, 0 100%, 100% 100%, 100% 0);
-    background-color: red;
-}
-*/
+/* *************************** */
+/* ******* PRODUCT BEGIN ******** */
+/* *************************** */
 
 /* PRODUCT PART NUMBER */
 .product-partNumber-wrapper{
@@ -277,106 +342,17 @@
         padding-right: 5px;
     }
 }
-.bg-deep-orange{
-    background-color: var(--pn-deep-orange);
-}
-.bg-light-green{
-    background-color: var(--pn-light-green);
-}
-.bg-light-red{
-    background-color: var(--pn-light-red);
-}
-.bg-light-blue{
-    background-color: var(--pn-light-blue);
-}
-.bg-light-purple{
-    background-color: var(--pn-light-purple);
-}
-.bg-light-yellow{
-    background-color: var(--pn-light-yellow);
-}
-.bg-deep-blue{
-    background-color: var(--pn-deep-blue);
-}
-.bg-deep-green{
-    background-color: var(--pn-deep-green);
-}
-.bg-deep-red{
-    background-color: var(--pn-deep-red);
-}
-.bg-light-orange{
-    background-color: var(--pn-light-orange);
-}
-.bg-deep-purple{
-    background-color: var(--pn-deep-purple);
-}
-.bg-pink{
-    background-color: var(--pn-pink);
-}
-.bg-deep-yellow{
-    background-color: var(--pn-deep-yellow);
-}
-.bg-default{
-    background-color: none;
-    color: black;
-}
-.bg-gray{
-    background-color: var(--pn-gray);
-}
 
-.bg-faded-deep-orange{
-    background-color: var(--pn-faded-deep-orange);
-}
-.bg-faded-light-green{
-    background-color: var(--pn-faded-light-green);
-}
-.bg-faded-light-red{
-    background-color: var(--pn-faded-light-red);
-}
-.bg-faded-light-blue{
-    background-color: var(--pn-faded-light-blue);
-}
-.bg-faded-light-purple{
-    background-color: var(--pn-faded-light-purple);
-}
-.bg-faded-light-yellow{
-    background-color: var(--pn-faded-light-yellow);
-}
-.bg-faded-deep-blue{
-    background-color: var(--pn-faded-deep-blue);
-}
-.bg-faded-deep-green{
-    background-color: var(--pn-faded-deep-green);
-}
-.bg-faded-deep-red{
-    background-color: var(--pn-faded-deep-red);
-}
-.bg-faded-light-orange{
-    background-color: var(--pn-faded-light-orange);
-}
-.bg-faded-deep-purple{
-    background-color: var(--pn-faded-deep-purple);
-}
-.bg-faded-pink{
-    background-color: var(--pn-faded-pink);
-}
-.bg-faded-deep-yellow{
-    background-color: var(--pn-faded-deep-yellow);
-}
-
-/* PRODUCT PARTS LIST */
+/* PRODUCT PARTS */
 .product-parts-wrapper{
+    /*width: auto;*/
     padding-right: 0px;
-    width: auto;
 }
 .product-parts-container{
     text-align: center;
     font-weight: bold;
     list-style-type: none;
     padding: 0px;
-    margin-bottom: 0px;
-    word-break: keep-all;
-    word-wrap: normal;
     color: #f0f0f0;
 }
 
@@ -411,9 +387,10 @@
               user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
+/* PRODUCT OPTIONS */
 .product-options-wrapper{
+    /*width: auto;*/
     padding-left: 0px;
-    width: auto;
 }
 .product-options-container{
     padding-left: 0px;
@@ -430,31 +407,77 @@
     cursor: pointer;
 }
 
-.product-datasheet-wrapper{
+/* PRODUCT DETAILS */
+.product-details-wrapper{
+    /*width: auto;*/
 }
 
-.product-datasheet-container{
-    /*-webkit-box-shadow: 0px 0px 14px 7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 14px 7px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 20px 4px rgba(0,0,0,0.75);*/
+.product-details-container{
     box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.3);
     border-radius: 4px;
     padding: 15px;
-}
-
-.product-datasheet-container{
-    
-}
-.product-datasheet-table{
+    display: flex;
     width: 100%;
 }
-.product-datasheet-table tr:first-child{
-    background-color: #cccccc;
-}
-.product-datasheet-table tr:nth-child(2n+3){
-   background-color: #cccccc;
+.product-summary-container{
+    padding: 15px;
+    display: flex;
+    width: 100%;
 }
 
+.product-details-left-column{   
+    display: inline-block;
+}
+.product-details-right-column{
+    display: inline-block;
+    flex-grow: 1;
+}
+
+.product-details-left-item{
+    background-color: #aaaaaa;
+    border: solid #aaaaaa 0.5px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #eeeeee
+}
+.product-details-left-item:last-child{
+    margin-bottom: 0px;
+}
+
+.product-details-right-item{
+    background-color: #ffffff;
+    border-top: solid #eeeeee 0.5px;
+    border-right: solid #aaaaaa 0.5px;
+    border-bottom: solid #aaaaaa 0.5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 10px;
+}
+.product-details-right-item:last-child{
+    margin-bottom: 0px;
+}
+
+
+.panel-group span:first-child{
+    display: inline-block;
+    background-color: #aaaaaa;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
 
 /*PLUS MINUS INPUT BEGIN*/
 .plus-minus-input input{
@@ -477,20 +500,31 @@
     border-radius: 30%;
     
 }
-.panel-body{
-    padding-top: 0px;
-    padding-bottom: 0px;
-    padding-left:0px;
+/*PLUS MINUS INPUT END*/
+
+/* *************************** */
+/* ******* PRODUCT END ******** */
+/* *************************** */
+
+
+.top{
+    text-align: center;
+    font-size: 3em;
+}
+.top label{
+    margin-bottom: 0px;
 }
 
-.panel-group span:first-child{
-    display: inline-block;
-    background-color: #aaaaaa;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+.middle{
+    height: 40px;
 }
-/*PLUS MINUS INPUT END*/
+.link{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+}
+
+.bottom{
+    text-align: center;
+    font-size: 2em;
+}

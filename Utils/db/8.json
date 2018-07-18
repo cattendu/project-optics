@@ -1,1149 +1,1484 @@
 [
- {
-    "type": "FA",
-    "description": "Cable Assemblies",
-    "parts": [
-        {
-            "type": "constant",
-            "placeholder": "FA-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "id": "_fiberType",
-            "type": "select",
-            "placeholder": "A",
-            "description": "FIBER TYPE",
-            "color": "deep-orange",
-            "options": [
-                {
-                    "value": "1",
-                    "description": "Single&nbsp;Mode OS2"
-                },
-                {
-                    "value": "2",
-                    "description": "Multimode 62.5/125μm&nbsp;OM1"
-                },
-                {
-                    "value": "3",
-                    "description": "Multimode 50/125μm&nbsp;OM2"
-                },
-                {
-                    "value": "4",
-                    "description": "Multimode 50/125μm&nbsp;OM3"
-                },
-                {
-                    "value": "5",
-                    "description": "Multimode 50/125μm&nbsp;OM4"
-                },
-                {
-                    "value": "E",
-                    "description": "Bend&nbsp;Insensitive Single&nbsp;Mode OS2"
-                },
-                {
-                    "value": "B",
-                    "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM2"
-                },
-                {
-                    "value": "C",
-                    "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM3"
-                },
-                {
-                    "value": "D",
-                    "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM4"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_cableType",
-            "type": "select",
-            "placeholder": "B",
-            "description": "CABLE TYPE",
-            "color": "light-green",
-            "options": [
-                {
-                    "value": "D",
-                    "description": "Distribution"
-                },
-                {
-                    "value": "B",
-                    "description": "Breakout"
-                },
-                {
-                    "value": "L",
-                    "description": "Loose Tube"
-                },
-                {
-                    "value": "R",
-                    "description": "Ribbon"
-                },
-                {
-                    "value": "M",
-                    "description": "Mini Distribution"
-                },
-                {
-                    "value": "C",
-                    "description": "Unjacketed Distribution"
-                },
-                {
-                    "value": "Q",
-                    "description": "Unjacketed Ribbon"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_fireRating",
-            "type": "select",
-            "placeholder": "C",
-            "description": "FIRE RATING",
-            "color": "light-red",
-            "options": [
-                {
-                    "value": "P",
-                    "description": "OFNP"
-                },
-                {
-                    "value": "R",
-                    "description": "OFNR"
-                },
-                {
-                    "value": "O",
-                    "description": "Outdoor"
-                },
-                {
-                    "value": "N",
-                    "description": "Indoor/Outdoor OFNP"
-                },
-                {
-                    "value": "L",
-                    "description": "Indoor/Outdoor OFNR"
-                },
-                {
-                    "value": "C",
-                    "description": "Not Applicable"
-                }
-            ],
-            "constraints": [
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "C"
-                        }
-                    ],
-                    "forcedValue": "C"
-                },
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "Q"
-                        }
-                    ],
-                    "forcedValue": "C"
-                }
-            ]
-        },
-        {
-            "id": "_armorType",
-            "type": "select",
-            "placeholder": "D",
-            "description": "ARMOUR TYPE",
-            "color": "light-blue",
-            "options": [
-                {
-                    "value": "N",
-                    "description": "Non Armoured"
-                },
-                {
-                    "value": "B",
-                    "description": "BX Type"
-                },
-                {
-                    "value": "L",
-                    "description": "Light Armour"
-                },
-                {
-                    "value": "C",
-                    "description": "Not Applicable"
-                }
-            ],
-            "constraints": [
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "C"
-                        }
-                    ],
-                    "forcedValue": "C"
-                },
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "Q"
-                        }
-                    ],
-                    "forcedValue": "C"
-                },
-                {
-                    "conditions": [
-                        {
-                            "partId": "_fireRating",
-                            "optionValue": "C"
-                        }
-                    ],
-                    "forcedValue": "C"
-                }
-            ]
-        },
-        {
-            "id": "_fiberCount",
-            "type": "select",
-            "placeholder": "EE",
-            "description": "FIBER COUNT",
-            "color": "light-purple",
-            "options": [
-                {
-                    "value": "02",
-                    "description": "2 Fiber"
-                },
-                {
-                    "value": "04",
-                    "description": "4 Fiber"
-                },
-                {
-                    "value": "06",
-                    "description": "6 Fiber"
-                },
-                {
-                    "value": "08",
-                    "description": "8 Fiber"
-                },
-                {
-                    "value": "12",
-                    "description": "12 Fiber"
-                },
-                {
-                    "value": "18",
-                    "description": "18 Fiber"
-                },
-                {
-                    "value": "24",
-                    "description": "24 Fiber"
-                },
-                {
-                    "value": "36",
-                    "description": "36 Fiber"
-                },
-                {
-                    "value": "48",
-                    "description": "48 Fiber"
-                },
-                {
-                    "value": "72",
-                    "description": "72 Fiber"
-                },
-                {
-                    "value": "96",
-                    "description": "96 Fiber"
-                },
-                {
-                    "value": "C4",
-                    "description": "144 Fiber"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_leadOd",
-            "type": "select",
-            "placeholder": "F",
-            "description": "LEAD OD",
-            "color": "light-yellow",
-            "options": [
-                {
-                    "value": "9",
-                    "description": "900&nbsp;μm"
-                },
-                {
-                    "value": "2",
-                    "description": "2&nbsp;mm"
-                },
-                {
-                    "value": "3",
-                    "description": "3&nbsp;mm"
-                },
-                {
-                    "value": "Z",
-                    "description": "Not Applicable"
-                }
-            ],
-            "constraints": [
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "C"
-                        }
-                    ],
-                    "forcedValue": "9"
-                },
-                {
-                    "conditions": [
-                        {
-                            "partId": "_cableType",
-                            "optionValue": "Q"
-                        }
-                    ],
-                    "forcedValue": "9"
-                }
-            ]
-        },
-        {
-            "id": "_leadLength",
-            "type": "numeric",
-            "placeholder": "GGG",
-            "description": "LEAD LENGTH",
-            "color": "deep-blue",
-            "allowDecimals": false,
-            "expectedLength": 2,
-            "options": [
-                {
-                    "description": "Inches",
-                    "value": "N"
-                },
-                {
-                    "description": "Meters",
-                    "value": "M"
-                },
-                {
-                    "description": "Not Applicable",
-                    "value": "ZZZ"
-                }
-            ],
-            "constraints": [
-                {
-                    "conditions": [
-                        {
-                            "partId": "_leadLength",
-                            "optionValue": "Z"
-                        }
-                    ],
-                    "forcedValue": "ZZZ"
-                }
-            ]
-        },
-        {
-            "type": "constant",
-            "placeholder": "-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "id": "_connectorSideA",
-            "type": "select",
-            "placeholder": "HH",
-            "description": "CONNECTOR SIDE&nbsp;A",
-            "color": "deep-green",
-            "options": [
-                {
-                    "value": "LC",
-                    "description": "LC"
-                },
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "ST",
-                    "description": "ST"
-                },
-                {
-                    "value": "FC",
-                    "description": "FC"
-                },
-                {
-                    "value": "MT",
-                    "description": "MTRJ female"
-                },
-                {
-                    "value": "MB",
-                    "description": "MTRJ male"
-                },
-                {
-                    "value": "MP",
-                    "description": "12&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "MA",
-                    "description": "12&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "PP",
-                    "description": "24&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "PA",
-                    "description": "24&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_polishSideA",
-            "type": "select",
-            "placeholder": "I",
-            "description": "POLISH SIDE&nbsp;A",
-            "color": "deep-red",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "B",
-                    "description": "UPC"
-                },
-                {
-                    "value": "C",
-                    "description": "PC (multimode)"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_connectorSideB",
-            "type": "select",
-            "placeholder": "JJ",
-            "description": "CONNECTOR SIDE&nbsp;B",
-            "color": "light-orange",
-            "options": [
-                {
-                    "value": "LC",
-                    "description": "LC"
-                },
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "ST",
-                    "description": "ST"
-                },
-                {
-                    "value": "FC",
-                    "description": "FC"
-                },
-                {
-                    "value": "MT",
-                    "description": "MTRJ female"
-                },
-                {
-                    "value": "MB",
-                    "description": "MTRJ male"
-                },
-                {
-                    "value": "MP",
-                    "description": "12&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "MA",
-                    "description": "12&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "PP",
-                    "description": "24&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "PA",
-                    "description": "24&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A"
-                },
-                {
-                    "value": "OE",
-                    "description": "Pigtail (no&nbsp;connector)"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_polishSideB",
-            "type": "select",
-            "placeholder": "K",
-            "description": "POLISH SIDE&nbsp;B",
-            "color": "deep-purple",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "B",
-                    "description": "UPC"
-                },
-                {
-                    "value": "C",
-                    "description": "PC (multimode)"
-                },
-                {
-                    "value": "D",
-                    "description": "Not Applicable"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "id": "_pullingEye",
-            "type": "select",
-            "placeholder": "L",
-            "description": "PULLING EYE",
-            "color": "pink",
-            "options": [
-                {
-                    "value": "0",
-                    "description": "None"
-                },
-                {
-                    "value": "1",
-                    "description": "1 Pulling Eye"
-                },
-                {
-                    "value": "2",
-                    "description": "2 Pulling Eye"
-                },
-                {
-                    "value": "3",
-                    "description": "Staggered with 1 Pulling Eye"
-                },
-                {
-                    "value": "4",
-                    "description": "Staggered with 2 Pulling Eye"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "constant",
-            "placeholder": "-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "id": "_length",
-            "type": "numeric",
-            "placeholder": "NNN",
-            "description": "LENGTH",
-            "color": "deep-yellow",
-            "allowDecimals": true,
-            "expectedLength": 3,
-            "options": [
-                {
-                    "description": "Meters"
-                }
-            ],
-            "constraints": []
-        }
-    ]
-},
-{
-    "type": "WNC",
-    "description": "Node Service Cables",
-    "parts": [
-        {
-            "type": "constant",
-            "placeholder": "WNC-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "A",
-            "description": "CABLE TYPE",
-            "color": "deep-orange",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "Armoured Outdoor Loose Tube"
-                },
-                {
-                    "value": "B",
-                    "description": "Armoured Outdoor Loose Tube Dry"
-                },
-                {
-                    "value": "N",
-                    "description": "Non-Armoured Outdoor Loose Tube"
-                },
-                {
-                    "value": "O",
-                    "description": "Non-Armoured Outdoor Loose Tube Dry"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "BB",
-            "description": "LEAD TYPE",
-            "color": "light-green",
-            "options": [
-                {
-                    "value": "9S",
-                    "description": "900 μm Single Mode (TIA-598-C)"
-                },
-                {
-                    "value": "2S",
-                    "description": "2 mm Single Mode (Yellow)"
-                },
-                {
-                    "value": "3S",
-                    "description": "3 mm Single Mode (Yellow)"
-                },
-                {
-                    "value": "28",
-                    "description": "2mm Single Mode (TIA-598-C)"
-                },
-                {
-                    "value": "38",
-                    "description": "3 mm Single Mode (TIA-598-C)"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "CC",
-            "description": "FIBER COUNT",
-            "color": "light-red",
-            "options": [
-                {
-                    "value": "02",
-                    "description": "2 Fiber"
-                },
-                {
-                    "value": "04",
-                    "description": "4 Fiber"
-                },
-                {
-                    "value": "06",
-                    "description": "6 Fiber"
-                },
-                {
-                    "value": "08",
-                    "description": "8 Fiber"
-                },
-                {
-                    "value": "10",
-                    "description": "10 Fiber"
-                },
-                {
-                    "value": "12",
-                    "description": "12 Fiber"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "DD",
-            "description": "CONNECTOR TYPE",
-            "color": "light-blue",
-            "options": [
-                {
-                    "value": "LC",
-                    "description": "LC"
-                },
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "ST",
-                    "description": "ST"
-                },
-                {
-                    "value": "FC",
-                    "description": "FC"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "E",
-            "description": "POLISH",
-            "color": "light-purple",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "U",
-                    "description": "UPC"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "numeric",
-            "placeholder": "FFF",
-            "description": "FIBER LEADS LENGTH",
-            "color": "light-yellow",
-            "allowDecimals": false,
-            "expectedLength": 3,
-            "options": [
-                {
-                    "description": "Meters"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "constant",
-            "placeholder": "-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "numeric",
-            "placeholder": "NNNN",
-            "description": "ASEMBLY LENGTH",
-            "color": "deep-yellow",
-            "allowDecimals": false,
-            "expectedLength": 4,
-            "options": [
-                {
-                    "description": "Meters"
-                }
-            ],
-            "constraints": []
-        }
-    ]
-},
-{
-    "type": "IP",
-    "description": "IP68 Cable Assemblies",
-    "parts": [
-        {
-            "type": "constant",
-            "placeholder": "IP-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "A",
-            "description": "FIBER TYPE",
-            "color": "deep-orange",
-            "options": [
-                {
-                    "value": "1",
-                    "description": "Single Mode OS2"
-                },
-                {
-                    "value": "2",
-                    "description": "Multimode 62.5/125μm OM1"
-                },
-                {
-                    "value": "3",
-                    "description": "Multimode 50/125μm OM2"
-                },
-                {
-                    "value": "4",
-                    "description": "Multimode 50/125μm OM3"
-                },
-                {
-                    "value": "5",
-                    "description": "Multimode 50/125μm OM4"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "B",
-            "description": "CABLE TYPE",
-            "color": "light-green",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "1 fiber Outdoor tactical cable"
-                },
-                {
-                    "value": "B",
-                    "description": "2 fiber Outdoor tactical cable"
-                },
-                {
-                    "value": "C",
-                    "description": "12 fiber Outdoor tactical cable"
-                },
-                {
-                    "value": "D",
-                    "description": "ONFR 1 fiber Indoor/Outdoor"
-                },
-                {
-                    "value": "E",
-                    "description": "ONFR 2 fiber Indoor/Outdoor"
-                },
-                {
-                    "value": "F",
-                    "description": "ONFR 12 fiber Indoor/Outdoor"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "CC",
-            "description": "CONNECTOR SIBE A",
-            "color": "light-red",
-            "options": [
-                {
-                    "value": "LC",
-                    "description": "LC"
-                },
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "MP",
-                    "description": "12F MPO Female Type A"
-                },
-                {
-                    "value": "MA",
-                    "description": "12F MPO Male Type A"
-                },
-                {
-                    "value": "BP",
-                    "description": "12F MPO Female Type B"
-                },
-                {
-                    "value": "BA",
-                    "description": "12F MPO Male Type B"
-                },
-                {
-                    "value": "CP",
-                    "description": "12F MPO Female Type C"
-                },
-                {
-                    "value": "CA",
-                    "description": "12F MPO Male Type C"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "D",
-            "description": "POLISH SIDE A",
-            "color": "light-blue",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "B",
-                    "description": "UPC"
-                },
-                {
-                    "value": "C",
-                    "description": "PC (multimode)"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "EE",
-            "description": "CONNECTOR SIBE B",
-            "color": "light-purple",
-            "options": [
-                {
-                    "value": "LC",
-                    "description": "LC"
-                },
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "MP",
-                    "description": "12F MPO Female Type A"
-                },
-                {
-                    "value": "MA",
-                    "description": "12F MPO Male Type A"
-                },
-                {
-                    "value": "BP",
-                    "description": "12F MPO Female Type B"
-                },
-                {
-                    "value": "BA",
-                    "description": "12F MPO Male Type B"
-                },
-                {
-                    "value": "CP",
-                    "description": "12F MPO Female Type C"
-                },
-                {
-                    "value": "CA",
-                    "description": "12F MPO Male Type C"
-                },
-                {
-                    "value": "OE",
-                    "description": "Pigtail (no connector)"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "F",
-            "description": "POLISH SIDE B",
-            "color": "light-yellow",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "B",
-                    "description": "UPC"
-                },
-                {
-                    "value": "C",
-                    "description": "PC (multimode)"
-                },
-                {
-                    "value": "D",
-                    "description": "Not Applicable"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "G",
-            "description": "PULLING EYE",
-            "color": "deep-blue",
-            "options": [
-                {
-                    "value": "0",
-                    "description": "None"
-                },
-                {
-                    "value": "1",
-                    "description": "1 Pulling eye"
-                },
-                {
-                    "value": "2",
-                    "description": "2 Pulling eyes"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "constant",
-            "color": "default",
-            "placeholder": "-",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "numeric",
-            "placeholder": "NNN",
-            "description": "LENGTH",
-            "color": "deep-yellow",
-            "expectedLength": 3,
-            "options": [
-                {
-                    "description": "Meters"
-                }
-            ],
-            "constraints": []
-        }
-    ]
-},
-{
-    "type": "DC",
-    "description": "Drop Cassette",
-    "parts": [
-        {
-            "type": "constant",
-            "placeholder": "DC-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "A",
-            "description": "FIBER TYPE",
-            "color": "deep-orange",
-            "options": [
-                {
-                    "value": "1",
-                    "description": "OS2 single mode"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "B",
-            "description": "CABLE TYPE",
-            "color": "light-green",
-            "options": [
-                {
-                    "value": "T",
-                    "description": "FLAT DROP Non-Armored Toneable Cable"
-                },
-                {
-                    "value": "N",
-                    "description": "FLAT DROP Non-Armored Non-Toneable Cable"
-                },
-                {
-                    "value": "R",
-                    "description": "Distribution OFNR"
-                },
-                {
-                    "value": "P",
-                    "description": "Distribution OFNP"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "C",
-            "description": "OUTLET POSITION",
-            "color": "light-red",
-            "options": [
-                {
-                    "value": "L",
-                    "description": "Left"
-                },
-                {
-                    "value": "M",
-                    "description": "Middle"
-                },
-                {
-                    "value": "R",
-                    "description": "Right"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "DD",
-            "description": "FIBER COUNT",
-            "color": "light-blue",
-            "options": [
-                {
-                    "value": "06",
-                    "description": "6 Fibers"
-                },
-                {
-                    "value": "12",
-                    "description": "12 Fibers"
-                },
-                {
-                    "value": "24",
-                    "description": "24 Fibers"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "EE",
-            "description": "CONNECTOR TYPE",
-            "color": "light-purple",
-            "options": [
-                {
-                    "value": "SC",
-                    "description": "SC"
-                },
-                {
-                    "value": "LC",
-                    "description": "LC"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "F",
-            "description": "POLISH",
-            "color": "light-yellow",
-            "options": [
-                {
-                    "value": "A",
-                    "description": "APC"
-                },
-                {
-                    "value": "U",
-                    "description": "UPC"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "select",
-            "placeholder": "G",
-            "description": "ACCESSORY",
-            "color": "deep-blue",
-            "options": [
-                {
-                    "value": "0",
-                    "description": "None"
-                },
-                {
-                    "value": "1",
-                    "description": "1 Pulling eye"
-                }
-            ],
-            "constraints": []
-        },
-        {
-            "type": "constant",
-            "placeholder": "-",
-            "color": "default",
-            "options": [],
-            "constraints": []
-        },
-        {
-            "type": "numeric",
-            "placeholder": "NNNU",
-            "description": "ASSEMBLY LENGTH",
-            "allowDecimals": false,
-            "color": "deep-red",
-            "expectedLength": 3,
-            "options": [
-                {
-                    "description": "Meters",
-                    "value": "M"
-                },
-                {
-                    "description": "Feet",
-                    "value": "F"
-                }
-            ],
-            "constraints": []
-        }
-    ]
-}
+    {
+        "type": "FA",
+        "description": "Cable Assemblies",
+        "parts": [
+            {
+                "type": "constant",
+                "placeholder": "FA-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_fiberType",
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single&nbsp;Mode OS2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode 62.5/125μm&nbsp;OM1",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode 50/125μm&nbsp;OM2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "Multimode 50/125μm&nbsp;OM3",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5",
+                        "description": "Multimode 50/125μm&nbsp;OM4",
+                        "conditions": []
+                    },
+                    {
+                        "value": "E",
+                        "description": "Bend&nbsp;Insensitive Single&nbsp;Mode OS2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM3",
+                        "conditions": []
+                    },
+                    {
+                        "value": "D",
+                        "description": "Bend&nbsp;Insensitive Multimode 50/125μm&nbsp;OM4",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_cableType",
+                "type": "select",
+                "placeholder": "B",
+                "description": "CABLE TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "D",
+                        "description": "Distribution",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "Breakout",
+                        "conditions": []
+                    },
+                    {
+                        "value": "L",
+                        "description": "Loose Tube",
+                        "conditions": []
+                    },
+                    {
+                        "value": "R",
+                        "description": "Ribbon",
+                        "conditions": []
+                    },
+                    {
+                        "value": "M",
+                        "description": "Mini Distribution",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "Unjacketed Distribution",
+                        "conditions": []
+                    },
+                    {
+                        "value": "Q",
+                        "description": "Unjacketed Ribbon",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_fireRating",
+                "type": "select",
+                "placeholder": "C",
+                "description": "FIRE RATING",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "P",
+                        "description": "OFNP",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "R",
+                        "description": "OFNR",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "O",
+                        "description": "Outdoor",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "N",
+                        "description": "Indoor/Outdoor OFNP",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "L",
+                        "description": "Indoor/Outdoor OFNR",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "C",
+                        "description": "Not Applicable",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_armorType",
+                "type": "select",
+                "placeholder": "D",
+                "description": "ARMOUR TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "N",
+                        "description": "Non Armoured",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "P",
+                                    "R",
+                                    "O",
+                                    "N",
+                                    "L"
+                                ],
+                                "partId": "_fireRating"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "B",
+                        "description": "BX Type",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "P",
+                                    "R",
+                                    "O",
+                                    "N",
+                                    "L"
+                                ],
+                                "partId": "_fireRating"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "L",
+                        "description": "Light Armour",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "P",
+                                    "R",
+                                    "O",
+                                    "N",
+                                    "L"
+                                ],
+                                "partId": "_fireRating"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "C",
+                        "description": "Not Applicable",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_fiberCount",
+                "type": "select",
+                "placeholder": "EE",
+                "description": "FIBER COUNT",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "02",
+                        "description": "2 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "04",
+                        "description": "4 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "06",
+                        "description": "6 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "08",
+                        "description": "8 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "18",
+                        "description": "18 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "24",
+                        "description": "24 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "36",
+                        "description": "36 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "48",
+                        "description": "48 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "72",
+                        "description": "72 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "96",
+                        "description": "96 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C4",
+                        "description": "144 Fibers",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_leadOd",
+                "type": "select",
+                "placeholder": "F",
+                "description": "LEAD OD",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "9",
+                        "description": "900&nbsp;μm",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "2&nbsp;mm",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "3",
+                        "description": "3&nbsp;mm",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "Z",
+                        "description": "Not Applicable",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "D",
+                                    "B",
+                                    "L",
+                                    "R",
+                                    "M"
+                                ],
+                                "partId": "_cableType"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_leadLength",
+                "type": "numeric",
+                "placeholder": "GGG",
+                "description": "LEAD LENGTH",
+                "color": "deep-blue",
+                "allowDecimals": false,
+                "expectedLength": 2,
+                "options": [
+                    {
+                        "description": "Inches",
+                        "value": "N",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "9",
+                                    "2",
+                                    "3"
+                                ],
+                                "partId": "_leadOd"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Meters",
+                        "value": "M",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "9",
+                                    "2",
+                                    "3"
+                                ],
+                                "partId": "_leadOd"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Not Applicable",
+                        "value": "ZZZ",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "Z"
+                                ],
+                                "partId": "_leadOd"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_connectorSideA",
+                "type": "select",
+                "placeholder": "HH",
+                "description": "CONNECTOR SIDE&nbsp;A",
+                "color": "deep-green",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST",
+                        "conditions": []
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ female",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MB",
+                        "description": "MTRJ male",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MP",
+                        "description": "12&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MA",
+                        "description": "12&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PP",
+                        "description": "24&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PA",
+                        "description": "24&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_polishSideA",
+                "type": "select",
+                "placeholder": "I",
+                "description": "POLISH SIDE&nbsp;A",
+                "color": "deep-red",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1",
+                                    "E"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "MP",
+                                    "MA",
+                                    "PP",
+                                    "PA"
+                                ],
+                                "partId": "_connectorSideA"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1",
+                                    "E"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "ST",
+                                    "FC",
+                                    "MT",
+                                    "MB"
+                                ],
+                                "partId": "_connectorSideA"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "B",
+                                    "C",
+                                    "D"
+                                ],
+                                "partId": "_fiberType"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_connectorSideB",
+                "type": "select",
+                "placeholder": "JJ",
+                "description": "CONNECTOR SIDE&nbsp;B",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST",
+                        "conditions": []
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MT",
+                        "description": "MTRJ female",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MB",
+                        "description": "MTRJ male",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MP",
+                        "description": "12&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MA",
+                        "description": "12&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PP",
+                        "description": "24&nbsp;Fiber&nbsp;MPO Female&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "PA",
+                        "description": "24&nbsp;Fiber&nbsp;MPO Male&nbsp;Type&nbsp;A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no&nbsp;connector)",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_polishSideB",
+                "type": "select",
+                "placeholder": "K",
+                "description": "POLISH SIDE&nbsp;B",
+                "color": "deep-purple",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1",
+                                    "E"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "MP",
+                                    "MA",
+                                    "PP",
+                                    "PA"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "1",
+                                    "E"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "ST",
+                                    "FC",
+                                    "MT",
+                                    "MB"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "2",
+                                    "3",
+                                    "4",
+                                    "5",
+                                    "B",
+                                    "C",
+                                    "D"
+                                ],
+                                "partId": "_fiberType"
+                            },
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "ST",
+                                    "FC",
+                                    "MT",
+                                    "MB",
+                                    "MP",
+                                    "MA",
+                                    "PP",
+                                    "PA"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
+                    },
+                    {
+                        "value": "D",
+                        "description": "Not Applicable",
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "OE"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "_pullingEye",
+                "type": "select",
+                "placeholder": "L",
+                "description": "PULLING EYE",
+                "color": "pink",
+                "options": [
+                    {
+                        "value": "0",
+                        "description": "None",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1",
+                        "description": "1 Pulling Eye",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 Pulling Eyes",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Staggered with 1 Pulling Eye",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "Staggered with 2 Pulling Eyes",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_length",
+                "type": "numeric",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "deep-yellow",
+                "allowDecimals": true,
+                "expectedLength": 3,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "WNC",
+        "description": "Node Service Cables",
+        "parts": [
+            {
+                "type": "constant",
+                "placeholder": "WNC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "select",
+                "placeholder": "A",
+                "description": "CABLE TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "Armoured Outdoor Loose Tube",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "Armoured Outdoor Loose Tube Dry",
+                        "conditions": []
+                    },
+                    {
+                        "value": "N",
+                        "description": "Non-Armoured Outdoor Loose Tube",
+                        "conditions": []
+                    },
+                    {
+                        "value": "O",
+                        "description": "Non-Armoured Outdoor Loose Tube Dry",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "BB",
+                "description": "LEAD TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "9S",
+                        "description": "900 μm Single Mode (TIA-598-C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2S",
+                        "description": "2 mm Single Mode (Yellow)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3S",
+                        "description": "3 mm Single Mode (Yellow)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "28",
+                        "description": "2mm Single Mode (TIA-598-C)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "38",
+                        "description": "3 mm Single Mode (TIA-598-C)",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "CC",
+                "description": "FIBER COUNT",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "02",
+                        "description": "2 Fiber",
+                        "conditions": []
+                    },
+                    {
+                        "value": "04",
+                        "description": "4 Fiber",
+                        "conditions": []
+                    },
+                    {
+                        "value": "06",
+                        "description": "6 Fiber",
+                        "conditions": []
+                    },
+                    {
+                        "value": "08",
+                        "description": "8 Fiber",
+                        "conditions": []
+                    },
+                    {
+                        "value": "10",
+                        "description": "10 Fiber",
+                        "conditions": []
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fiber",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "DD",
+                "description": "CONNECTOR TYPE",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "ST",
+                        "description": "ST",
+                        "conditions": []
+                    },
+                    {
+                        "value": "FC",
+                        "description": "FC",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "E",
+                "description": "POLISH",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "U",
+                        "description": "UPC",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "numeric",
+                "placeholder": "FFF",
+                "description": "FIBER LEADS LENGTH",
+                "color": "light-yellow",
+                "allowDecimals": false,
+                "expectedLength": 3,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "numeric",
+                "placeholder": "NNNN",
+                "description": "ASEMBLY LENGTH",
+                "color": "deep-yellow",
+                "allowDecimals": false,
+                "expectedLength": 4,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "IP",
+        "description": "IP68 Cable Assemblies",
+        "parts": [
+            {
+                "type": "constant",
+                "placeholder": "IP-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "Single Mode OS2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "Multimode 62.5/125μm OM1",
+                        "conditions": []
+                    },
+                    {
+                        "value": "3",
+                        "description": "Multimode 50/125μm OM2",
+                        "conditions": []
+                    },
+                    {
+                        "value": "4",
+                        "description": "Multimode 50/125μm OM3",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5",
+                        "description": "Multimode 50/125μm OM4",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "B",
+                "description": "CABLE TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "1 fiber Outdoor tactical cable",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "2 fiber Outdoor tactical cable",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "12 fiber Outdoor tactical cable",
+                        "conditions": []
+                    },
+                    {
+                        "value": "D",
+                        "description": "ONFR 1 fiber Indoor/Outdoor",
+                        "conditions": []
+                    },
+                    {
+                        "value": "E",
+                        "description": "ONFR 2 fiber Indoor/Outdoor",
+                        "conditions": []
+                    },
+                    {
+                        "value": "F",
+                        "description": "ONFR 12 fiber Indoor/Outdoor",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "CC",
+                "description": "CONNECTOR SIBE A",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MP",
+                        "description": "12F MPO Female Type A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MA",
+                        "description": "12F MPO Male Type A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BP",
+                        "description": "12F MPO Female Type B",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BA",
+                        "description": "12F MPO Male Type B",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CP",
+                        "description": "12F MPO Female Type C",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CA",
+                        "description": "12F MPO Male Type C",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "D",
+                "description": "POLISH SIDE A",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "EE",
+                "description": "CONNECTOR SIBE B",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MP",
+                        "description": "12F MPO Female Type A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "MA",
+                        "description": "12F MPO Male Type A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BP",
+                        "description": "12F MPO Female Type B",
+                        "conditions": []
+                    },
+                    {
+                        "value": "BA",
+                        "description": "12F MPO Male Type B",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CP",
+                        "description": "12F MPO Female Type C",
+                        "conditions": []
+                    },
+                    {
+                        "value": "CA",
+                        "description": "12F MPO Male Type C",
+                        "conditions": []
+                    },
+                    {
+                        "value": "OE",
+                        "description": "Pigtail (no connector)",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "F",
+                "description": "POLISH SIDE B",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "B",
+                        "description": "UPC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C",
+                        "description": "PC (multimode)",
+                        "conditions": []
+                    },
+                    {
+                        "value": "D",
+                        "description": "Not Applicable",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "G",
+                "description": "PULLING EYE",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "0",
+                        "description": "None",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1",
+                        "description": "1 Pulling eye",
+                        "conditions": []
+                    },
+                    {
+                        "value": "2",
+                        "description": "2 Pulling eyes",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "constant",
+                "color": "default",
+                "placeholder": "-",
+                "options": []
+            },
+            {
+                "type": "numeric",
+                "placeholder": "NNN",
+                "description": "LENGTH",
+                "color": "deep-yellow",
+                "expectedLength": 3,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "DC",
+        "description": "Drop Cassette",
+        "parts": [
+            {
+                "type": "constant",
+                "placeholder": "DC-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "select",
+                "placeholder": "A",
+                "description": "FIBER TYPE",
+                "color": "deep-orange",
+                "options": [
+                    {
+                        "value": "1",
+                        "description": "OS2 single mode",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "B",
+                "description": "CABLE TYPE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "T",
+                        "description": "FLAT DROP Non-Armored Toneable Cable",
+                        "conditions": []
+                    },
+                    {
+                        "value": "N",
+                        "description": "FLAT DROP Non-Armored Non-Toneable Cable",
+                        "conditions": []
+                    },
+                    {
+                        "value": "R",
+                        "description": "Distribution OFNR",
+                        "conditions": []
+                    },
+                    {
+                        "value": "P",
+                        "description": "Distribution OFNP",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "C",
+                "description": "OUTLET POSITION",
+                "color": "light-red",
+                "options": [
+                    {
+                        "value": "L",
+                        "description": "Left",
+                        "conditions": []
+                    },
+                    {
+                        "value": "M",
+                        "description": "Middle",
+                        "conditions": []
+                    },
+                    {
+                        "value": "R",
+                        "description": "Right",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "DD",
+                "description": "FIBER COUNT",
+                "color": "light-blue",
+                "options": [
+                    {
+                        "value": "06",
+                        "description": "6 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "12",
+                        "description": "12 Fibers",
+                        "conditions": []
+                    },
+                    {
+                        "value": "24",
+                        "description": "24 Fibers",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "EE",
+                "description": "CONNECTOR TYPE",
+                "color": "light-purple",
+                "options": [
+                    {
+                        "value": "SC",
+                        "description": "SC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "LC",
+                        "description": "LC",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "F",
+                "description": "POLISH",
+                "color": "light-yellow",
+                "options": [
+                    {
+                        "value": "A",
+                        "description": "APC",
+                        "conditions": []
+                    },
+                    {
+                        "value": "U",
+                        "description": "UPC",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "select",
+                "placeholder": "G",
+                "description": "ACCESSORY",
+                "color": "deep-blue",
+                "options": [
+                    {
+                        "value": "0",
+                        "description": "None",
+                        "conditions": []
+                    },
+                    {
+                        "value": "1",
+                        "description": "1 Pulling eye",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "type": "constant",
+                "placeholder": "-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "type": "numeric",
+                "placeholder": "NNNU",
+                "description": "ASSEMBLY LENGTH",
+                "allowDecimals": false,
+                "color": "deep-red",
+                "expectedLength": 3,
+                "options": [
+                    {
+                        "description": "Meters",
+                        "value": "M",
+                        "conditions": []
+                    },
+                    {
+                        "description": "Feet",
+                        "value": "F",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    }
 ]

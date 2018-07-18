@@ -157,7 +157,7 @@ app.controller('catalogProductController', function (section, product, $scope, $
             setFocusedPart(partToFocus);
         }
         else{
-            $('#modalDatasheet').modal('show');
+            $('#modalProductSummary').modal('show');
         }
     };
     $scope.setFocusOnNextPart = setFocusOnNextPart;
@@ -385,7 +385,32 @@ app.controller('catalogProductController', function (section, product, $scope, $
         $scope.quantity++;
     };
 
+    $scope.validateOption = function (option) {
+        
+        //Loop acts as a boolean AND for conditions; Returns true only if all conditions are true
+        for(let condition of option.conditions){
+            if(!conditionIsValid(condition))
+                return false;   
+        }
 
+        //all conditions returned true
+        return true;
+    };
+
+    //
+    var conditionIsValid = function(condition){
+        if(!condition)
+            return true;    
+        
+        let partToCheck = getPartFromId(condition.partId);
+
+        //Return true if any condition is evaluated to true   
+        for (let valueToCheck of condition.acceptedValues) {
+            if(partToCheck.selectedOption.value == valueToCheck)
+                return true;
+        }
+        return false;      
+    };
 
     //INIT CALL
     init();
@@ -540,5 +565,5 @@ app.controller('FAController', function (partNumberMatrix, $scope, $http, $state
         else
             document.getElementById(ID).disabled = false;
     };
-
+    
 });

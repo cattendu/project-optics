@@ -1,19 +1,17 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
+//if more than 1 elem in arrays, conditions are checked with boolean OR between them
 var conditionSchema = new Schema({
     partId: { type: String },
-    optionValue: { type: String }
+    acceptedValues: { type: [String] }
 },{ _id : false});
 
-var constraintSchema = new Schema({
-    conditions: [conditionSchema],
-    forcedValue: { type: String}
-},{ _id : false });
-
+//if more than 1 elem in 'conditions', evaluate with boolean AND between each condition
 var optionSchema = new Schema({
     value: {type: String},
-    description: {type: String}
+    description: {type: String},
+    conditions: { type: [conditionSchema] }
 },{ _id : false });
 
 var partSchema = new Schema({
@@ -24,8 +22,7 @@ var partSchema = new Schema({
     color: { type: String, enum: ['default','deep-orange', 'light-green', 'light-red', 'light-blue', 'light-purple', 'light-yellow', 'deep-blue', 'deep-green', 'deep-red', 'light-orange', 'deep-purple', 'pink', 'deep-yellow']},
     allowDecimals: { type: Boolean },
     expectedLength: { type: Number }, //number of expected digits
-    options: [optionSchema],
-    constraints: [constraintSchema]
+    options: [optionSchema]
 },{ _id : false });
 
 var productSchema = new Schema({
