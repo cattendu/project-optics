@@ -1,0 +1,162 @@
+[
+    {
+        "type": "6540-2P",
+        "dataSheet": "PDS-0155",
+        "description": "CAT6A PLENUM",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "6540-2P",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_colorChoice",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR CHOICE",
+                "color": "orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-L305",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "type": "6540-2R",
+        "dataSheet": "PDS-0155",
+        "description": "CAT6A RISER",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "6540-2R",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_colorChoice",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR CHOICE",
+                "color": "orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-L305",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "type": "6040-2P",
+        "dataSheet": "PDS-0156",
+        "description": "CAT6 PLENUM",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "6040-2P",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_colorChoice",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR CHOICE",
+                "color": "orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-R305",
+                "color": "default",
+                "options": []
+            }
+        ]
+    },
+    {
+        "type": "6040-2R",
+        "dataSheet": "PDS-0156",
+        "description": "CAT6 RISER",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "6040-2R",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_colorChoice",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR CHOICE",
+                "color": "orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-R305",
+                "color": "default",
+                "options": []
+            }
+        ]
+    }
+]

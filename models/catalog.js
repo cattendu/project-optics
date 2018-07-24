@@ -20,13 +20,16 @@ var partSchema = new Schema({
     placeholder: { type: String, required: true }, // ex: FA-, A, B, EE, NNN
     description: { type: String }, // ex: LEAD LENGTH   
     color: { type: String, enum: ['default','deep-orange', 'light-green', 'light-red', 'light-blue', 'light-purple', 'light-yellow', 'deep-blue', 'deep-green', 'deep-red', 'light-orange', 'deep-purple', 'pink', 'deep-yellow']},
-    allowDecimals: { type: Boolean },
-    expectedLength: { type: Number }, //number of expected digits
+    integersLength: { type: Number }, //number of expected digits
+    decimalsLength: { type: Number }, //number of expected digits
+    max: { type: Number }, //maximum allowed value
+    min: { type: Number }, //minimum allowed value
     options: [optionSchema]
 },{ _id : false });
 
 var productSchema = new Schema({
     type: {type: String, required: true}, //ex: FA, IP, WNC, DC
+    dataSheet: {type: String, required: true},
     description: {type: String, required: true},
     parts: [partSchema]
 },{ _id : false });
