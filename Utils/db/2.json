@@ -1,0 +1,540 @@
+[
+    {
+        "type": "KW-ZZZ-BLK",
+        "dataSheet": "PDS-0048",
+        "description": "KEYSTONE BLANK INSERTS",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-ZZZ-BLK-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BK",
+                        "description": "Black",
+                        "conditions": []
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White",
+                        "conditions": []
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-DUSTCAP",
+        "dataSheet": "PDS-0067",
+        "description": "KEYWERKS MODULES DUSTCAPS",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-DUSTCAP-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow"
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    },
+                    {
+                        "value": "OG",
+                        "description": "Orange"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CAACFFBK",
+        "dataSheet": "PDS-0168",
+        "description": "Keywerks Inline Couplers (180°) UTP",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "PERFORMANCE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "6A",
+                        "description": "CAT6A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C6",
+                        "description": "CAT6",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5E",
+                        "description": "CAT5e",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CAACFF",
+        "dataSheet": "PDS-0160",
+        "description": "Keywerks Inline Couplers (180°) FTP",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "PERFORMANCE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "SA",
+                        "description": "CAT6A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "S6",
+                        "description": "CAT6",
+                        "conditions": []
+                    },
+                    {
+                        "value": "SE",
+                        "description": "CAT5e",
+                        "conditions": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CC3-45T",
+        "dataSheet": "PDS-0045",
+        "description": "CAT3 Keywerks Modules – Voice",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CC3-45T-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow"
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-C6A-45B",
+        "dataSheet": "PDS-0153",
+        "description": "Keywerks CAT6A Modules (Jacks)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C6A-45B-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow"
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    },
+                    {
+                        "value": "OG",
+                        "description": "Orange"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CC6-45B",
+        "dataSheet": "PDS-0108",
+        "description": "Keywerks CAT6 Modules (Jacks)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-CC6-45B-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow"
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    },
+                    {
+                        "value": "OG",
+                        "description": "Orange"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-C5E-45B",
+        "dataSheet": "PDS-0107",
+        "description": "Keywerks CAT5E Modules (Jacks)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C5E-45B-",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    },
+                    {
+                        "value": "YL",
+                        "description": "Yellow"
+                    },
+                    {
+                        "value": "RD",
+                        "description": "Red"
+                    },
+                    {
+                        "value": "GN",
+                        "description": "Green"
+                    },
+                    {
+                        "value": "AL",
+                        "description": "Almond"
+                    },
+                    {
+                        "value": "OG",
+                        "description": "Orange"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CAA-BULK-45BYY",
+        "dataSheet": "n/a",
+        "description": "Bulk Keywerks Modules (25pcs/pack)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "PERFORMANCE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "6A",
+                        "description": "CAT6A",
+                        "conditions": []
+                    },
+                    {
+                        "value": "C6",
+                        "description": "CAT6",
+                        "conditions": []
+                    },
+                    {
+                        "value": "5E",
+                        "description": "CAT5e",
+                        "conditions": []
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-BULK-45B",
+                "color": "default",
+                "options": []
+            },
+            {
+                "id": "_color",
+                "type": "color",
+                "placeholder": "YY",
+                "description": "COLOR",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "BL",
+                        "description": "Blue"
+                    },
+                    {
+                        "value": "BK",
+                        "description": "Black"
+                    },
+                    {
+                        "value": "WH",
+                        "description": "White"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "KW-CAA-45B",
+        "dataSheet": "PDS-0161, PDS-0162, PDS-0163",
+        "description": "FTP Keywerks Modules (Shielded Jacks)",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "KW-C",
+                "color": "default"
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "PERFORMANCE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "SA",
+                        "description": "CAT6A"
+                    },
+                    {
+                        "value": "S6",
+                        "description": "CAT6"
+                    },
+                    {
+                        "value": "SE",
+                        "description": "CAT5e"
+                    }
+                ]
+            },
+            {
+                "id": "_constant2",
+                "type": "constant",
+                "placeholder": "-45B",
+                "color": "default"
+            }
+        ]
+    },
+    {
+        "type": "IE",
+        "dataSheet": "PDS-0165",
+        "description": "IP67 RJ45 Modules",
+        "parts": [
+            {
+                "id": "_constant1",
+                "type": "constant",
+                "placeholder": "IE-",
+                "color": "default"
+            },
+            {
+                "id": "_performance",
+                "type": "select",
+                "placeholder": "AA",
+                "description": "PERFORMANCE",
+                "color": "light-orange",
+                "options": [
+                    {
+                        "value": "C6",
+                        "description": "CAT6"
+                    },
+                    {
+                        "value": "5E",
+                        "description": "CAT5e"
+                    }
+                ]
+            },
+            {
+                "id": "_mountingStyle",
+                "type": "select",
+                "placeholder": "BB",
+                "description": "MOUNTING STYLE",
+                "color": "light-green",
+                "options": [
+                    {
+                        "value": "FM",
+                        "description": "Flange Mount"
+                    },
+                    {
+                        "value": "IJ",
+                        "description": "Inline"
+                    }
+                ]
+            }
+        ]
+    }
+]

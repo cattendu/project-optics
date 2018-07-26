@@ -16,7 +16,7 @@ var optionSchema = new Schema({
 
 var partSchema = new Schema({
     id: {type: String},
-    type: { type: String, enum: ['constant', 'numeric', 'select'], required: true},
+    type: { type: String, enum: ['constant', 'numeric', 'select', 'color'], required: true},
     placeholder: { type: String, required: true }, // ex: FA-, A, B, EE, NNN
     description: { type: String }, // ex: LEAD LENGTH   
     color: { type: String, enum: ['default','deep-orange', 'light-green', 'light-red', 'light-blue', 'light-purple', 'light-yellow', 'deep-blue', 'deep-green', 'deep-red', 'light-orange', 'deep-purple', 'pink', 'deep-yellow']},
