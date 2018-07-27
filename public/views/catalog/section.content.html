@@ -2,7 +2,7 @@
       
         <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in section.products" ui-sref="catalog.section.product({productType: '{{product.type}}'})">
             <label>{{product.description}}</label>
-            <img class="img-responsive img-rounded" ng-src="/img/sections/{{section.number}}/{{product.type}}.jpeg"/>
+            <img class="img-responsive img-rounded" ng-src="/img/sections/{{section.number}}/{{product.type}}.jpeg" onerror="this.src=''"/>
         </div>
     
 </div>

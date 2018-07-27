@@ -1273,22 +1273,71 @@
                     {
                         "value": "A",
                         "description": "APC",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "MP",
+                                    "MA",
+                                    "BP",
+                                    "BA",
+                                    "CP",
+                                    "CA"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
                     },
                     {
                         "value": "B",
                         "description": "UPC",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "MP",
+                                    "MA",
+                                    "BP",
+                                    "BA",
+                                    "CP",
+                                    "CA"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
                     },
                     {
                         "value": "C",
                         "description": "PC (multimode)",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "LC",
+                                    "SC",
+                                    "MP",
+                                    "MA",
+                                    "BP",
+                                    "BA",
+                                    "CP",
+                                    "CA"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
                     },
                     {
                         "value": "D",
                         "description": "Not Applicable",
-                        "conditions": []
+                        "conditions": [
+                            {
+                                "acceptedValues": [
+                                    "OE"
+                                ],
+                                "partId": "_connectorSideB"
+                            }
+                        ]
                     }
                 ]
             },

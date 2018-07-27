@@ -48,9 +48,10 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                     controller: 'catalogProductNavController'
                 },
                 "catalogContent@catalog": {
-                    templateUrl: function($stateParams){
+                    /*templateUrl: function($stateParams){
                         return "views/catalog/" + $stateParams.sectionNumber + "/" + $stateParams.productType + ".html";
-                    },
+                    },*/
+                    templateUrl: 'views/catalog/product.content.html',
                     controller: 'catalogProductController'
                 }
             },
@@ -83,6 +84,7 @@ app.controller('catalogProductNavController', function (section, product, $scope
 
 // **************** PRODUCT CONTROLLER ****************
 app.controller('catalogProductController', function (section, product, $scope, $sce){
+    $scope.section = section;
     $scope.product = product;
     $scope.quantity = 1;
 
@@ -99,7 +101,10 @@ app.controller('catalogProductController', function (section, product, $scope, $
         else if(partIsNumeric(part)){
             initNumeric(part);
         }
-        else if(partIsConstant(part)){
+        else if(partIsColor(part)) {
+            initColor(part);
+        }
+        else if (partIsConstant(part)) {
             initConstant(part);
         }
         else{
@@ -123,6 +128,9 @@ app.controller('catalogProductController', function (section, product, $scope, $
         else {
             return new RegExp("^\\d{0," + part.integersLength + "}$");
         }
+    };
+    var initColor = function(part){
+        //Do init here
     };
     //----------------------------------------------------------------------------------------------------
     var initConstant = function(){
@@ -241,8 +249,11 @@ app.controller('catalogProductController', function (section, product, $scope, $
         if(partIsSelect(part)){
             setIsSuccessful = setSelect(part, optionToSelect);
         }
-        else if(partIsNumeric(part)){
+        else if(partIsNumeric(part)) {
             setIsSuccessful = setNumeric(part, optionToSelect);
+        }
+        else if(partIsColor(part)) {
+            setIsSuccessful = setColor(part, optionToSelect);
         }
         else if(partIsConstant(part)){
             console.log("Tried to set a constant part on: " + part);
@@ -323,6 +334,17 @@ app.controller('catalogProductController', function (section, product, $scope, $
         return true;
     };
     //----------------------------------------------------------------------------------------------------
+    var setColor = function (part, optionToSelect) {
+        if (!part || !optionToSelect)
+            return false;
+
+        part.selectedOption = optionToSelect;
+        part.value = optionToSelect.value;
+        part.details = optionToSelect.description;
+
+        return true;
+    };
+    //----------------------------------------------------------------------------------------------------
     var resetPart = function(part){
         initPart(part);
     };
@@ -357,6 +379,10 @@ app.controller('catalogProductController', function (section, product, $scope, $
     //----------------------------------------------------------------------------------------------------
     var partIsSelect = function (part) {
         return part ? part.type == 'select' : false;
+    };
+    //----------------------------------------------------------------------------------------------------
+    var partIsColor = function (part) {
+        return part ? part.type == 'color' : false;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsConstant = function (part) {
