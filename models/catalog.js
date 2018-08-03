@@ -26,7 +26,7 @@ var partSchema = new Schema({
     decimalsLength: { type: Number }, //number of expected digits
     options: [optionSchema],
 
-    columns: {type: Number, default: 1}, //Number of columns in which options should be shown
+    columns: {type: Number}, //Number of columns in which options should be shown
 
     max: { type: Number }, //maximum allowed value
     min: { type: Number }, //minimum allowed value
@@ -36,7 +36,8 @@ var partSchema = new Schema({
 },{ _id : false });
 
 var productSchema = new Schema({
-    type: {type: String, required: true}, //ex: FA, IP, WNC, DC
+    partNumber: {type: String, required: true},
+    layout: {type: String, enum: ['no-choice', 'single-choice', 'few-choices', 'many-choices']}, //few-choices < 5; many-choices >= 5
     dataSheet: {type: String, required: true},
     description: {type: String, required: true},
     parts: [partSchema]

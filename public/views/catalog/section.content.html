@@ -1,8 +1,8 @@
 <div class="row">
       
-        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in section.products" ui-sref="catalog.section.product({productType: '{{product.type}}'})">
+        <div class="col-md-3 col-sm-4 col-xs-6" ng-repeat="product in section.products" ui-sref="catalog.section.product({partNumber: '{{product.partNumber}}'})">
             <label>{{product.description}}</label>
-            <img class="img-responsive img-rounded" ng-src="/img/sections/{{section.number}}/{{product.type}}.jpeg" onerror="this.src=''"/>
+            <img class="img-responsive img-rounded" ng-src="/img/sections/{{section.number}}/{{product.partNumber}}.jpeg" onerror="this.src='/img/missing_img.png'"/>
         </div>
     
 </div>

@@ -1,6 +1,6 @@
 [
     {
-        "type": "CA40-6MYY-ANNN",
+        "partNumber": "CA40-6MYY-ANNN",
         "dataSheet": "PDS-0154",
         "description": "CAT6A Patch Cords",
         "parts": [
@@ -20,15 +20,18 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     }
                 ]
             },
@@ -48,38 +51,45 @@
                 "options": [
                     {
                         "value": "002",
-                        "description": "2 Feet"
+                        "description": "2 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "004",
-                        "description": "4 Feet"
+                        "description": "4 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "012",
-                        "description": "12 Feet"
+                        "description": "12 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "CAT-06AYY-NNN",
+        "partNumber": "CAT-06AYY-NNN",
         "dataSheet": "PDS-0112",
         "description": "CAT6 Patch Cords",
         "parts": [
@@ -99,39 +109,48 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "PR",
-                        "description": "Purple"
+                        "description": "Purple",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             },
@@ -151,66 +170,80 @@
                 "options": [
                     {
                         "value": "001",
-                        "description": "1 Foot"
+                        "description": "1 Foot",
+                        "conditions": []
                     },
                     {
                         "value": "002",
-                        "description": "2 Feet"
+                        "description": "2 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "004",
-                        "description": "4 Feet"
+                        "description": "4 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "006",
-                        "description": "6 Feet"
+                        "description": "6 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "012",
-                        "description": "12 Feet"
+                        "description": "12 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "020",
-                        "description": "20 Feet"
+                        "description": "20 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "050",
-                        "description": "50 Feet"
+                        "description": "50 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "100",
-                        "description": "100 Feet"
+                        "description": "100 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "CAT-5EAYY-NNN",
+        "partNumber": "CAT-5EAYY-NNN",
         "dataSheet": "PDS-0111",
         "description": "CAT5e Patch Cords",
         "parts": [
@@ -230,39 +263,48 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "PR",
-                        "description": "Purple"
+                        "description": "Purple",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             },
@@ -282,66 +324,80 @@
                 "options": [
                     {
                         "value": "001",
-                        "description": "1 Foot"
+                        "description": "1 Foot",
+                        "conditions": []
                     },
                     {
                         "value": "002",
-                        "description": "2 Feet"
+                        "description": "2 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "004",
-                        "description": "4 Feet"
+                        "description": "4 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "006",
-                        "description": "6 Feet"
+                        "description": "6 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "012",
-                        "description": "12 Feet"
+                        "description": "12 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "020",
-                        "description": "20 Feet"
+                        "description": "20 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "050",
-                        "description": "50 Feet"
+                        "description": "50 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "100",
-                        "description": "100 Feet"
+                        "description": "100 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "CAT-6ZAYY-NNN",
+        "partNumber": "CAT-6ZAYY-NNN",
         "dataSheet": "n/a",
         "description": "CAT6 Cross-overs",
         "parts": [
@@ -361,11 +417,13 @@
                 "options": [
                     {
                         "value": "C",
-                        "description": "Gigabit T568B"
+                        "description": "Gigabit T568B",
+                        "conditions": []
                     },
                     {
                         "value": "X",
-                        "description": "T568A to T568B"
+                        "description": "T568A to T568B",
+                        "conditions": []
                     }
                 ]
             },
@@ -385,11 +443,13 @@
                 "options": [
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     }
                 ]
             },
@@ -409,34 +469,40 @@
                 "options": [
                     {
                         "value": "001",
-                        "description": "1 Foot"
+                        "description": "1 Foot",
+                        "conditions": []
                     },
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "CAT-5ZAYY-NNN",
+        "partNumber": "CAT-5ZAYY-NNN",
         "dataSheet": "n/a",
         "description": "CAT5e Cross-overs",
         "parts": [
@@ -456,11 +522,13 @@
                 "options": [
                     {
                         "value": "C",
-                        "description": "Gigabit T568B"
+                        "description": "Gigabit T568B",
+                        "conditions": []
                     },
                     {
                         "value": "X",
-                        "description": "T568A to T568B"
+                        "description": "T568A to T568B",
+                        "conditions": []
                     }
                 ]
             },
@@ -480,11 +548,13 @@
                 "options": [
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     }
                 ]
             },
@@ -504,34 +574,40 @@
                 "options": [
                     {
                         "value": "001",
-                        "description": "1 Foot"
+                        "description": "1 Foot",
+                        "conditions": []
                     },
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "C640-3RYY-CNNN",
+        "partNumber": "C640-3RYY-CNNN",
         "dataSheet": "n/a",
         "description": "CAT6 Pigtails",
         "parts": [
@@ -551,7 +627,8 @@
                 "options": [
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     }
                 ]
             },
@@ -571,26 +648,30 @@
                 "options": [
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "035",
-                        "description": "35 Feet"
+                        "description": "35 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "050",
-                        "description": "50 Feet"
+                        "description": "50 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "C540-1RYY-CNNN",
+        "partNumber": "C540-1RYY-CNNN",
         "dataSheet": "n/a",
         "description": "CAT5e Pigtails",
         "parts": [
@@ -610,7 +691,8 @@
                 "options": [
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     }
                 ]
             },
@@ -630,26 +712,30 @@
                 "options": [
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "035",
-                        "description": "35 Feet"
+                        "description": "35 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "050",
-                        "description": "50 Feet"
+                        "description": "50 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "C640-3RYY-CNNN",
+        "partNumber": "C640-3RYY-CNNN",
         "dataSheet": "n/a",
         "description": "CAT6 Pigtails",
         "parts": [
@@ -669,7 +755,8 @@
                 "options": [
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     }
                 ]
             },
@@ -689,26 +776,30 @@
                 "options": [
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "035",
-                        "description": "35 Feet"
+                        "description": "35 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "050",
-                        "description": "50 Feet"
+                        "description": "50 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "TMC-1YY-NNN",
+        "partNumber": "TMC-1YY-NNN",
         "dataSheet": "PDS-0132",
         "description": "Voice Line Patch Cords",
         "parts": [
@@ -728,7 +819,8 @@
                 "options": [
                     {
                         "value": "AG",
-                        "description": "Silver Satin"
+                        "description": "Silver Satin",
+                        "conditions": []
                     }
                 ]
             },
@@ -748,30 +840,35 @@
                 "options": [
                     {
                         "value": "002",
-                        "description": "2 Feet"
+                        "description": "2 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "006",
-                        "description": "6 Feet"
+                        "description": "6 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "012",
-                        "description": "12 Feet"
+                        "description": "12 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "014",
-                        "description": "14 Feet"
+                        "description": "14 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "IE-CA40-2HBK-AA-NNN",
+        "partNumber": "IE-CA40-2HBK-AA-NNN",
         "dataSheet": "PDS-0164",
         "description": "IP67 UTP Patch Cords",
         "parts": [
@@ -779,7 +876,8 @@
                 "id": "_constant1",
                 "type": "constant",
                 "placeholder": "IE-C",
-                "color": "default"
+                "color": "default",
+                "options": []
             },
             {
                 "id": "_performance",
@@ -790,11 +888,13 @@
                 "options": [
                     {
                         "value": "6",
-                        "description": "CAT6"
+                        "description": "CAT6",
+                        "conditions": []
                     },
                     {
                         "value": "5",
-                        "description": "CAT5e"
+                        "description": "CAT5e",
+                        "conditions": []
                     }
                 ]
             },
@@ -802,7 +902,8 @@
                 "id": "_constant2",
                 "type": "constant",
                 "placeholder": "40-2HBK-AA-",
-                "color": "default"
+                "color": "default",
+                "options": []
             },
             {
                 "id": "_length",
@@ -813,34 +914,40 @@
                 "options": [
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "030",
-                        "description": "30 Feet"
+                        "description": "30 Feet",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "CZ41-6MYY-ANNN",
+        "partNumber": "CZ41-6MYY-ANNN",
         "dataSheet": "PDS-0176, PDS-0177",
         "description": "F/UTP Patch Cords (Shielded)",
         "parts": [
@@ -860,11 +967,13 @@
                 "options": [
                     {
                         "value": "6",
-                        "description": "CAT6"
+                        "description": "CAT6",
+                        "conditions": []
                     },
                     {
                         "value": "5",
-                        "description": "CAT5e"
+                        "description": "CAT5e",
+                        "conditions": []
                     }
                 ]
             },
@@ -884,19 +993,23 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "GY",
-                        "description": "Grey"
+                        "description": "Grey",
+                        "conditions": []
                     }
                 ]
             },
@@ -916,39 +1029,48 @@
                 "options": [
                     {
                         "value": "002",
-                        "description": "2 Feet"
+                        "description": "2 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "003",
-                        "description": "3 Feet"
+                        "description": "3 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "005",
-                        "description": "5 Feet"
+                        "description": "5 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "007",
-                        "description": "7 Feet"
+                        "description": "7 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "010",
-                        "description": "10 Feet"
+                        "description": "10 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "012",
-                        "description": "12 Feet"
+                        "description": "12 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "015",
-                        "description": "15 Feet"
+                        "description": "15 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "020",
-                        "description": "20 Feet"
+                        "description": "20 Feet",
+                        "conditions": []
                     },
                     {
                         "value": "025",
-                        "description": "25 Feet"
+                        "description": "25 Feet",
+                        "conditions": []
                     }
                 ]
             }

@@ -1,6 +1,7 @@
 [
     {
-        "type": "KW-ZZZ-BLK",
+        "partNumber": "KW-ZZZ-BLK-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0048",
         "description": "KEYSTONE BLANK INSERTS",
         "parts": [
@@ -38,7 +39,8 @@
         ]
     },
     {
-        "type": "KW-DUSTCAP",
+        "partNumber": "KW-DUSTCAP-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0067",
         "description": "KEYWERKS MODULES DUSTCAPS",
         "parts": [
@@ -58,42 +60,51 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "AL",
-                        "description": "Almond"
+                        "description": "Almond",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-CAACFFBK",
+        "partNumber": "KW-CAACFFBK",
+        "layout": "single-choice",
         "dataSheet": "PDS-0168",
         "description": "Keywerks Inline Couplers (180°) UTP",
         "parts": [
@@ -131,7 +142,8 @@
         ]
     },
     {
-        "type": "KW-CAACFF",
+        "partNumber": "KW-CAACFF",
+        "layout": "single-choice",
         "dataSheet": "PDS-0160",
         "description": "Keywerks Inline Couplers (180°) FTP",
         "parts": [
@@ -169,7 +181,8 @@
         ]
     },
     {
-        "type": "KW-CC3-45T",
+        "partNumber": "KW-CC3-45T-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0045",
         "description": "CAT3 Keywerks Modules – Voice",
         "parts": [
@@ -189,38 +202,46 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "AL",
-                        "description": "Almond"
+                        "description": "Almond",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-C6A-45B",
+        "partNumber": "KW-C6A-45B-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0153",
         "description": "Keywerks CAT6A Modules (Jacks)",
         "parts": [
@@ -240,42 +261,51 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "AL",
-                        "description": "Almond"
+                        "description": "Almond",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-CC6-45B",
+        "partNumber": "KW-CC6-45B-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0108",
         "description": "Keywerks CAT6 Modules (Jacks)",
         "parts": [
@@ -295,42 +325,51 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "AL",
-                        "description": "Almond"
+                        "description": "Almond",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-C5E-45B",
+        "partNumber": "KW-C5E-45B-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0107",
         "description": "Keywerks CAT5E Modules (Jacks)",
         "parts": [
@@ -350,42 +389,51 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     },
                     {
                         "value": "YL",
-                        "description": "Yellow"
+                        "description": "Yellow",
+                        "conditions": []
                     },
                     {
                         "value": "RD",
-                        "description": "Red"
+                        "description": "Red",
+                        "conditions": []
                     },
                     {
                         "value": "GN",
-                        "description": "Green"
+                        "description": "Green",
+                        "conditions": []
                     },
                     {
                         "value": "AL",
-                        "description": "Almond"
+                        "description": "Almond",
+                        "conditions": []
                     },
                     {
                         "value": "OG",
-                        "description": "Orange"
+                        "description": "Orange",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-CAA-BULK-45BYY",
+        "partNumber": "KW-CAA-BULK-45BYY",
+        "layout": "few-choices",
         "dataSheet": "n/a",
         "description": "Bulk Keywerks Modules (25pcs/pack)",
         "parts": [
@@ -436,22 +484,26 @@
                 "options": [
                     {
                         "value": "BL",
-                        "description": "Blue"
+                        "description": "Blue",
+                        "conditions": []
                     },
                     {
                         "value": "BK",
-                        "description": "Black"
+                        "description": "Black",
+                        "conditions": []
                     },
                     {
                         "value": "WH",
-                        "description": "White"
+                        "description": "White",
+                        "conditions": []
                     }
                 ]
             }
         ]
     },
     {
-        "type": "KW-CAA-45B",
+        "partNumber": "KW-CAA-45B-YY",
+        "layout": "single-choice",
         "dataSheet": "PDS-0161, PDS-0162, PDS-0163",
         "description": "FTP Keywerks Modules (Shielded Jacks)",
         "parts": [
@@ -459,7 +511,8 @@
                 "id": "_constant1",
                 "type": "constant",
                 "placeholder": "KW-C",
-                "color": "default"
+                "color": "default",
+                "options": []
             },
             {
                 "id": "_performance",
@@ -470,15 +523,18 @@
                 "options": [
                     {
                         "value": "SA",
-                        "description": "CAT6A"
+                        "description": "CAT6A",
+                        "conditions": []
                     },
                     {
                         "value": "S6",
-                        "description": "CAT6"
+                        "description": "CAT6",
+                        "conditions": []
                     },
                     {
                         "value": "SE",
-                        "description": "CAT5e"
+                        "description": "CAT5e",
+                        "conditions": []
                     }
                 ]
             },
@@ -486,12 +542,14 @@
                 "id": "_constant2",
                 "type": "constant",
                 "placeholder": "-45B",
-                "color": "default"
+                "color": "default",
+                "options": []
             }
         ]
     },
     {
-        "type": "IE",
+        "partNumber": "IE-AABB",
+        "layout": "few-choices",
         "dataSheet": "PDS-0165",
         "description": "IP67 RJ45 Modules",
         "parts": [
@@ -499,7 +557,8 @@
                 "id": "_constant1",
                 "type": "constant",
                 "placeholder": "IE-",
-                "color": "default"
+                "color": "default",
+                "options": []
             },
             {
                 "id": "_performance",
@@ -510,11 +569,13 @@
                 "options": [
                     {
                         "value": "C6",
-                        "description": "CAT6"
+                        "description": "CAT6",
+                        "conditions": []
                     },
                     {
                         "value": "5E",
-                        "description": "CAT5e"
+                        "description": "CAT5e",
+                        "conditions": []
                     }
                 ]
             },
@@ -527,11 +588,13 @@
                 "options": [
                     {
                         "value": "FM",
-                        "description": "Flange Mount"
+                        "description": "Flange Mount",
+                        "conditions": []
                     },
                     {
                         "value": "IJ",
-                        "description": "Inline"
+                        "description": "Inline",
+                        "conditions": []
                     }
                 ]
             }

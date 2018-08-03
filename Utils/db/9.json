@@ -1,6 +1,6 @@
 [
     {
-        "type": "MS-LCABB",
+        "partNumber": "MS-LCABB",
         "dataSheet": "PDS-0130",
         "description": "LC Mating Sleeve Adapter",
         "parts": [
@@ -105,7 +105,7 @@
         ]
     },
     {
-        "type": "MS-SCABBCD",
+        "partNumber": "MS-SCABBCD",
         "dataSheet": "PDS-0130",
         "description": "SC Mating Sleeve Adapter",
         "parts": [
@@ -228,7 +228,7 @@
         ]
     },
     {
-        "type": "MS-FCABBC",
+        "partNumber": "MS-FCABBC",
         "dataSheet": "PDS-0130",
         "description": "FC Mating Sleeve Adapter",
         "parts": [
@@ -306,7 +306,7 @@
         ]
     },
     {
-        "type": "MS-MPA",
+        "partNumber": "MS-MPA",
         "dataSheet": "PDS-0130",
         "description": "MPO Mating Sleeve Adapter",
         "parts": [
@@ -337,7 +337,7 @@
         ]
     },
     {
-        "type": "MS-MTAA",
+        "partNumber": "MS-MTAA",
         "dataSheet": "PDS-0130",
         "description": "MTRJ Mating Sleeve Adapter",
         "parts": [
@@ -368,7 +368,7 @@
         ]
     },
     {
-        "type": "MS-STABBC",
+        "partNumber": "MS-STABBC",
         "dataSheet": "PDS-0130",
         "description": "ST Mating Sleeve Adapter",
         "parts": [
@@ -443,7 +443,7 @@
         ]
     },
     {
-        "type": "HA-ABCCCDDDEF",
+        "partNumber": "HA-ABCCCDDDEF",
         "dataSheet": "PDS-0128",
         "description": "Hybrid Adapter",
         "parts": [
@@ -597,7 +597,7 @@
         ]
     },
     {
-        "type": "WFA-ABCCDE-NN",
+        "partNumber": "WFA-ABCCDE-NN",
         "dataSheet": "PDS-0129",
         "description": "Attenuators",
         "parts": [
@@ -789,7 +789,7 @@
         ]
     },
     {
-        "type": "DM-ABCCDEE",
+        "partNumber": "DM-ABCCDEE",
         "dataSheet": "PDS-0034",
         "description": "LGX Distribution Module",
         "parts": [
@@ -917,7 +917,7 @@
         ]
     },
     {
-        "type": "AS-WBCCD",
+        "partNumber": "AS-WBCCD",
         "dataSheet": "PDS-0027",
         "description": "LGX Adapter Strips",
         "parts": [
@@ -1074,7 +1074,7 @@
         ]
     },
     {
-        "type": "NS-PM-WBCCD",
+        "partNumber": "NS-PM-WBCCD",
         "dataSheet": "PDS-0192",
         "description": "NEXT STEP™ Patch Modules",
         "parts": [
@@ -1147,7 +1147,7 @@
         ]
     },
     {
-        "type": "NS-DM-ABCCDEE",
+        "partNumber": "NS-DM-ABCCDEE",
         "dataSheet": "PDS-0191",
         "description": "NEXT STEP™ Distribution Modules",
         "parts": [

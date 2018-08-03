@@ -1,6 +1,6 @@
 [
     {
-        "type": "PC-ABCCDEEF-NNN",
+        "partNumber": "PC-ABCCDEEF-NNN",
         "dataSheet": "PDS-0022",
         "description": "Patch Cords",
         "parts": [
@@ -415,7 +415,7 @@
         ]
     },
     {
-        "type": "MC-ABBCC-NNN",
+        "partNumber": "MC-ABBCC-NNN",
         "dataSheet": "PDS-0029",
         "description": "Mode Conditioning Patch Cords",
         "parts": [

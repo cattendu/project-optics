@@ -613,3 +613,125 @@ html, body{
     text-align: center;
     font-size: 2em;
 }
+
+/* ***************** CART BEGIN **********************/
+.cart-row{
+    vertical-align: top;
+}
+.cart-row td{
+
+}
+.cart-row:nth-child(2n+1){
+    background-color: #e0e0e0;
+}
+.cart-img-container{
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+.cart-img-container img{
+    width: 100%;
+    margin-bottom: 0px;
+    height: 100%;
+}
+.cart-partNumber-container{
+    /*background-color: yellow;*/
+}
+.cart-quantity-td{
+    position: relative;
+    width: 85px;
+    /*background-color: blue;*/
+}
+/*QUANTITY DEFAULT*/
+.cart-quantity-container{
+
+}
+.closed-quantity-container{
+    background: white;
+    color: #333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 85px;
+    padding-left: 8px;
+    padding-right: 5px;
+
+    display: inline-block;
+    line-height:34px;
+    height: 34px;
+}
+.closed-quantity{
+
+}
+.closed-quantity-glyphicon{
+    float: right;
+    line-height:34px;
+    vertical-align: middle;
+}
+/*QUANTITY SELECT*/
+.opened-quantity-container{
+    background: white;
+    color: #333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 85px;
+
+    position: absolute;
+    z-index: 2;
+}
+.opened-quantity{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    max-height: 10em;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.opened-quantity li{
+    list-style-type: none;
+    padding-left: 8px;
+}
+.opened-quantity li:last-child{
+    border-top: solid grey 1px;
+    padding-top: 2px;
+}
+.opened-quantity li:hover, .opened-quantity-selected{
+    background-color: #e0e0e0;
+    outline: #a0a0a0 solid 1px;
+}
+.input-quantity{
+    background: white;
+    color: #333;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    height:34px;
+    width: 85px;
+    padding-left: 8px;
+}
+.input-quantity-btn{
+    display: inline-block;
+    margin-top: 5px;
+    width: 85px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+
+.cart-remove-container{
+    width: 40px;
+    /*background-color: red;*/
+}
+.cart-remove-container .glyphicon{
+    font-size: 2em;
+    cursor: pointer;
+}
+.cart-remove-container .glyphicon:hover{
+    color: red;
+}
+
+.popover{
+    width: 250px;
+}

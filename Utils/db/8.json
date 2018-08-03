@@ -1,6 +1,6 @@
 [
     {
-        "type": "FA",
+        "partNumber": "FA-ABCDEEFGGG-HHiJJKL-NNN",
         "dataSheet": "PDS-0023",
         "description": "Cable Assemblies",
         "parts": [
@@ -851,7 +851,7 @@
         ]
     },
     {
-        "type": "WNC",
+        "partNumber": "WNC-ABBCCDDEFFF-NNNN",
         "dataSheet": "PDS-0011",
         "description": "Node Service Cables",
         "parts": [
@@ -1052,7 +1052,7 @@
         ]
     },
     {
-        "type": "IP",
+        "partNumber": "IP-ABCCDEEFG-NNN",
         "dataSheet": "PDS-0185",
         "description": "IP68 Cable Assemblies",
         "parts": [
@@ -1390,7 +1390,7 @@
         ]
     },
     {
-        "type": "DC",
+        "partNumber": "DC-ABCDDEEFG-NNNN",
         "dataSheet": "PDS-0130",
         "description": "Drop Cassette",
         "parts": [
@@ -1580,7 +1580,7 @@
         ]
     },
     {
-        "type": "W9N",
+        "partNumber": "W9N-YAANNXXYWWWZZZZ",
         "dataSheet": "PDS-0224",
         "description": "90 Degree Node Service Cables",
         "parts": [

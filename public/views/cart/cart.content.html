@@ -1,0 +1,36 @@
+<div class="row">
+    <div ng-if="cart.length == 0" class="col-xs-12">
+        <label>Your cart is empty!</label>
+    </div>
+
+    <table class="col-xs-12" style="border-spacing: 10px;">
+        <tr ng-repeat="product in cart | orderBy:'orderDateTime'" class="cart-row">
+            <td class="cart-img-container">
+                <img class="thumbnail" ng-src="/img/sections/{{product.section}}/{{product.partNumber}}.jpeg" onerror="this.src='/img/missing_img.png'" />
+            </td>
+            <td class="cart-partNumber-container">{{product.partNumber}}</td>
+            <td class="cart-quantity-td">
+                <div class="cart-quantity-container">
+                    <div ng-show="product.quantityMode == 'closed'" class="closed-quantity-container" ng-click="onClickClosedQuantity(event, product)">
+                        <span class="closed-quantity">{{product.quantity}}</span>
+                        <div class="closed-quantity-glyphicon glyphicon glyphicon-chevron-down"></div>
+                    </div>
+                    <div ng-show="product.quantityMode == 'opened'" class="opened-quantity-container">
+                        <ul class="opened-quantity">
+                            <li ng-repeat="n in [] | range:quantityRange" ng-click="onClickOpenedQuantity(product)" value="{{n+1}}" ng-class="{'opened-quantity-selected': product.quantity == n+1}">{{n+1}}</li>
+                            <li ng-click="onClickOpenedQuantity(product)" value="input">{{quantityRange}}+</li>
+                        </ul>
+                    </div>
+                    <div ng-show="product.quantityMode == 'input'" class="input-quantity-container">
+                        <input ng-model="product.quantityInput" type="text" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" class="input-quantity">
+                        <button ng-click="onClickQuantityUpdate(product)" ng-show="quantityInputIsValid(product)" class="input-quantity-btn btn btn-warning">Update</button>
+                    </div>
+                </div>
+            </td>
+            <td class="cart-remove-container">
+                <span class="glyphicon glyphicon-remove-circle removePopover" data-partNumber={{product.partNumber}} data-title="Delete product from cart?" data-placement="bottom"></span>
+                
+            </td>
+        </tr>
+    </table>
+</div>

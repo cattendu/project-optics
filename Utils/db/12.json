@@ -1,6 +1,6 @@
 [
     {
-        "type": "SP1-ABBCDEFFFGHHHIJJKLLM",
+        "partNumber": "SP1-ABBCDEFFFGHHHIJJKLLM",
         "dataSheet": "PDS-0097",
         "description": "Fused Biconic Taper Optical Splitters",
         "parts": [
@@ -311,7 +311,7 @@
         ]
     },
     {
-        "type": "SP2-ABCCCDEEEFGGHIIJ",
+        "partNumber": "SP2-ABCCCDEEEFGGHIIJ",
         "dataSheet": "PDS-0094",
         "description": "Planar Lightwave Circuit Optical Splitters",
         "parts": [
@@ -591,7 +591,7 @@
         ]
     },
     {
-        "type": "SP3-ABCCDEEF",
+        "partNumber": "SP3-ABCCDEEF",
         "dataSheet": "PDS-0096",
         "description": "LGX Planar Lightwave Circuit (PLC) Optical Splitters",
         "parts": [
@@ -739,7 +739,7 @@
         ]
     },
     {
-        "type": "SP4-ABBCDEFFGHHI",
+        "partNumber": "SP4-ABBCDEFFGHHI",
         "dataSheet": "PDS-0098",
         "description": "LGX Fused Biconic Taper Optical Splitters",
         "parts": [

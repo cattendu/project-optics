@@ -2,6 +2,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var route = require("./route/api");
+var cookie = require('cookie');
 
 mongoose.connect('mongodb://localhost/wirewerksdb');
 mongoose.Promise = global.Promise;

@@ -1,12 +1,20 @@
-var app = angular.module("partBuilderApp", ['ui.router']);
+var app = angular.module("partBuilderApp", ['ui.router', 'ngCookies']);
 
 app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     
     $stateProvider
         .state("home", {
             url: '/home',
-            templateUrl: 'views/home.html',
-            controller: 'homeController',
+            views:{
+                'content':{
+                    templateUrl: 'views/home/home.content.html',
+                    controller: 'homeController',
+                },
+                'nav':{
+                    templateUrl: 'views/home/home.nav.html',
+                    controller: 'homeController',
+                }
+            },        
             resolve: {
                 catalog: function($http){
                     return $http.get("/sections").then(function(catalog){
@@ -15,19 +23,53 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
                 }, 
             }        
         })
+        .state('cart', {
+            url: '/cart' ,
+            views: {
+                'content': {
+                    templateUrl: 'views/cart/cart.content.html',
+                    controller: 'cartController',
+                },
+                'nav': {
+                    templateUrl: 'views/cart/cart.nav.html',
+                    controller: 'cartController',
+                }
+            },
+            resolve: {
+                cart: function ($cookies) {
+                    let cart = [];
+                    let cookies = $cookies.getAll();
+                    angular.forEach(cookies, function (v, k) {
+                        let cookie = JSON.parse($cookies.get(k));
+
+                        if (cookie.partNumber || null) {
+                            cart.push(cookie);
+                        }
+                    });
+                    return cart;
+                }
+            }
+        })
         .state('catalog', {
             url: '/catalog',
-            templateUrl: 'views/catalog.html',
+            views: {
+                'content': {
+                    template: '<div ui-view="content"></div>'
+                },
+                'nav': {
+                    template: '<div ui-view="nav"></div>'
+                }
+            },
             abstract: true
         })
         .state('catalog.section', {
             url: '/:sectionNumber',
             views: {
-                "catalogNav@catalog": {
+                "nav@catalog": {
                     templateUrl: 'views/catalog/section.nav.html',
                     controller: 'catalogSectionController'
                 },
-                "catalogContent@catalog": {
+                "content@catalog": {
                     templateUrl: 'views/catalog/section.content.html',
                     controller: 'catalogSectionController'
                 },
@@ -41,15 +83,15 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             }
         })
         .state('catalog.section.product', {
-            url: '/:productType',
+            url: '/:partNumber',
             views: {
-                "catalogNav@catalog": {
+                "nav@catalog": {
                     templateUrl: 'views/catalog/product.nav.html',
                     controller: 'catalogProductNavController'
                 },
-                "catalogContent@catalog": {
+                "content@catalog": {
                     /*templateUrl: function($stateParams){
-                        return "views/catalog/" + $stateParams.sectionNumber + "/" + $stateParams.productType + ".html";
+                        return "views/catalog/" + $stateParams.sectionNumber + "/" + $stateParams.partNumber + ".html";
                     },*/
                     templateUrl: 'views/catalog/product.content.html',
                     controller: 'catalogProductController'
@@ -58,7 +100,7 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             resolve: {
                 product: function ($stateParams, section) {
                     for (let product of section.products) {
-                        if (product.type == $stateParams.productType)
+                        if (product.partNumber == $stateParams.partNumber)
                             return product;
                     }
                     return null;
@@ -69,8 +111,178 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
 });
 
+app.filter('range', function () {
+    return function (input, total) {
+        total = parseInt(total);
+
+        for (var i = 0; i < total; i++) {
+            input.push(i);
+        }
+
+        return input;
+    };
+});
+
 app.controller('homeController', function (catalog, $scope) {
     $scope.sections = catalog;
+});
+app.controller('cartController', function (cart, $scope, $cookies, $state) {
+    $scope.cart = cart;
+    $scope.quantityRange = 99;
+
+    $(document).ready(function () {
+        $('.removePopover').confirmation({
+            onConfirm: function (event, element) {
+                removeProduct(element[0].getAttribute("data-partNumber"));
+            },
+            onCancel: function (event, element) {}
+        });
+    });
+
+
+    var initCart = function(){
+        for(let product of cart){
+            product.quantityMode = "closed";
+            product.quantityInput = product.quantity;
+        }
+    };
+
+    //********************************************** NUMERIC INPUT BEGIN  **********************************************
+    $scope.quantityInputIsValid = function(product){
+        if (product.quantityInput == 0)
+            return false;
+
+        if (product.quantityInput == "")
+            return false;
+
+        if (product.quantityInput == product.quantity)
+            return false;
+
+        return true;
+    };
+    //-------------------------------------------EVENTS BEGIN---------------------------------------------
+    var removeQuantityOpenCloseEvents = function(){
+        $(document).off("click.cartQuantity");
+        $(document).off("keyup.cartQuantity");
+    };
+    //----------------------------------------------------------------------------------------------------
+    var addQuantityOpenCloseEvents = function (product, quantityInputContainerElem){
+        //Close quantityInput if user clicks anywhere outside the select box
+        $(document).on("click.cartQuantity", function (event) {
+            let evt = event || window.event;
+            let target = evt.target;
+
+            //User clicked outside of the quantityInput element
+            if (!quantityInputContainerElem.contains(target)) {
+                quantityGoToClosedState(product);
+                $scope.$apply(); //manually update ng
+            }
+        });
+
+        //Close quantityInput if user hits esc key
+        $(document).on("keyup.cartQuantity", function (event) {
+            let evt = event || window.event;
+            let key = evt.keyCode || evt.which;
+
+            if (key == 27){ //esc
+                quantityGoToClosedState(product);
+                $scope.$apply(); //manually update ng
+            }
+        });
+    };
+    //-------------------------------------------EVENTS END---------------------------------------------
+    //------------------------------------------QUANTITY STATES--------------------------------------------
+    var quantityGoToClosedState = function(product){
+        product.quantityMode = "closed";     
+        removeQuantityOpenCloseEvents();
+    };
+    //----------------------------------------------------------------------------------------------------
+    var quantityGoToOpenedState = function (product, quantityInputContainerElem){
+        product.quantityMode = "opened";
+        addQuantityOpenCloseEvents(product, quantityInputContainerElem);
+    };
+    //----------------------------------------------------------------------------------------------------
+    var quantityGoToInputState = function(product, quantityInputElement){
+        product.quantityMode = "input";
+        
+        //set focus on input; timeout required because must wait for ng to update
+        window.setTimeout(function () {
+            quantityInputElement.focus();
+        }, 0);
+
+        removeQuantityOpenCloseEvents();
+    };
+    //------------------------------------------QUANTITY STATES--------------------------------------------
+    //--------------------------------------------NG EVENTS BEGIN------------------------------------------------
+    $scope.onClickQuantityUpdate = function (product) {
+        product.quantity = product.quantityInput;
+        quantityGoToClosedState(product);
+    };
+    //----------------------------------------------------------------------------------------------------
+    $scope.onClickClosedQuantity = function (event, product) {
+        let evt = event || window.event;
+        let target = evt.target;
+        
+        quantityGoToOpenedState(product, target);
+    };
+    //----------------------------------------------------------------------------------------------------
+    $scope.onClickOpenedQuantity = function(product){
+        let evt = event || window.event;
+        let target = evt.target;
+
+        let value = target.getAttribute("value");
+
+        if(value == 'input'){
+            let quantityInputElement = target.closest(".cart-quantity-container").getElementsByTagName('input')[0];
+            quantityGoToInputState(product, quantityInputElement);
+        }
+        else{
+            updateQuantity(product, value);
+            quantityGoToClosedState(product);
+        }
+    };
+    //--------------------------------------------NG EVENTS END------------------------------------------------
+    //----------------------------------------------------------------------------------------------------
+    var updateQuantity = function (product, quantity) {
+        product.quantity = quantity;
+        product.quantityInput = quantity;
+
+        updateCookie(product);
+    };
+    var updateCookie = function(product){
+        let updatedCookie = JSON.stringify({ 'section': product.section, 'partNumber': product.partNumber, 'quantity': product.quantity, 'datasheet': product.datasheet, 'orderDateTime': product.orderDateTime });
+        $cookies.put(product.partNumber, updatedCookie);
+    };
+    //********************************************** NUMERIC INPUT END  **********************************************
+
+    $scope.removeCookies = function(){
+        angular.forEach($cookies.getAll(), function (v, k) {
+            $cookies.remove(k);
+        });
+    };
+
+    var removeProduct = function (partNumber){
+        $cookies.remove(partNumber);
+        cart = updateCart();
+        $scope.$apply();
+
+    };
+    var updateCart = function(){
+        cart.length = 0; //Clear array while maintaining reference
+        
+        let cookies = $cookies.getAll();
+        angular.forEach(cookies, function (v, k) {
+            let cookie = JSON.parse($cookies.get(k));
+
+            if (cookie.partNumber || null) {
+                cart.push(cookie);
+            }
+        });
+        return cart;
+    };
+
+    initCart();
+
 });
 
 app.controller('catalogSectionController', function (section, $scope) {
@@ -83,7 +295,7 @@ app.controller('catalogProductNavController', function (section, product, $scope
 });
 
 // **************** PRODUCT CONTROLLER ****************
-app.controller('catalogProductController', function (section, product, $scope, $sce){
+app.controller('catalogProductController', function (section, product, $scope, $sce, $cookies){
     $scope.section = section;
     $scope.product = product;
     $scope.quantity = 1;
@@ -374,33 +586,33 @@ app.controller('catalogProductController', function (section, product, $scope, $
     };
     //----------------------------------------------------------------------------------------------------
     var partIsNumeric = function (part) {
-        return part ? part.type == 'numeric' : false;
+        return part ? part.type == 'numeric' : null;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsSelect = function (part) {
-        return part ? part.type == 'select' : false;
+        return part ? part.type == 'select' : null;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsColor = function (part) {
-        return part ? part.type == 'color' : false;
+        return part ? part.type == 'color' : null;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsConstant = function (part) {
-        return part ? part.type == 'constant' : false;
+        return part ? part.type == 'constant' : null;
     };
     //----------------------------------------------------------------------------------------------------
     var partIsVariable = function (part) {
-        return part ? part.type != 'constant' : false;
+        return part ? part.type != 'constant' : null;
     };
     //----------------------------------------------------------------------------------------------------
-    var getPartnumber = function(){
-        let partnumber = "";
+    var getpartNumber = function(){
+        let partNumber = "";
 
         for(let part of product.parts)
-            partnumber += part.value || part.placeholder;
-        return partnumber;
+            partNumber += part.value || part.placeholder;
+        return partNumber;
     };
-    $scope.getPartnumber = getPartnumber;
+    $scope.getpartNumber = getpartNumber;
     //********************************************** PART VALUE & OPTION END  **********************************************
 
     //********************************************** CONNECTORS VALIATION BEGIN  **********************************************
@@ -569,10 +781,6 @@ app.controller('catalogProductController', function (section, product, $scope, $
         if (evt.preventDefault) evt.preventDefault();
     };
     //----------------------------------------------------------------------------------------------------
-    $scope.onChangeNumericSelect = function (event, part = product.focusedPart) {
-        part.value = generateNumericValue(part);
-    };
-    //----------------------------------------------------------------------------------------------------
     var keyIsNumeric = function (key) {
         key = String.fromCharCode(key);
         return /[0-9]/.test(key); //allow numbers
@@ -581,6 +789,10 @@ app.controller('catalogProductController', function (section, product, $scope, $
     var keyIsAcceptedNonNumerics = function (key) {
         key = String.fromCharCode(key);
         return /[\.,]/.test(key); //allow dot and comma;
+    };
+    //----------------------------------------------------------------------------------------------------
+    $scope.onChangeNumericSelect = function (event, part = product.focusedPart) {
+        part.value = generateNumericValue(part);
     };
     //----------------------------------------------------------------------------------------------------
     $scope.onFocusNumericSelect = function (event) {
@@ -641,6 +853,16 @@ app.controller('catalogProductController', function (section, product, $scope, $
         return $sce.trustAsHtml(value) || $sce.trustAsHtml('&nbsp');
     };
     //********************************************** UTILITY FUNCTIONS END  **********************************************
+    
+    $scope.addToCart = function (){
+
+        let cookie = generateCookie(section.number, getpartNumber(), $scope.quantity, product.datasheet);
+        $cookies.put(getpartNumber(), cookie);
+    };
+
+    var generateCookie = function(section, partNumber, quantity, datasheet){
+        return JSON.stringify({ 'section': section, 'partNumber': partNumber, 'quantity': quantity, 'datasheet': datasheet, 'orderDateTime': new Date().toLocaleString()});
+    };
 
     //INIT CALL
     init();

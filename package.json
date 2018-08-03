@@ -19,7 +19,9 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.18",
     "angular": "^1.7.0",
+    "angular-cookies": "^1.7.0",
     "body-parser": "^1.18.2",
+    "cookie": "^0.3.1",
     "express": "^4.16.3",
     "mongoose": "^5.0.14"
   }

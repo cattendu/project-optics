@@ -1,6 +1,6 @@
 [
     {
-        "type": "KW-CZZ-BNC-YY",
+        "partNumber": "KW-CZZ-BNC-YY",
         "dataSheet": "PDS-0048",
         "description": "BNC Couplers 75Ω",
         "parts": [
@@ -35,7 +35,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-BNS-YY",
+        "partNumber": "KW-CZZ-BNS-YY",
         "dataSheet": "PDS-0048",
         "description": "BNC Couplers 50Ω",
         "parts": [
@@ -70,7 +70,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-FTC-YY",
+        "partNumber": "KW-CZZ-FTC-YY",
         "dataSheet": "PDS-0048",
         "description": "F Couplers 3&nbsp;GHz",
         "parts": [
@@ -105,7 +105,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-RFX-YY",
+        "partNumber": "KW-CZZ-RFX-YY",
         "dataSheet": "PDS-0048",
         "description": "RCA to F-Type Couplers",
         "parts": [
@@ -176,7 +176,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-RCX-YY",
+        "partNumber": "KW-CZZ-RCX-YY",
         "dataSheet": "PDS-0048",
         "description": "RCA to RCA Couplers",
         "parts": [
@@ -247,7 +247,7 @@
         ]
     },
     {
-        "type": "KW-RCA110-X-WH",
+        "partNumber": "KW-RCA110-X-WH",
         "dataSheet": "PDS-0048",
         "description": "RCA to 110 IDC Couplers",
         "parts": [
@@ -289,7 +289,7 @@
         ]
     },
     {
-        "type": "KW-FWW-ZZZ-YY",
+        "partNumber": "KW-FWW-ZZZ-YY",
         "dataSheet": "PDS-0048",
         "description": "Keystone Fiber Optic Couplers",
         "parts": [
@@ -395,7 +395,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-HDF-YY",
+        "partNumber": "KW-CZZ-HDF-YY",
         "dataSheet": "PDS-0053",
         "description": "HDMI Couplers",
         "parts": [
@@ -422,7 +422,7 @@
         ]
     },
     {
-        "type": "HD500-NNN",
+        "partNumber": "HD500-NNN",
         "dataSheet": "PDS-0062",
         "description": "HDMI Cables with Ethernet",
         "parts": [
@@ -477,7 +477,7 @@
         ]
     },
     {
-        "type": "KW-CZZ-BPM-YY",
+        "partNumber": "KW-CZZ-BPM-YY",
         "dataSheet": "PDS-0048",
         "description": "Speaker Binding Posts",
         "parts": [
@@ -512,7 +512,7 @@
         ]
     },
     {
-        "type": "KW-35T-YY",
+        "partNumber": "KW-35T-YY",
         "dataSheet": "PDS-0048",
         "description": "3.5mm Stereo Socket To Terminal Block Module",
         "parts": [
