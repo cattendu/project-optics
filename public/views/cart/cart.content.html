@@ -5,10 +5,13 @@
 
     <table class="col-xs-12" style="border-spacing: 10px;">
         <tr ng-repeat="product in cart | orderBy:'orderDateTime'" class="cart-row">
+            
             <td class="cart-img-container">
                 <img class="thumbnail" ng-src="/img/sections/{{product.section}}/{{product.partNumber}}.jpeg" onerror="this.src='/img/missing_img.png'" />
             </td>
+            
             <td class="cart-partNumber-container">{{product.partNumber}}</td>
+            
             <td class="cart-quantity-td">
                 <div class="cart-quantity-container">
                     <div ng-show="product.quantityMode == 'closed'" class="closed-quantity-container" ng-click="onClickClosedQuantity(event, product)">
@@ -22,14 +25,14 @@
                         </ul>
                     </div>
                     <div ng-show="product.quantityMode == 'input'" class="input-quantity-container">
-                        <input ng-model="product.quantityInput" type="text" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" class="input-quantity">
+                        <input ng-model="product.quantityInput" type="text" ng-paste="onPasteNumericInput()" ng-change="onChangeNumericInput()" ng-keypress="onKeypressNumericInput()" class="input-quantity">
                         <button ng-click="onClickQuantityUpdate(product)" ng-show="quantityInputIsValid(product)" class="input-quantity-btn btn btn-warning">Update</button>
                     </div>
                 </div>
             </td>
+
             <td class="cart-remove-container">
-                <span class="glyphicon glyphicon-remove-circle removePopover" data-partNumber={{product.partNumber}} data-title="Delete product from cart?" data-placement="bottom"></span>
-                
+                <span class="glyphicon glyphicon-remove-circle removePopover" data-partNumber={{product.partNumber}} data-title="Delete product from cart?" data-placement="bottom"></span>           
             </td>
         </tr>
     </table>

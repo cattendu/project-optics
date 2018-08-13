@@ -213,9 +213,31 @@ app.controller('cartController', function (cart, $scope, $cookies, $state) {
         removeQuantityOpenCloseEvents();
     };
     //------------------------------------------QUANTITY STATES--------------------------------------------
+    //--------------------------------------------NUMERIC INPUT BEGIN------------------------------------------------
+    $scope.onKeypressNumericInput = function (event) {
+        let evt = event || window.event;
+        let key = evt.keyCode || evt.which;
+
+        if (!keyIsNumeric(key)) {
+            evt.preventDefault(); //prevent key input
+        }
+    };
+    //----------------------------------------------------------------------------------------------------
+    //Prevents paste
+    $scope.onPasteNumericInput = function (event) {
+        let evt = event || window.event;
+
+        if (evt.preventDefault) evt.preventDefault();
+    };
+    //----------------------------------------------------------------------------------------------------
+    var keyIsNumeric = function (key) {
+        key = String.fromCharCode(key);
+        return /[0-9]/.test(key); //allow numbers
+    };
+    //--------------------------------------------NUMERIC INPUT END------------------------------------------------
     //--------------------------------------------NG EVENTS BEGIN------------------------------------------------
     $scope.onClickQuantityUpdate = function (product) {
-        product.quantity = product.quantityInput;
+        updateQuantity(product, product.quantityInput);
         quantityGoToClosedState(product);
     };
     //----------------------------------------------------------------------------------------------------
@@ -605,14 +627,14 @@ app.controller('catalogProductController', function (section, product, $scope, $
         return part ? part.type != 'constant' : null;
     };
     //----------------------------------------------------------------------------------------------------
-    var getpartNumber = function(){
+    var getPartNumber = function(){
         let partNumber = "";
 
         for(let part of product.parts)
             partNumber += part.value || part.placeholder;
         return partNumber;
     };
-    $scope.getpartNumber = getpartNumber;
+    $scope.getPartNumber = getPartNumber;
     //********************************************** PART VALUE & OPTION END  **********************************************
 
     //********************************************** CONNECTORS VALIATION BEGIN  **********************************************
@@ -856,8 +878,8 @@ app.controller('catalogProductController', function (section, product, $scope, $
     
     $scope.addToCart = function (){
 
-        let cookie = generateCookie(section.number, getpartNumber(), $scope.quantity, product.datasheet);
-        $cookies.put(getpartNumber(), cookie);
+        let cookie = generateCookie(section.number, getPartNumber(), $scope.quantity, product.datasheet);
+        $cookies.put(getPartNumber(), cookie);
     };
 
     var generateCookie = function(section, partNumber, quantity, datasheet){
