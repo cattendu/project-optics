@@ -1,17 +1,15 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-//if more than 1 elem in arrays, conditions are checked with boolean OR between them
 var conditionSchema = new Schema({
     partId: { type: String },
-    acceptedValues: { type: [String] }
+    acceptedValues: { type: [String] } //evaluate with boolean OR between accepted values; value1 || value2 || ... || valueN
 },{ _id : false});
 
-//if more than 1 elem in 'conditions', evaluate with boolean AND between each condition
 var optionSchema = new Schema({
     value: {type: String},
     description: {type: String},
-    conditions: { type: [conditionSchema] },
+    conditions: { type: [conditionSchema] }, //evaluate with boolean AND between conditions; cond1 && cond2 && ... && condN
 
     group: {type: Number} //If more than one option group is required
 },{ _id : false });

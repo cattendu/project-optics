@@ -1,17 +1,11 @@
-//var http = require('http');
-//var express = require('express');
-//var bodyParser = require('body-parser');
 //var compression = require('compression');
-//var StaticFiles = require('./static');
-//var Api = require('./api');
-
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
-var route = require('./route/api');
+var Api = require('./route/api');
 var cookie = require('cookie');
 var cors = require('cors');
-
+var http = require('http');
 
 var config = {
     default: {
@@ -27,7 +21,7 @@ var config = {
         corsHeaders: ['Link'],
         clientFolder: 'dist'
     }
-}
+};
 
 class Server {
     constructor() {
@@ -48,15 +42,18 @@ class Server {
         this.app.set('port', this.config.port);
         this.app.set('title', 'Wirewerks');
         this.app.use(cors(this._cors()));
+        this.app.use(express.static(__dirname + '/public'));
         this.app.use(bodyParser.json({ limit: this.config.bodyLimit }));
         this.app.use(bodyParser.urlencoded({ extended: true }));
-        this.app.use(compression());
-        this.app.options('*', cors(this._cors()));									// Enable cors pre-flight
+        this.app.use(express.json());       // to support JSON-encoded bodies
+        //this.app.use(compression());
+        this.app.options('*', cors(this._cors())); // Enable cors pre-flight
+        
+        //this.app.use("/", api);
     }
 
     _api() {
-        new StaticFiles(this.app, this.config)
-        new Api(this.app, this.config)
+        new Api(this.app, this.config);
     }
 
     _onstart() {
@@ -64,16 +61,16 @@ class Server {
     }
 
     start(env) {
-        env = env || 'default'
-        this.config = config[env]
+        env = env || 'default';
+        this.config = config[env];
 
         if (process.env.PORT)
-            this.config.port = process.env.PORT
+            this.config.port = process.env.PORT;
 
         this.server = http.createServer(this.app);
 
-        this._setup()
-        this._api()
+        this._setup();
+        this._api();
 
         this.server.listen(this.config.port, this._onstart.bind(this));
     }

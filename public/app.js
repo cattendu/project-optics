@@ -7,11 +7,11 @@ app.config(function ($locationProvider, $stateProvider, $urlRouterProvider) {
             url: '/home',
             views:{
                 'content':{
-                    templateUrl: 'views/home/home.content.html',
+                    templateUrl: './views/home/home.content.html',
                     controller: 'homeController',
                 },
                 'nav':{
-                    templateUrl: 'views/home/home.nav.html',
+                    templateUrl: './views/home/home.nav.html',
                     controller: 'homeController',
                 }
             },        
