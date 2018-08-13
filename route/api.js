@@ -7,6 +7,7 @@ class Api {
         this.app = app;
 
         var router = express.Router();
+        this.app.use("/", router);
 
         router.get('/sections', (req, res) => {
             Catalog.find({}, 'type description number').exec(function (err, sections) {
@@ -55,8 +56,6 @@ class Api {
                 });
             });
         });
-        
-        app.use("/", router);
     }
 }
 module.exports = Api;

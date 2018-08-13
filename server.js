@@ -1,4 +1,3 @@
-//var compression = require('compression');
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
@@ -6,6 +5,7 @@ var Api = require('./route/api');
 var cookie = require('cookie');
 var cors = require('cors');
 var http = require('http');
+//var compression = require('compression');
 
 var config = {
     default: {
@@ -46,10 +46,8 @@ class Server {
         this.app.use(bodyParser.json({ limit: this.config.bodyLimit }));
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(express.json());       // to support JSON-encoded bodies
-        //this.app.use(compression());
         this.app.options('*', cors(this._cors())); // Enable cors pre-flight
-        
-        //this.app.use("/", api);
+        //this.app.use(compression());
     }
 
     _api() {
